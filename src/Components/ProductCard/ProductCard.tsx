@@ -56,6 +56,7 @@ const ProductCard = ({
                 : {
                     xs: '48%',
                     sm: '32%',
+                    md:'22%'
                 }
             
         }}>

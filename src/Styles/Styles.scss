@@ -2,22 +2,24 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
 
 
 }
 h1 {
-    font-family: 'Oswald', sans-serif !important;
+    font-family: 'Playfair Display', serif  !important;
+
 }
 * ,h2,h3,h4,h5,h6 ,p,button,input,select,textarea,a{
-    font-family: 'Open Sans', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
+
 }
 .w100 {
     width:100%
 }
-$color : #f7e454 !important;
+$color : #eef6f9 !important;
 $color2 : #0f0f0f !important;
-$color3 : #F4E461 !important;
+$color3 : #eef6f9!important;
 .color3 {
     color: $color3;
 }

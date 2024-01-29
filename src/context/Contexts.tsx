@@ -26,7 +26,7 @@ export const LangContext = createContext < any > ('en');
                     setLang] = useState('en');
                         // Load language from localStorage on component mount
     useEffect(() => {
-        const savedLang = loadState('NULLABLEVALUE');
+        const savedLang = loadState('Vz124tf');
         if (savedLang) {
             setLang(savedLang);
         }
@@ -34,7 +34,7 @@ export const LangContext = createContext < any > ('en');
 
     // Save language to localStorage whenever it changes
     useEffect(() => {
-        saveState('NULLABLEVALUE', lang);
+        saveState('Vz124tf', lang);
     }, [lang]);
             return (
                 

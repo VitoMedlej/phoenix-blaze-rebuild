@@ -40,7 +40,7 @@ export default function Navbar() {
     // const localCart = [1]
     useEffect(() => {
         const cart : any = []
-        // const cart = loadState('F5NX6214-HJN35I') || []
+        // const cart = loadState('2G184N24-JZ094512JIF12412') || []
         if (cart) {
 
             setLocalCart(cart)
@@ -78,11 +78,11 @@ export default function Navbar() {
                 width:'100%',
             margin: '0 auto',
         }}>
-            <Box className='center text-center' sx={{background:'#0f0f0f',width:'100%',py:.25}}>
+            {/* <Box className='center text-center' sx={{background:'#0f0f0f',width:'100%',py:.25}}>
                 <Typography className='clr' component='h1' sx={{py:.2,fontSize:{xs:'.75em',sm:'.75em'}}}>
             FREE DELIVERY FOR ORDERS ABOVE $40. CASH ON DELIVERY. USD AT DAILY MARKET RATE.
                 </Typography>
-            </Box>
+            </Box> */}
             <Toolbar
      id='navy3'
 
@@ -145,7 +145,7 @@ export default function Navbar() {
                         }}>
                             {text('العربية','English')}
                         </Btn> */}
-                        <IconButton
+                        {/* <IconButton
                             onClick={() => setOpenModal(!openModal)}
                             sx={{
                             color: 'black'
@@ -153,7 +153,7 @@ export default function Navbar() {
 
                                 <CiSearch color='black'/>
                           
-                        </IconButton>
+                        </IconButton> */}
                         <IconButton
                             onClick={() => setCartOpen(!cartOpen)}
 
@@ -202,6 +202,10 @@ export default function Navbar() {
                     </Box>
 
                 </Box>
+                <Box sx={{width:'100%',maxWidth:'800px',mb:{xs:1,sm:0}}}>
+<SearchInput/>
+                </Box>
+
 <NavButtom/>
 
 
@@ -244,7 +248,7 @@ mobile
                         }}>
                             {text('English','Arabic')}
                         </Btn> */}
-                        <IconButton
+                        {/* <IconButton
                             onClick={() => setOpenModal(!openModal)}
                             sx={{
                             color: 'black'
@@ -252,7 +256,7 @@ mobile
 
                                 <CiSearch color='black'/>
                           
-                        </IconButton>
+                        </IconButton> */}
 
                         <IconButton
                           onClick={() => setCartOpen(!cartOpen)}
@@ -284,7 +288,6 @@ mobile
                     </Box>
 
                 </Box>
-           
 <SearchModal openModal={openModal} setOpenModal={setOpenModal }/>
              
             </Toolbar>

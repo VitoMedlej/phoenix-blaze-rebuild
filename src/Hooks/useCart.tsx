@@ -7,7 +7,7 @@ const useCart = () => {
     const {cartOpen, setCartOpen} = useCartContext();
     const incrementQty = (_id:string,newValue ?: number,productselectedSize?:string) => {
        
-        const state = loadState('F5NX6214-HJN35I') || [];
+        const state = loadState('2G184N24-JZ094512JIF12412') || [];
         let foundIndex = state.findIndex((value:ICartItem) => value._id === _id);
         let selectedItem = state[foundIndex];
         
@@ -23,7 +23,7 @@ const useCart = () => {
             }
             state[foundIndex] = selectedItem
             
-           saveState('F5NX6214-HJN35I', state)           
+           saveState('2G184N24-JZ094512JIF12412', state)           
            return true
        }
        return false;
@@ -39,7 +39,7 @@ const useCart = () => {
         }
         
             //if we do not have the item in cart, insert it
-        pushState('F5NX6214-HJN35I',
+        pushState('2G184N24-JZ094512JIF12412',
         {qty:selectedQuantity || 1,img:product.img,
             category:product?.category || 'Collection',
             title:product.title

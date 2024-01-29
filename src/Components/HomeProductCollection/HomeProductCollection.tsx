@@ -11,25 +11,39 @@ const HomeProductCollection = ({products} : {products:IProduct[] | never[]}) => 
   return (
     <Box sx={{my:4}} className='center auto'>
            
-           <Box className="flex justify-between auto" sx={{px:1,pt:8,pb:4,maxWidth:'lg'}}>
+           <Box className="flex justify-between col auto" sx={{px:1,pt:8,pb:4,maxWidth:'lg'}}>
 
 <Typography
 component={'h1'}
-    className='sectionTitle   box'
+    className='sectionTitle  center text-center box'
     sx={{
  
     fontSize: {
-        xs: '1.2em',
-        sm: '1.4em'
+        xs: '2em',
+        sm: '3em'
+    },
+    padding:.5,
+    fontWeight: '900'
+}}>
+ Diamond Painting is easy and fun!
+</Typography>
+<Typography
+component={'p'}
+    className='sectionTitle  center text-center box'
+    sx={{
+ 
+    fontSize: {
+        xs: '1em',
+        sm: '1.1em'
     },
     padding:.5,
     fontWeight: '300'
 }}>
- View Our Products
+Relax and unwind as you seamlessly create your own stunning diamond art.
 </Typography>
 
 <Btn 
-sx={{border:'1px solid #f7e454c'}}
+sx={{width:'fit-content',border:'1px solid #f7e454c',mt:1,mx:'auto'}}
 onClick={()=>router.push('/collection/products')}
 >
    Explore More
@@ -40,13 +54,15 @@ onClick={()=>router.push('/collection/products')}
                   {products && products?.length > 0 && products.map(i=>{
 
                       return <ProductCard 
+
                 newPrice={i?.newPrice}
-                      
+                    sizes={null}
                       key={i?._id} inStock={i?.inStock} title={i?.title} price={i?.price} _id={i?._id} 
                        images={i?.images?.length > 0 && i?.images[0]?.length > 3 ? i?.images : ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS90cK_Js0H-conZ_T6tHjPHtCXP8e-e7MHt69YkHWej5n90FlRvLFUMC2CmRt6UPy9dYc&usqp=CAU']}
                        category={i?.category}/>
                   })}
               </Box>
+              
             </Box>
   )
 }
