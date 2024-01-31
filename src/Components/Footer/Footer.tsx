@@ -22,7 +22,7 @@ const Footer = () => (
             </Link>
           </div>
           <Typography component='h1' sx={{ fontSize: '.85em',color:"2b2b2b" }}  className='footer-p '>
-          Welcome to DIY Crafts Diamond Painting, where creativity knows no bounds. Explore our curated collection of diamond painting kits designed to inspire and captivate. Whether you're a seasoned artist or just starting your creative journey, our kits provide a perfect blend of relaxation and artistic satisfaction. Order now and embark on a dazzling adventure of self-expression!
+          Welcome to DIY Crafts Diamond Painting, where creativity knows no bounds. Explore our curated collection of diamond painting kits designed to inspire and captivate. Whether you&apos;re a seasoned artist or just starting your creative journey, our kits provide a perfect blend of relaxation and artistic satisfaction. Order now and embark on a dazzling adventure of self-expression!
           </Typography>
           <SMicons/>
 

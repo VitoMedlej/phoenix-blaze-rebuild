@@ -129,7 +129,7 @@ component={'h1'}
     padding:.5,
     fontWeight: '900'
 }}>
- Lebanon's Shining DIY Trend
+ Lebanon&apos;s Shining DIY Trend
 </Typography>
 <Typography
 component={'p'}
