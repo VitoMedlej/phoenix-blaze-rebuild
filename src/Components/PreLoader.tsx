@@ -12,6 +12,7 @@ import Testimonials from './Testimonials/Testimonials'
 import Btn from './Btn/Btn'
 import useLanguage from '@/Hooks/useLanguage'
 import ContactSection from './ContactSection/ContactSection'
+import HomeProductsCarousel from './HomeProductsCarousel/HomeProductsCarousel'
 
 const 
 PreLoader = ({data,resImages}:any) => {
@@ -56,8 +57,8 @@ PreLoader = ({data,resImages}:any) => {
   return (
     <Box >
       <MainCarousel resImages={resImages}/>
-      <HomeProductCollection  products={data}/>
-
+      {/* <HomeProductCollection  products={data}/> */}
+        <HomeProductsCarousel data={data} Collectiontitle={''} delay={2000}/>
       <Grid container sx={{maxWidth:'lg',mx:'auto'}}>
         <Grid className='flex items-center' item xs={12} md={5}>
             <Box className=' col flex items-center' sx={{

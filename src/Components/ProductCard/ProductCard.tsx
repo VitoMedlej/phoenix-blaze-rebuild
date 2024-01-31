@@ -80,11 +80,12 @@ const ProductCard = ({
                 px: .95,
                 mt:1.5,
             }}>  <Typography
-            className='limited cursor center text-center '
+            className=' cursor center text-center '
                     component='h1'
                     onClick={() => router.push(`/product/${_id}`)}
                     sx={{
-                    fontSize: {xs:'1em',sm:'1.15em',md:'1.32em'},
+                        background:'#eef6f9',color:'black'
+                    ,fontSize: {xs:'1em',sm:'1.15em',md:'1.32em'},
                     fontWeight: '600'
                 }}>
                     {title}

@@ -114,10 +114,10 @@ const Index = () => {
                     
                     min={1} max={10} value={selectedQuantity}/>
               </Box>
-              <SelectWeight
+              {/* <SelectWeight
               selectedSize={selectedSize}
               setselectedSize={setselectedSize}
-              sizes={data?.product?.sizes || [{price:Number(data?.product?.price),size:parseFloat(data?.product?.size)}]}/>
+              sizes={data?.product?.sizes || [{price:Number(data?.product?.price),size:parseFloat(data?.product?.size)}]}/> */}
              <Btn 
                      onClick={()=>addToCart(selectedQuantity,`${data?.product?._id}`,{title : data.product.title ,category: data.product.category,img:data.product.images[0], _id : data.product._id,price:selectedSize?.price ? selectedSize?.price : data?.product?.price, productselectedSize:selectedSize?.size},true,true)}
              
