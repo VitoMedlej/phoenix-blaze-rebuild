@@ -31,6 +31,14 @@ h1 {
      object-position: center;
 }
 
+.justify-around {
+  justify-content: space-around;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
 .img {
   -o-object-fit: cover;
      object-fit: cover;

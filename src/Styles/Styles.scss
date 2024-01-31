@@ -17,9 +17,9 @@ h1 {
 .w100 {
     width:100%
 }
-$color : #eef6f9 !important;
+$color : #eef6f9  !important;
 $color2 : #0f0f0f !important;
-$color3 : #eef6f9!important;
+$color3 : #eef6f9 !important;
 .color3 {
     color: $color3;
 }
@@ -28,6 +28,13 @@ $color3 : #eef6f9!important;
 }
 .centerd {
     object-position: center;
+
+}
+.justify-around {
+    justify-content: space-around;
+}
+.space-around {
+    justify-content: space-around;
 
 }
 .img {

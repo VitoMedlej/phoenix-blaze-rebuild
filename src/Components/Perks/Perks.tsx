@@ -5,18 +5,18 @@ import React from 'react'
 const Perks = () => {
   const items = [
     {
-        title: "Pure Lebanese Honey",
-        icon: "https://www.svgrepo.com/show/396648/honey-pot.svg",
+        title: "THE BRIGHEST COLORS",
+        icon: "https://www.diamondartclub.com/cdn/shop/files/feature-a.png?v=1686268797&width=328",
         text: "100% natural honey from Lebanon, carefully harvested for the best quality and taste."
     },
     {
-        title: "Fast Delivery",
-        icon: "https://www.svgrepo.com/show/301668/delivery-transport.svg",
+        title: "THE SOFTEST CANVASES",
+        icon: "https://www.diamondartclub.com/cdn/shop/files/feature-b.png?v=1686268797&width=328",
         text: "We ensure swift and reliable delivery to bring the goodness of Lebanese honey to your doorstep."
     },
     {
-        title: "Satisfaction Guaranteed",
-        icon: "https://www.svgrepo.com/show/271593/customer-rate.svg",
+        title: "EXCLUSIVELY LICENSED",
+        icon: "https://www.diamondartclub.com/cdn/shop/files/feature-c.png?v=1686268797&width=328",
         text: "If you're not satisfied with our honey, reach out to us. Your satisfaction is our priority."
     }
 ];
@@ -27,15 +27,15 @@ const Perks = () => {
 
         {
            items.map(i=>{
-                return <Box key={i.title} className='center items-center auto flex col' sx={{
+                return <Box key={i.title} className='center items-center auto flex row' sx={{
                     py:2,
                     width:{xs:'47%',sm:'30%',md:'22%'}}}>
-                    <Box sx={{width:'50px'}}>
+                    <Box sx={{width:'150px'}}>
                         <img src={i.icon} alt="" className="img contain" />
                     </Box>
                     <Box sx={{ml:.7}} className="flex col">
 
-                    <Typography className='' sx={{fontSize:{xs:'.89em',sm:'.9em'},fontWeight:500}}  component={'h1'}>{i.title}</Typography>
+                    <Typography className='' sx={{fontSize:{xs:'.89em',sm:'1.1em'},fontWeight:500}}  component={'h1'}>{i.title}</Typography>
                     </Box>
                 </Box>
             })

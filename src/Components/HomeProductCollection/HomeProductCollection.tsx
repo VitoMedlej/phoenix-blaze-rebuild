@@ -43,7 +43,7 @@ Relax and unwind as you seamlessly create your own stunning diamond art.
 </Typography>
 
 <Btn 
-sx={{width:'fit-content',border:'1px solid #f7e454c',mt:1,mx:'auto'}}
+sx={{width:'fit-content',border:'1px solid #eef6f9 c',mt:1,mx:'auto'}}
 onClick={()=>router.push('/collection/products')}
 >
    Explore More

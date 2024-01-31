@@ -49,7 +49,11 @@ export default function SimpleAccordion({handleSubmit,options,setOptions}:any) {
              title= 'Category'
             List={
             
-                ["Collection","Pure", "Flavored Honey"]
+                ["Collection",`Craft Supplies`,
+                `DIY Kits`,
+                `Artistic Creations`,
+                `Creative Crafts`,
+                `Home Decor`]
              
            }
             value={options.category}

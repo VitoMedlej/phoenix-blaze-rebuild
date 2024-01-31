@@ -8,10 +8,10 @@ import QuickCart from '@/Components/Shared/QuickCart/QuickCart'
 import ContextWrapper from '@/context/Contexts'
 
 export const metadata = {
-    title: 'Bee Organic | Premium Organic Honey from Lebanon',
-    description: `Discover the taste of pure, organic honey with Bee Organic. Experts in bee culture, we offer a range of honey products sourced sustainably from Lebanon’s rich flora.`,
+    title: 'DIY Crafts: Sparkle with Diamond Painting Supplies in Lebanon',
+    description: `Explore the world of creative expression with diamond painting! Discover our exclusive collection of DIY crafts that combine relaxation and self-expression. Unleash your creativity and create breathtaking masterpieces with our high-quality diamond painting kits`,
     icons: {
-        icon: `https://ucarecdn.com/a1106da8-d56a-4cef-a9ee-4b27e18ef36c/Beeorganiclogo1.png`
+        icon: `https://ucarecdn.com/c8d1ab72-6c9d-467d-8490-50fdb40b7232/366441923_244599284598073_1399144749403339248_n.jpg`
     }
 }
 

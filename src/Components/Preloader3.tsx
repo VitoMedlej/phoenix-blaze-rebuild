@@ -47,9 +47,9 @@ const Preloader3 = ({res}:{res:any}) => {
             maxWidth:'none',
             // maxWidth: 'lg',
             minHeight:'400px',
-            maxHeight:{sm:'90vh',md:'500px',lg:'550px'},
+            maxHeight:{sm:'100%',md:'500px',lg:'500px'},
             margin: '0 auto',
-            height : {xs:'600px',sm:'450px',md:'100%'},
+            height : {xs:'100%',sm:'450px',md:'100%'},
              
             display: {
                 xs: 'flex'
@@ -83,7 +83,7 @@ const Preloader3 = ({res}:{res:any}) => {
                       
                             <img
             
-                                className={`img  ${item?.position} 
+                                className={`img cover  ${item?.position} 
                                 `}
                                 // ${item?.className}
                                 src={`${item.img}`}

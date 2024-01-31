@@ -90,27 +90,17 @@ useEffect(()=>{
   
 
           </ListItem>
-          <ListItem
-          sx={{fontWeight:400}}
-
-          onClick={()=>{router.push(`/pure/products`); toggleDrawer(false)}}
-           disablePadding>
-            <ListItemButton>
-            
-                  <Typography component='h1' sx={{fontWeight:600}}>
-              PURE HONEY
-            </Typography>
-            </ListItemButton>
-  
-
-          </ListItem>
+       
     
-          {/* {
+          {
            [
             
-          
-           `Strawberry and Peanut`,
-           `Pure Honey`].map(i=>{
+            `Craft Supplies`,
+            `DIY Kits`,
+            `Artistic Creations`,
+            `Creative Crafts`,
+            `Home Decor`,
+          ].map(i=>{
               return    <ListItem
               key={i}
               sx={{fontWeight:400}}
@@ -127,9 +117,9 @@ useEffect(()=>{
     
               </ListItem>
              })
-          } */}
+          }
 
-<Accordion sx={{border:'none',boxShadow:'none',}}>
+{/* <Accordion sx={{border:'none',boxShadow:'none',}}>
             
             <AccordionSummary
     expandIcon={<AiOutlineArrowUp />}
@@ -185,7 +175,7 @@ key={i}>
 
 
   </AccordionDetails>
-</Accordion>
+</Accordion> */}
 
 
                   {/* <Accordion sx={{border:'none',boxShadow:'none',}}>

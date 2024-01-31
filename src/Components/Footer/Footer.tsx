@@ -18,11 +18,11 @@ const Footer = () => (
               {/* <a><h1 className="site-logo"><Logo />E-Shop</h1></a> */}
               {/* https://res.cloudinary.com/dwxm8f25f/image/upload/v1675357773/logo_ghli5e.jpg */}
               {/* https://res.cloudinary.com/dwxm8f25f/image/upload/v1675713948/logo_sktnut_1_jwy2hk.png */}
-            <img className='img ' src='https://ucarecdn.com/a1106da8-d56a-4cef-a9ee-4b27e18ef36c/Beeorganiclogo1.png' alt="Pets Town Lebanon Logo" />
+            <img className='img ' src='https://ucarecdn.com/c8d1ab72-6c9d-467d-8490-50fdb40b7232/366441923_244599284598073_1399144749403339248_n.jpg' alt="Pets Town Lebanon Logo" />
             </Link>
           </div>
-          <Typography component='h1' sx={{ fontSize: '.95em',color:"2b2b2b" }}  className='footer-p '>
-          Welcome to Bee Organic, your one-stop destination for premium organic honey. As experts in bee culture, diseases, and treatments, we’re dedicated to providing you with the highest quality honey products.
+          <Typography component='h1' sx={{ fontSize: '.85em',color:"2b2b2b" }}  className='footer-p '>
+          Welcome to DIY Crafts Diamond Painting, where creativity knows no bounds. Explore our curated collection of diamond painting kits designed to inspire and captivate. Whether you're a seasoned artist or just starting your creative journey, our kits provide a perfect blend of relaxation and artistic satisfaction. Order now and embark on a dazzling adventure of self-expression!
           </Typography>
           <SMicons/>
 
@@ -51,7 +51,7 @@ const Footer = () => (
             <li><Link href="/collection/products">All Products</Link></li> 
             <li><Link href="/terms-and-conditions">Terms & Conditions</Link></li>
             <li><Link href="/privacy-policy">Privacy Policy</Link></li>
-            <li><Link href="https://wa.me/+96170657915">+961 70657915</Link></li>
+            <li><Link href="https://wa.me/+96170082014">+96170082014</Link></li>
           </ul>
      
           <ul  className='ul-white' style={{color:'black'}}>
@@ -66,7 +66,7 @@ const Footer = () => (
             
             {/* <li><a href="https://www.facebook.com/profile.php?id=100076163602459/" target="_blank" rel="noreferrer" >Facebook</a></li> */}
 
-            <li><a href="https://www.instagram.com/BeeOrganic/" target="_blank" rel="noreferrer" >@BeeOrganic</a></li>
+            <li><a href="https://www.instagram.com/diy_crafts_diamond_painting/" target="_blank" rel="noreferrer" >@diy_crafts_diamond_painting</a></li>
             <li><a href={`https://wa.me/${process.env.NEXT_PUBLIC_WA}`} rel="noreferrer" target='_blank' >+{process.env.NEXT_PUBLIC_WA}</a></li>
             {/* <li><a href={`http://tiktok.com/@thecraftroomlb`} rel="noreferrer" target='_blank' >TikTok</a></li> */}
           </ul>

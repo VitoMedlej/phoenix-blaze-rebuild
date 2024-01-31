@@ -26,7 +26,11 @@ import useLanguage from '@/Hooks/useLanguage';
 
 
 
-export const categories =  ["Pure", "Fruit", "Nut", "Spreads", "Herbal"];
+export const categories =  [`Craft Supplies`,
+`DIY Kits`,
+`Artistic Creations`,
+`Creative Crafts`,
+`Home Decor`];
 export default function Navbar() {
     const {open, setOpen} = useDrawerContext();
     const [openModal,
@@ -107,8 +111,8 @@ export default function Navbar() {
 }}>
     <img
         className='img'
-        src={`https://ucarecdn.com/a1106da8-d56a-4cef-a9ee-4b27e18ef36c/Beeorganiclogo1.png`}
-        alt="BeeOrganic logo"/>
+        src={`https://ucarecdn.com/c8d1ab72-6c9d-467d-8490-50fdb40b7232/366441923_244599284598073_1399144749403339248_n.jpg`}
+        alt="diy_crafts_diamond_painting logo"/>
 </Box>
 </Link>
                 <Box
