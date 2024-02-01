@@ -47,7 +47,7 @@ PreLoader = ({data,resImages}:any) => {
       id: 4,
       title: text('Great Value', 'قيمة عظيمة'),
       desc: text(
-        'Bee Organic honey provides great value for your health, offering the highest quality honey at an affordable price for you and your family.',
+        'DIY CRAFTS honey provides great value for your health, offering the highest quality honey at an affordable price for you and your family.',
         'عسل بي أورجانيك يقدم قيمة عظيمة لصحتك، حيث يوفر عسل عالي الجودة بسعر معقول لك ولعائلتك.'
       ),
     },

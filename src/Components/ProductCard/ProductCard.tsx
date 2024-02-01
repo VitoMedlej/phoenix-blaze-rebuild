@@ -80,13 +80,13 @@ const ProductCard = ({
                 px: .95,
                 mt:1.5,
             }}>  <Typography
-            className=' cursor center text-center '
+            className=' cursor limited  center text-center '
                     component='h1'
                     onClick={() => router.push(`/product/${_id}`)}
                     sx={{
-                        background:'#eef6f9',color:'black'
+                        color:'black'
                     ,fontSize: {xs:'1em',sm:'1.15em',md:'1.32em'},
-                    fontWeight: '600'
+                    fontWeight: '400'
                 }}>
                     {title}
                 </Typography>
@@ -96,10 +96,11 @@ const ProductCard = ({
                {inStock !== false ?
                <>
                <Typography
+               component='p'
                className="clr2"
     sx={{
         mb: 0.5,
-        fontWeight: '700',
+        fontWeight: '400',
         fontSize: { xs: '.99em', sm: '1em' },
     }}
 >
@@ -121,7 +122,7 @@ const ProductCard = ({
                     {price}$
                 </Typography> */}
                 <Btn 
-            className='cursor black  gap1'
+            className='cursor bg black  gap1'
                 
                      onClick={()=>
                         sizes &&  sizes?.length > 0 ? 
@@ -130,6 +131,8 @@ const ProductCard = ({
                         addToCart(1,_id,{title,category,img:images[0],_id,price:newPrice?Number(newPrice):price},true)}
                     v2
                     sx={{
+                        color:'black !important',
+
                         margin:'0 auto'
                     // borderRadius:'8',
                         ,
@@ -138,7 +141,7 @@ const ProductCard = ({
                     <Box  className="flex">
 
                     {sizes && sizes?.length > 0 ? 'Select Size' :  'ADD'}
-                    <BiCartAdd fontSize='20px'/>
+                    <BiCartAdd color='black' fontSize='20px'/>
                     </Box>
                 </Btn>
                 
