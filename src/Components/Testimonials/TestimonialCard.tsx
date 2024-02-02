@@ -28,6 +28,7 @@ const TestimonialCard = ({title,reviewer,description}:{title:string,reviewer:str
 </Box>
 
             <Typography
+
             // className='clr'
                 sx={{
                     // color:'#f8f8f8',
@@ -48,7 +49,7 @@ const TestimonialCard = ({title,reviewer,description}:{title:string,reviewer:str
                 pt:1,
                 fontSize: 15
             }}
-                component={'p'}>-{reviewer}</Typography>
+                component={'h1'}>-{reviewer}</Typography>
 
 
         </Box>

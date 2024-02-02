@@ -97,8 +97,8 @@ useEffect(()=>{
             
             `Craft Supplies`,
             `DIY Kits`,
-            `Artistic Creations`,
-            `Creative Crafts`,
+            `CUSTOMIZED KITS`,
+           
             `Home Decor`,
           ].map(i=>{
               return    <ListItem

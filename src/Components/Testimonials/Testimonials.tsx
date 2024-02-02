@@ -23,22 +23,23 @@ import useLanguage from '@/Hooks/useLanguage';
 //             name:`Powerhouse’s Owner `,img:'https://ucarecdn.com/3b40bedc-0aa3-4247-a196-fd05de4d4f87/003011.jpg'}
 
 // ]
-const tests = [
+const tests =[
   {
-    title: "Discover the Power of DIY CRAFTS!",
-    reviewer: "(Ella, Health Enthusiast)",
-    description: "DIY CRAFTS is a true haven for health and wellness enthusiasts like myself. Their premium selection of natural supplements is a game-changer. From the revitalizing effects of ashwagandha to the vitality boost of tongkat ali, they have it all. I've experienced a remarkable improvement in my overall well-being since I started incorporating their products into my daily routine. DIY CRAFTS is my go-to destination for all my health and wellness needs!",
+      reviewer: "John Doe",
+      description: "I absolutely love the DIY Crafts Diamond Painting kits. The quality of the diamonds and the canvas is top-notch. Highly recommended!"
   },
   {
-    title: "A Wellness Oasis with DIY CRAFTS!",
-    reviewer: "(Oliver, Fitness Fanatic)",
-    description: "When it comes to my fitness journey, DIY CRAFTS has been a true ally. Their range of natural supplements, including cordyceps and lion's mane mushroom, has been a game-changer in my routine. The quality of their products is unparalleled, and I've seen significant improvements in my energy levels and mental clarity. DIY CRAFTS is my one-stop-shop for all things related to health and wellness. I can't recommend them enough!",
+      reviewer: "Jane Smith",
+      description: "The DIY Crafts Diamond Painting kit was a joy to work with. The instructions were clear and the end result was beautiful. I'm definitely buying more."
   },
   {
-    title: "DIY CRAFTS: Your Path to Optimal Health!",
-    reviewer: "(Ava, Wellness Advocate)",
-    description: "As a wellness advocate, I'm always on the lookout for high-quality supplements, and DIY CRAFTS has exceeded my expectations. Their comprehensive range of natural products, including ashwagandha, tongkat ali, cordyceps mushroom, and more, is a testament to their commitment to well-being. Whether you're a health enthusiast or someone looking to enhance their overall health, DIY CRAFTS is the answer. Trust me; you won't be disappointed!",
+      reviewer: "Alex Johnson",
+      description: "DIY Crafts Diamond Painting offers a great way to relax and create art at the same time. The variety of designs available is impressive."
   },
+  {
+      reviewer: "Emily Davis",
+      description: "I'm new to diamond painting and found the DIY Crafts Diamond Painting kit to be a great starting point. The guide was easy to follow and the process was so much fun."
+  }
 ];
 
 const Testimonial = () => {
@@ -49,13 +50,14 @@ const Testimonial = () => {
     
     
   return (
-    <Box className=' flex col ' sx={{width:'100%',height:'100%'}}>
- <Box className='flex col'  sx={{flex:1,width:'100%',pt:'6em'}}>
+    <Box id='FEEDBACK' className=' flex col ' sx={{width:'100%',height:'100%'}}>
+ <Box className='flex col'  sx={{flex:1,width:'100%',pt:'2em'}}>
  <Typography
+ component='h1'
                 className='sectionTitle  text-center auto center box'
                 sx={{
                   pb:'.5em',
-                  pt:4,
+                  pt:1,
                   width:'100%',
                   display:'flex',
                   fontSize: {
@@ -76,7 +78,7 @@ const Testimonial = () => {
             margin: '0em auto',
             width: '100%',
             maxWidth: 'lg',
-            mb:'6em',
+            mb:'2em',
             display: {
                 xs: 'flex'
             },
@@ -123,15 +125,15 @@ const Testimonial = () => {
               >
 
                 {tests.map((item ) => {
-                    if (!item.title) 
+                    if (!item?.description) 
                         return
                     return <SwiperSlide
                         style={{
                         padding:'2em 0',
                         marginRight: '0 !important'
                     }}
-                        key={item.title}>
-                         <TestimonialCard title={item.title} reviewer={item.reviewer} description={item.description}/>
+                        key={item?.description}>
+                         <TestimonialCard title={item?.description} reviewer={item.reviewer} description={item.description}/>
 
                     </SwiperSlide>
                     // return <SwiperSlide className='swiper-wrapper1'

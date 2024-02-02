@@ -18,7 +18,7 @@ export default function TemporaryDrawer() {
         setCartOpen} = useCartContext();
         const [cartItems,setCartItems] = useState<ICartItem[]>([])
         useEffect(() =>{
-            let localCart : ICartItem[] = loadState('2G184N24-JZ094512JIF12412') || []
+            let localCart : ICartItem[] = loadState('l12oxio951209XJkgop15v') || []
             if (localCart) {
                 
                 setCartItems(localCart)
@@ -34,12 +34,12 @@ export default function TemporaryDrawer() {
     };
     const remove = (_id:string) => {
        let state = cartItems.filter(x => `${x._id}` !== _id);
-        saveState('2G184N24-JZ094512JIF12412', state);
+        saveState('l12oxio951209XJkgop15v', state);
         setCartItems(state);
     }
     return (
         <div>
-            <Drawer  anchor={'right'} open={cartOpen} onClose={toggleDrawer(false)}>
+            <Drawer  anchor={'top'} open={cartOpen} onClose={toggleDrawer(false)}>
                 <Box
                     sx={{
                     // maxWidth: '500px',

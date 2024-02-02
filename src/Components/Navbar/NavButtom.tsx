@@ -34,6 +34,47 @@ const NavButtom = () => {
                     Sale
                     </Typography>
                 </Link> */}
+                  <Link className='black decor-none ' href={`/about`}>
+
+<Typography 
+className=' cursor center flex gap1 black decor-none captialize'
+id="button"
+component='h1' sx={{width:'max-content',
+mx:'1em',
+alignItems: 'center',
+
+fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
+LEARN MORE
+</Typography>
+</Link>
+<Link className='black decor-none ' href={`/almost-done`}>
+
+<Typography 
+className=' cursor center flex gap1 black decor-none captialize'
+id="button"
+component='h1' sx={{width:'max-content',
+mx:'1em',
+alignItems: 'center',
+
+fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
+ALMOST DONE
+</Typography>
+</Link>
+
+<Link className='black decor-none ' href={`/#FEEDBACK`}>
+
+<Typography 
+className=' cursor center flex gap1 black decor-none captialize'
+id="button"
+component='h1' sx={{width:'max-content',
+mx:'1em',
+alignItems: 'center',
+
+fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
+FEEDBACK
+</Typography>
+</Link>
+               
                 <Link className='black decor-none ' href={`/collection/products`}>
 
 <Typography 
@@ -47,13 +88,17 @@ fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
 COLLECTION
 </Typography>
 </Link>
+       
 
+
+ 
 {
     [   `Craft Supplies`,
     `DIY Kits`,
-    `Artistic Creations`,
-    `Creative Crafts`,
-    `Home Decor`].map(i=>{
+    'MATERIELS',
+    `CUSTOMIZED KITS`,
+   
+    ].map(i=>{
         return <Link key={i} className='black decor-none ' href={`/${i.toLocaleLowerCase()}/products`}>
 
         <Typography 

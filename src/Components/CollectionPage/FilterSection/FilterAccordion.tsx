@@ -51,8 +51,8 @@ export default function SimpleAccordion({handleSubmit,options,setOptions}:any) {
             
                 ["Collection",`Craft Supplies`,
                 `DIY Kits`,
-                `Artistic Creations`,
-                `Creative Crafts`,
+                `CUSTOMIZED KITS`,
+               
                 `Home Decor`]
              
            }

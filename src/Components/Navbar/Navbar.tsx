@@ -4,8 +4,8 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import {IoIosMenu} from 'react-icons/io'
-// import {CiShoppingCart} from 'react-icons/ci'
+import { BiMenuAltRight ,BiSearchAlt  ,BiCart } from "react-icons/bi";
+// import {BiCart} from 'react-icons/ci'
 
 import { useEffect, useState} from 'react';
 
@@ -15,7 +15,6 @@ import {Badge, Divider, Typography} from '@mui/material';
 // import { loadState } from '../../Utils/LocalstorageFn';
 import {useRouter} from 'next/navigation';
 // import {AiOutlinePhone, AiOutlineSearch, AiOutlineMenu} from 'react-icons/ai'
-import {CiSearch,CiShoppingCart} from 'react-icons/ci'
 import {AiOutlineHome,AiOutlineShoppingCart} from 'react-icons/ai'
 import SearchInput from './SearchInput';
 
@@ -28,8 +27,8 @@ import useLanguage from '@/Hooks/useLanguage';
 
 export const categories =  [`Craft Supplies`,
 `DIY Kits`,
-`Artistic Creations`,
-`Creative Crafts`,
+`CUSTOMIZED KITS`,
+
 `Home Decor`];
 export default function Navbar() {
     const {open, setOpen} = useDrawerContext();
@@ -44,15 +43,13 @@ export default function Navbar() {
     // const localCart = [1]
     useEffect(() => {
         const cart : any = []
-        // const cart = loadState('2G184N24-JZ094512JIF12412') || []
+        // const cart = loadState('l12oxio951209XJkgop15v') || []
         if (cart) {
 
             setLocalCart(cart)
         }
     }, [cartOpen])
-    const {text} = useLanguage()
 
-    const {lang,setLang} = useLangContext()
     return ( <>
      <Box
      id='navy'
@@ -82,11 +79,11 @@ export default function Navbar() {
                 width:'100%',
             margin: '0 auto',
         }}>
-            {/* <Box className='center text-center' sx={{background:'#0f0f0f',width:'100%',py:.25}}>
-                <Typography className='clr' component='h1' sx={{py:.2,fontSize:{xs:'.75em',sm:'.75em'}}}>
-            FREE DELIVERY FOR ORDERS ABOVE $40. CASH ON DELIVERY. USD AT DAILY MARKET RATE.
+            <Box className='center text-center' sx={{background:'#0f0f0f',width:'100%',py:.25}}>
+                <Typography className='clr' component='p' sx={{py:.2,fontSize:{xs:'.75em',sm:'.75em'}}}>
+            DELIVERY ALL OVER LEBANON. USD AT DAILY MARKET RATE💲
                 </Typography>
-            </Box> */}
+            </Box>
             <Toolbar
      id='navy3'
 
@@ -95,7 +92,7 @@ export default function Navbar() {
                 sx={{
                 
                 background:'white',
-                    maxWidth:'xl',
+                    maxWidth:'lg',
                 px:'0 !important',
                 
                 flexWrap: 'wrap'
@@ -115,10 +112,11 @@ export default function Navbar() {
         alt="diy_crafts_diamond_painting logo"/>
 </Box>
 </Link>
+
                 <Box
                     sx={{
                     px:1,
-                    display:{xs:'flex',md:'none'},
+                    display:{xs:'flex',md:'flex'},
 
                     flex: 1,
                     flexWrap: 'wrap',
@@ -158,8 +156,22 @@ export default function Navbar() {
                                 <CiSearch color='black'/>
                           
                         </IconButton> */}
-                        <IconButton
-                            onClick={() => setCartOpen(!cartOpen)}
+                   <IconButton
+                            onClick={() => setOpenModal(!openModal)}
+                            size="large"
+                            edge="start"
+                            aria-label="menu"
+                            sx={{
+                            margin : '8px',padding:0,
+                            color: 'black',
+                       
+                        }}>
+                            <BiSearchAlt  color='black'/>
+                        </IconButton>
+
+
+                     <IconButton
+                              onClick={() => setCartOpen(!cartOpen)}
 
                             // onClick={() => router.push('/collection/products')}
                             sx={{
@@ -168,13 +180,13 @@ export default function Navbar() {
                         }}>
                             {/* <Badge color='primary' badgeContent={`${localCart.length || '0'}`}> */}
 
-                                <CiShoppingCart color='black'/>
+                                <BiCart color='black'/>
                             {/* </Badge> */}
-                            {/* <Typography>
-                                Cart
-                            </Typography> */}
+                         
                         </IconButton>
-    <IconButton
+   
+
+                        <IconButton
                             onClick={() => setOpen(!open)}
                             size="large"
                             edge="start"
@@ -183,12 +195,14 @@ export default function Navbar() {
                             margin : '8px',padding:0,
                             color: 'black',
                             // margin: '0.1em',
-                            // display: {
-                            //     md: 'none'
-                            // }
+                            display: {
+                                md: 'none'
+                            }
                         }}>
-                            <IoIosMenu color='black'/>
+                            <BiMenuAltRight color='black'/>
                         </IconButton>
+
+                        
                    
    {/* <a href={`https://wa.me/${process.env.NEXT_PUBLIC_WA}`} target='_blank' className='flex decor-none' rel='noopener'>
 
@@ -206,11 +220,7 @@ export default function Navbar() {
                     </Box>
 
                 </Box>
-                <Box sx={{width:'100%',maxWidth:'800px',mb:{xs:1,sm:0}}}>
-<SearchInput/>
-                </Box>
 
-<NavButtom/>
 
 
   {/* <SearchInput/> */}
@@ -218,83 +228,12 @@ export default function Navbar() {
 mobile
                     />  */}
 
-                <Box
-                    sx={{
-                    px:1,
-                    display:{xs:'none',md:'flex'},
 
-                    // flex: 1,
-                    flexWrap: 'wrap',
-                    // justifyContent: {
-                    //     xs: 'right',
-                    //     sm: 'end'
-                    // },
-                 
-                }}>
- 
-                    <Box
-                        sx={{
-                        display: {
-                            xs: 'flex'
-                        },
-                        // justifyContent: 'end'
-                    }}
-                        className='flex right'>
- 
-
-                               {/* <Btn
-                            onClick={() => setLang(lang === 'en' ? 'ar' : 'en')}
-                            sx={{
-                                margin : '8px',padding:0,
-                            color: 'black',
-
-                            // margin: '0.1em',
-                        }}>
-                            {text('English','Arabic')}
-                        </Btn> */}
-                        {/* <IconButton
-                            onClick={() => setOpenModal(!openModal)}
-                            sx={{
-                            color: 'black'
-                        }}>
-
-                                <CiSearch color='black'/>
-                          
-                        </IconButton> */}
-
-                        <IconButton
-                          onClick={() => setCartOpen(!cartOpen)}
-                        // onClick={() => router.push('/cart')}
-                            sx={{
-                            color: 'black'
-                        }}>
-                            {/* <Badge color='primary' badgeContent={`${localCart.length || '0'}`}> */}
-                                <CiShoppingCart color='black'/>
-                            {/* </Badge> */}
-                          
-                            </IconButton>
-
-
-
-
-                            {/* <IconButton
-                            onClick={() => setOpen(!open)}
-                            edge="start"
-                            aria-label="menu"
-                            sx={{
-                            color: 'black',
-                            // margin: '0.1em',
-                         
-                        }}>
-                            <IoIosMenu color='black'/>
-                        </IconButton> */}
-                    
-                    </Box>
-
-                </Box>
 <SearchModal openModal={openModal} setOpenModal={setOpenModal }/>
              
             </Toolbar>
+<NavButtom/>
+
         </AppBar>
     </Box> 
 

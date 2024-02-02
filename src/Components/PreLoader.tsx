@@ -58,7 +58,9 @@ PreLoader = ({data,resImages}:any) => {
     <Box >
       <MainCarousel resImages={resImages}/>
       {/* <HomeProductCollection  products={data}/> */}
+ 
         <HomeProductsCarousel data={data} Collectiontitle={''} delay={2000}/>
+        <Testimonials/>
       <Grid container sx={{maxWidth:'lg',mx:'auto'}}>
         <Grid className='flex items-center' item xs={12} md={5}>
             <Box className=' col flex items-center' sx={{

@@ -64,7 +64,7 @@ const EmptyCartAlert = () => {
 const Cart = () => {
     const [cartItems,setCartItems] = useState<ICartItem[]>([])
     const total= totalCal(cartItems) || 0; 
-    let localCart : ICartItem[] = loadState('2G184N24-JZ094512JIF12412') || []
+    let localCart : ICartItem[] = loadState('l12oxio951209XJkgop15v') || []
     useEffect(() => {
         if (localCart) {
             
@@ -74,12 +74,12 @@ const Cart = () => {
     }, [])
     const refetchState = () => {
 
-        setCartItems(loadState('2G184N24-JZ094512JIF12412'))
+        setCartItems(loadState('l12oxio951209XJkgop15v'))
         
     }
     const remove = (id:string) => {
         let state = cartItems.filter(x => `${x._id}` !== id);
-         saveState('2G184N24-JZ094512JIF12412', state);
+         saveState('l12oxio951209XJkgop15v', state);
          setCartItems(state);
      }
     return (
