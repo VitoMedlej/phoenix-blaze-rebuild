@@ -79,28 +79,70 @@ useEffect(()=>{
       <ListItem
           sx={{fontWeight:400}}
 
-          onClick={()=>{router.push(`/collection/products`); toggleDrawer(false)}}
+          onClick={()=>{router.push(`/about`); toggleDrawer(false)}}
            disablePadding>
             <ListItemButton>
             
                   <Typography component='h1' sx={{fontWeight:600}}>
-              VIEW ALL
+              Learn More
             </Typography>
             </ListItemButton>
   
 
           </ListItem>
+
+      <ListItem
+          sx={{fontWeight:400}}
+
+          onClick={()=>{router.push(`/almost-done`); toggleDrawer(false)}}
+           disablePadding>
+            <ListItemButton>
+            
+                  <Typography component='h1' sx={{fontWeight:600}}>
+              Almost Done
+            </Typography>
+            </ListItemButton>
+  
+
+          </ListItem>
+          <ListItem
+          sx={{fontWeight:400}}
+
+          onClick={()=>{router.push(`/#FEEDBACK`); toggleDrawer(false)}}
+           disablePadding>
+            <ListItemButton>
+            
+                  <Typography component='h1' sx={{fontWeight:600}}>
+              Feedback
+            </Typography>
+            </ListItemButton>
+  
+
+          </ListItem>
+      <ListItem
+          sx={{fontWeight:400}}
+
+          onClick={()=>{router.push(`/collection/products`); toggleDrawer(false)}}
+           disablePadding>
+            <ListItemButton>
+            
+                  <Typography component='h1' sx={{fontWeight:600}}>
+              All Products
+            </Typography>
+            </ListItemButton>
+  
+
+          </ListItem>
+          
        
     
           {
-           [
-            
-            `Craft Supplies`,
-            `DIY Kits`,
-            `CUSTOMIZED KITS`,
-           
-            `Home Decor`,
-          ].map(i=>{
+       [   `Craft Supplies`,
+       `DIY Kits`,
+       'MATERIELS',
+       `CUSTOMIZED KITS`,
+      
+       ].map(i=>{
               return    <ListItem
               key={i}
               sx={{fontWeight:400}}
