@@ -27,7 +27,7 @@ import useLanguage from '@/Hooks/useLanguage';
 
 export const categories =  [`Craft Supplies`,
 `DIY Kits`,
-`CUSTOMIZED KITS`,
+`customized`,
 
 `Home Decor`];
 export default function Navbar() {

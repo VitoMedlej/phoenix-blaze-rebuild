@@ -127,7 +127,7 @@ useEffect(()=>{
             <ListItemButton>
             
                   <Typography component='h1' sx={{fontWeight:600}}>
-              All Products
+              All products
             </Typography>
             </ListItemButton>
   
