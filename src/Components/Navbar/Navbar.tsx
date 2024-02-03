@@ -102,13 +102,14 @@ export default function Navbar() {
 <Box className='flex'
     sx={{
     mx: {
+        xs:'.15em',
         sm: '1em'
     },
-    width:{xs:'90px',sm: '90px'}
+    width:{xs:'90px',sm: '100px'}
 }}>
     <img
         className='img'
-        src={`https://ucarecdn.com/c8d1ab72-6c9d-467d-8490-50fdb40b7232/366441923_244599284598073_1399144749403339248_n.jpg`}
+        src={`https://ucarecdn.com/8dfcc837-04af-471f-b263-efd704c1be94/WhatsAppImage20240203at0814371.jpeg`}
         alt="diy_crafts_diamond_painting logo"/>
 </Box>
 </Link>

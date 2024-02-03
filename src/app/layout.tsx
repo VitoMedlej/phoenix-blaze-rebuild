@@ -11,7 +11,7 @@ export const metadata = {
     title: 'DIY Crafts: Sparkle with Diamond Painting Supplies in Lebanon',
     description: `Explore the world of creative expression with diamond painting! Discover our exclusive collection of DIY crafts that combine relaxation and self-expression. Unleash your creativity and create breathtaking masterpieces with our high-quality diamond painting kits`,
     icons: {
-        icon: `https://ucarecdn.com/c8d1ab72-6c9d-467d-8490-50fdb40b7232/366441923_244599284598073_1399144749403339248_n.jpg`
+        icon: `https://ucarecdn.com/8dfcc837-04af-471f-b263-efd704c1be94/WhatsAppImage20240203at0814371.jpeg`
     }
 }
 

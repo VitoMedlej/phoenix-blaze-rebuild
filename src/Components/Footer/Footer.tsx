@@ -18,7 +18,7 @@ const Footer = () => (
               {/* <a><h1 className="site-logo"><Logo />E-Shop</h1></a> */}
               {/* https://res.cloudinary.com/dwxm8f25f/image/upload/v1675357773/logo_ghli5e.jpg */}
               {/* https://res.cloudinary.com/dwxm8f25f/image/upload/v1675713948/logo_sktnut_1_jwy2hk.png */}
-            <img className='img ' src='https://ucarecdn.com/c8d1ab72-6c9d-467d-8490-50fdb40b7232/366441923_244599284598073_1399144749403339248_n.jpg' alt="Pets Town Lebanon Logo" />
+            <img className='img ' src='https://ucarecdn.com/8dfcc837-04af-471f-b263-efd704c1be94/WhatsAppImage20240203at0814371.jpeg' alt="Pets Town Lebanon Logo" />
             </Link>
           </div>
           <Typography component='h1' sx={{ fontSize: '.85em',color:"2b2b2b" }}  className='footer-p '>
