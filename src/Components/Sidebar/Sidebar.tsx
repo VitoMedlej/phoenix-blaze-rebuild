@@ -137,10 +137,11 @@ useEffect(()=>{
        
     
           {
-       [   `Craft Supplies`,
-       `DIY Kits`,
-       'MATERIELS',
-       `CUSTOMIZED KITS`,
+       [   
+        // `Craft Supplies`,
+      //  `DIY Kits`,
+      //  'MATERIELS',
+       `Customized`,
       
        ].map(i=>{
               return    <ListItem
@@ -161,7 +162,7 @@ useEffect(()=>{
              })
           }
 
-{/* <Accordion sx={{border:'none',boxShadow:'none',}}>
+<Accordion sx={{border:'none',boxShadow:'none',}}>
             
             <AccordionSummary
     expandIcon={<AiOutlineArrowUp />}
@@ -169,7 +170,7 @@ useEffect(()=>{
     id="panel1a-header"
   >
  <Typography component='h1' sx={{fontWeight:600}}>
-         FLAVORED HONEY
+ 5D Diy Kits
       </Typography>
   </AccordionSummary>
   <AccordionDetails>
@@ -182,7 +183,7 @@ useEffect(()=>{
 
 onClick={()=>
 {setOpen(false);
-router.push(`/flavored honey/products`)}}
+router.push(`/5D DIY KITS/products`)}}
 
 >
 
@@ -194,8 +195,16 @@ router.push(`/flavored honey/products`)}}
 </ListItemButton>
 </ListItem>
 
-{[`Honey with Peanut`,
-`Honey with Strawberry`
+{[
+  "LANDSCAPES",
+  "NATURE",
+  "RELIGIOUS",
+  "KIDS & CARTOONS",
+  "TISSUE BOX",
+  "CUP COASTER",
+  "KEY CHAINS",
+  "DOUBLE MIRROR",
+  "PENCIL CASE"
 ].map(i=>{   return  <ListItem sx={{padding:0,width:'100%'}}
 
 onClick={()=>
@@ -217,7 +226,76 @@ key={i}>
 
 
   </AccordionDetails>
-</Accordion> */}
+</Accordion>
+
+
+
+<Accordion sx={{border:'none',boxShadow:'none',}}>
+            
+            <AccordionSummary
+    expandIcon={<AiOutlineArrowUp />}
+    aria-controls="panel1a-content"
+    id="panel1a-header"
+  >
+ <Typography component='h1' sx={{
+  textTransform:'capitalize',
+  fontWeight:600}}>
+ Materials
+      </Typography>
+  </AccordionSummary>
+  <AccordionDetails>
+  <List
+
+
+  
+     disablePadding>
+<ListItem sx={{padding:0,width:'100%'}}
+
+onClick={()=>
+{setOpen(false);
+router.push(`/MATERIALS/products`)}}
+
+>
+
+
+<ListItemButton >
+      <Typography sx={{fontWeight:300}}>
+  View All
+</Typography>
+</ListItemButton>
+</ListItem>
+
+{[  "SEALER BRIHTNER",
+  "OTHERS",
+  "BOXES & STORAGES",
+  "LED LIGHT PAD",
+  "CORRECTION & FENEL",
+  "CLIPS & MON-STICK PAPPER",
+  "LABEL NUMBER STICKERS",
+  "PLATE & ROLLER",
+  "PENS"
+].map(i=>{   return  <ListItem sx={{padding:0,width:'100%'}}
+
+onClick={()=>
+{setOpen(false);
+router.push(`/flavored honey/products?type=${encodeURIComponent(i).toLocaleLowerCase()}`)}}
+
+key={i}>
+
+
+<ListItemButton >
+            <Typography sx={{fontWeight:300}}>
+        {i}
+      </Typography>
+      </ListItemButton>
+</ListItem>
+      
+      })}
+    </List>
+
+
+  </AccordionDetails>
+</Accordion>
 
 
                   {/* <Accordion sx={{border:'none',boxShadow:'none',}}>

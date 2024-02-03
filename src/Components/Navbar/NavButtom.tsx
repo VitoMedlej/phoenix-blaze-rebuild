@@ -93,10 +93,11 @@ COLLECTION
 
  
 {
-    [   `Craft Supplies`,
-    `DIY Kits`,
+    [   
+        // `Craft Supplies`,
+    `5D DIY Kits`,
     'MATERIELS',
-    `CUSTOMIZED KITS`,
+    `CUSTOMIZED`,
    
     ].map(i=>{
         return <Link key={i} className='black decor-none ' href={`/${i.toLocaleLowerCase()}/products`}>
