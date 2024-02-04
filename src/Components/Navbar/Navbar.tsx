@@ -81,7 +81,7 @@ export default function Navbar() {
         }}>
             <Box className='center text-center' sx={{background:'#0f0f0f',width:'100%',py:.25}}>
                 <Typography className='clr' component='p' sx={{py:.2,fontSize:{xs:'.75em',sm:'.75em'}}}>
-            DELIVERY ALL OVER LEBANON. USD AT DAILY MARKET RATE💲
+            DELIVERY AVAILABLE ALL OVER LEBANON
                 </Typography>
             </Box>
             <Toolbar

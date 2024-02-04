@@ -1,169 +1,75 @@
+"use client"
 import React, { useState } from 'react';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import { AiOutlineArrowUp } from 'react-icons/ai'; // Assuming you've imported the AiOutlineArrowUp icon
-import { Box } from '@mui/material';
+import { Accordion, AccordionSummary, AccordionDetails, Typography, List, ListItem, ListItemButton } from '@mui/material';
+import { AiOutlineArrowUp } from 'react-icons/ai';
 import { useRouter } from 'next/navigation';
 
-export const AllCats =  [
-    {
-      categoryName: "dogs",
-      categoryItems: [
-        {
-          Category: "Food",
-          Subcategories: ["Dry food", "Wet food"]
-        },
-        {
-          Category: "Treats",
-          Subcategories: ["Casual treats", "Training treats", "Dental treats", "Bones"]
-        },
-        {
-          Category: "Toys",
-          Subcategories: ["Casual toys", "Interactive toys", "Kong"]
-        },
-        {
-          Category: "Apparels",
-          Subcategories: ["Leashes", "Collars", "Harnesses", "Clothes", "Scarfs"]
-        },
-        {
-          Category: "Beds and Houses",
-          Subcategories: ["Beds", "Crates"]
-        },
-        {
-          Category: "Grooming Essentials",
-          Subcategories: ["Brushes", "Nail clippers", "Perfumes", "Shampoos", "Hygiene accessories"]
-        },
-        {
-          Category: "Medication",
-          Subcategories: ["Ticks & Fleas", "Oral health", "Supplements"]
-        },
-        {
-          Category: "Accessories",
-          Subcategories: ["Bowls & Feeders", "Muzzles"]
-        }
-      ]
-    },
-    {
-      categoryName: "cats",
-      categoryItems: [
-        {
-          Category: "Food",
-          Subcategories: ["Dry food", "Wet food"]
-        },
-        {
-          Category: "Litter",
-          Subcategories: []
-        },
-        {
-          Category: "Scratchers",
-          Subcategories: []
-        },
-        {
-          Category: "Treats",
-          Subcategories: ["Wet treats", "Casual treats"]
-        },
-        {
-          Category: "Toys",
-          Subcategories: ["Casual toys", "Interactive toys", "Kong"]
-        },
-        {
-          Category: "Apparels",
-          Subcategories: ["Leashes", "Collars", "Harnesses", "Clothes", "Scarfs"]
-        },
-        {
-          Category: "Beds and Houses",
-          Subcategories: ["Beds", "Crates"]
-        },
-        {
-          Category: "Grooming Essentials",
-          Subcategories: ["Brushes", "Nail clippers", "Perfumes", "Shampoos", "Hygiene accessories"]
-        },
-        {
-          Category: "Medication",
-          Subcategories: ["Ticks & Fleas", "Oral health", "Supplements"]
-        },
-        {
-          Category: "Accessories",
-          Subcategories: ["Bowls & Feeders"]
-        }
-      ]
-    }]
+export const mainCategories = ["5d diy kits", "materials"];
 
-    function NestedMenuAccordion({toggleDrawer}:any) {
-        const [open, setOpen] = useState(false);
-        const router = useRouter()
-        const handleRoute = (category : string,mainCategory:string,subCategory?:string) => {
-          toggleDrawer && toggleDrawer(false);
-          router.push(`/${mainCategory.replace(/ /g, '-').toLocaleLowerCase()}/products?type=${category ? category.replace(/ /g, '-').toLocaleLowerCase() : null}&subcategory=${subCategory ? encodeURIComponent(subCategory).toLocaleLowerCase() : null}`)
-          return
-            };
-      
-        return (
-          <Box sx={{ border: 'none', boxShadow: 'none' }}>
+export const getCategorySubcategories = (category : string) => {
+  switch (category) {
+    case '5d diy kits':
+      return ["LANDSCAPES", "NATURE", "RELIGIOUS", "KIDS & CARTOONS", "TISSUE BOX", "CUP COASTER", "KEY CHAINS", "DOUBLE MIRROR", "PENCIL CASE"];
+    case 'materials':
+      return ["SEALER BRIHTNER", "OTHERS", "BOXES & STORAGES", "LED LIGHT PAD", "CORRECTION & FENEL", "CLIPS & MON-STICK PAPPER", "LABEL NUMBER STICKERS", "PLATE & ROLLER", "PENS"];
+    default:
+      return [];
+  }
+};
+const YourComponent = () => {
+  const router = useRouter();
+  const [open, setOpen] = useState(false);
+
+
+
+
+  return (
+    <div>
+      {mainCategories.map((category) => (
+        <Accordion key={category} sx={{ border: 'none', boxShadow: 'none' }}>
+          <AccordionSummary
+            expandIcon={<AiOutlineArrowUp />}
+            aria-controls={`panel-${category.toLowerCase()}-content`}
+            id={`panel-${category.toLowerCase()}-header`}
+          >
+            <Typography component='h1' sx={{ fontWeight: 600 }}>
+              {category}
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
             <List disablePadding>
-              {AllCats.map((mainCategory) => (
-                <Accordion
-                  key={mainCategory.categoryName}
-                  sx={{ border: 'none', boxShadow: 'none' }}
+              <ListItem
+                sx={{ padding: 0, width: '100%' }}
+                onClick={() => {
+                  setOpen(false);
+                  router.push(`/${category.toLowerCase()}/products`);
+                }}
+              >
+                <ListItemButton>
+                  <Typography sx={{ fontWeight: 300 }}>View All</Typography>
+                </ListItemButton>
+              </ListItem>
+
+              {getCategorySubcategories(category).map((subCategory) => (
+                <ListItem
+                  sx={{ padding: 0, width: '100%' }}
+                  key={subCategory}
+                  onClick={() => {
+                    setOpen(false);
+                    router.push(`/${category.toLowerCase()}/products?type=${encodeURIComponent(subCategory).toLowerCase()}`);
+                  }}
                 >
-                  <AccordionSummary
-                    expandIcon={<AiOutlineArrowUp />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                    // onClick={() => setSelectedCategory(mainCategory.categoryName)}
-                  >
-                    <Typography sx={{ fontWeight: 600, textTransform: 'capitalize' }}>
-                      {mainCategory.categoryName}
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    {mainCategory.categoryItems.map((subcategory) => (
-                      <Accordion
-                        key={subcategory.Category}
-                        sx={{ border: 'none', boxShadow: 'none' }}
-                      >
-                        <AccordionSummary
-                          expandIcon={<AiOutlineArrowUp />}
-                          aria-controls="panel1a-content"
-                          id="panel1a-header"
-                        >
-                          <Typography sx={{ fontWeight: 600 }}>
-                            {subcategory.Category}
-                          </Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                          {
-                            <List>
-                                       <ListItemButton
-                                  onClick={() =>handleRoute(subcategory.Category,mainCategory.categoryName)}
-                                >
-                                  <Typography>All {subcategory.Category}</Typography>
-                                </ListItemButton>
-                              {subcategory.Subcategories.map((type) => (
-                                <ListItemButton
-                                  key={type}
-                                  onClick={() => 
-                                    handleRoute(subcategory.Category,mainCategory.categoryName,type)
-                                }
-                                >
-                                  <Typography>{type}</Typography>
-                                </ListItemButton>
-                              ))}
-                            </List>
-                          }
-                        </AccordionDetails>
-                      </Accordion>
-                    ))}
-                  </AccordionDetails>
-                </Accordion>
+                  <ListItemButton>
+                    <Typography sx={{ fontWeight: 300 }}>{subCategory}</Typography>
+                  </ListItemButton>
+                </ListItem>
               ))}
             </List>
-          </Box>
-        );
-      }
-      
-      export default NestedMenuAccordion;
+          </AccordionDetails>
+        </Accordion>
+      ))}
+    </div>
+  );
+};
+
+export default YourComponent;
