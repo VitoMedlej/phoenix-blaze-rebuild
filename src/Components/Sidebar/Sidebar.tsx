@@ -209,7 +209,7 @@ router.push(`/5D DIY KITS/products`)}}
 
 onClick={()=>
 {setOpen(false);
-router.push(`/flavored honey/products?type=${encodeURIComponent(i).toLocaleLowerCase()}`)}}
+router.push(`/5D DIY KITS/products?type=${encodeURIComponent(i).toLocaleLowerCase()}`)}}
 
 key={i}>
 
@@ -253,7 +253,7 @@ key={i}>
 
 onClick={()=>
 {setOpen(false);
-router.push(`/MATERIALS/products`)}}
+router.push(`/Materials/products`)}}
 
 >
 
