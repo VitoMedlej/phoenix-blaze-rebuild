@@ -4,6 +4,8 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import {AiOutlineDown} from 'react-icons/ai'
 import NestedMenuAccordion from '../Sidebar/NestedAccordion';
+
+
 const HoverMenu = ({ category, subcategories ,img } : {img:string,category: string, subcategories: string[]}) => {
   const [showMenu, setShowMenu] = useState(false);
 
@@ -21,23 +23,23 @@ const HoverMenu = ({ category, subcategories ,img } : {img:string,category: stri
   };
 
   return (
-    <Box sx={{
+    <Box className='' sx={{
       margin:'0 1em ',
       zIndex:12345678,
-
+ 
       background:'transparent',
         }}>
     
-      <Typography 
-      className=' cursor center flex gap1 black decor-none uppercase'
+    <Typography 
+       onMouseEnter={handleMouseEnter}
+       onMouseLeave={handleMouseLeave}
+        component='h1'
+        className=' cursor center flex gap1 black decor-none captialize'
         id="button"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        component='p' sx={{width:'max-content',
+        sx={{width:'max-content',
+        mx:'1em',
         alignItems: 'center',
-        zIndex:12345678,
-        
-        fontWeight:600,fontSize:{xs:'.6em',sm:'.75em'}}}>
+        fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
      {category} 
     <AiOutlineDown/> 
    </Typography>
@@ -59,7 +61,7 @@ const HoverMenu = ({ category, subcategories ,img } : {img:string,category: stri
           }}
           onMouseLeave={handleMouseLeave}
         >
-          {/* <ul style={{paddingTop:7,width:'30%'}}>
+          <ul style={{paddingTop:7,width:'30%'}}>
           <Link className=' decor-none uppercase' key={category} href={`/${category.replace(/ /g, '-').toLocaleLowerCase()}/products`}>
 
             <li>
@@ -78,12 +80,12 @@ const HoverMenu = ({ category, subcategories ,img } : {img:string,category: stri
  </Link>
                 </li>
             ))}
-          </ul> */}
-        <NestedMenuAccordion/>
+          </ul>
+        {/* <NestedMenuAccordion/> */}
 
-          <Box  sx={{pointerEvents:'none',cursor:'none', width:'70%',height:'100%',minHeight:'350px'}}>
+          {/* <Box  sx={{pointerEvents:'none',cursor:'none', width:'70%',height:'100%',minHeight:'350px'}}>
             <img src={`${img}`} alt="Category Image" className="img " />
-          </Box>
+          </Box> */}
         </Box>
       )}
     </Box>

@@ -2,6 +2,7 @@
 import { Box, Container, Typography } from '@mui/material'
 import Link from 'next/link'
 import React from 'react'
+import MenuHover from './MenuHover'
 // import MenuHover from './MenuHover'
 
 
@@ -74,6 +75,7 @@ fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
 FEEDBACK
 </Typography>
 </Link>
+
                
                 <Link className='black decor-none ' href={`/collection/products`}>
 
@@ -89,14 +91,34 @@ COLLECTION
 </Typography>
 </Link>
        
-
+<MenuHover img='' category={'5D DIY Kits'} subcategories={[  "SEALER BRIHTNER",
+ "LANDSCAPES",
+ "NATURE",
+ "RELIGIOUS",
+ "KIDS & CARTOONS",
+ "TISSUE BOX",
+ "CUP COASTER",
+ "KEY CHAINS",
+ "DOUBLE MIRROR",
+ "PENCIL CASE"
+]}/>
+        <MenuHover img='' category={'MATERIELS'} subcategories={[  "SEALER BRIHTNER",
+  "OTHERS",
+  "BOXES & STORAGES",
+  "LED LIGHT PAD",
+  "CORRECTION & FENEL",
+  "CLIPS & MON-STICK PAPPER",
+  "LABEL NUMBER STICKERS",
+  "PLATE & ROLLER",
+  "PENS"
+]}/>
 
  
 {
     [   
         // `Craft Supplies`,
-    `5D DIY Kits`,
-    'MATERIELS',
+    // `5D DIY Kits`,
+    // 'MATERIELS',
     `CUSTOMIZED`,
    
     ].map(i=>{
@@ -202,7 +224,9 @@ New Arrivals
 
 
         </Container>
-        {/* <MenuHover category='HOVER HERE' subcategories={['test','test2']}/> */}
+
+        
+   
     </Box>
   )
 }
