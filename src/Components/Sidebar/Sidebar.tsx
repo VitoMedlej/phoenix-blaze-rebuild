@@ -278,7 +278,7 @@ router.push(`/Materials/products`)}}
 
 onClick={()=>
 {setOpen(false);
-router.push(`/flavored honey/products?type=${encodeURIComponent(i).toLocaleLowerCase()}`)}}
+router.push(`/Materials/products?type=${encodeURIComponent(i).toLocaleLowerCase()}`)}}
 
 key={i}>
 

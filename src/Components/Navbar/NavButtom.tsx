@@ -59,7 +59,7 @@ alignItems: 'center',
 
 fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
 Almost Done
-</Typography>
+</Typography> 
 </Link>
 
 <Link className='black decor-none ' href={`/#FEEDBACK`}>
@@ -91,7 +91,7 @@ COLLECTION
 </Typography>
 </Link>
        
-<MenuHover img='' category={'5D DIY Kits'} subcategories={[  "SEALER BRIHTNER",
+<MenuHover img='' category={'5D DIY Kits'} subcategories={[  
  "LANDSCAPES",
  "NATURE",
  "RELIGIOUS",
