@@ -9,7 +9,10 @@ export const mainCategories = ["5d diy kits", "materials"];
 export const getCategorySubcategories = (category : string) => {
   switch (category) {
     case '5d diy kits':
-      return ["LANDSCAPES", "NATURE", "RELIGIOUS", "KIDS & CARTOONS", "TISSUE BOX", "CUP COASTER", "KEY CHAINS", "DOUBLE MIRROR", "PENCIL CASE"];
+      return ["LANDSCAPES",
+ 'PORTRAIT',
+      
+      "NATURE", "RELIGIOUS", "KIDS & CARTOONS", "TISSUE BOX", "CUP COASTER", "KEY CHAINS", "DOUBLE MIRROR", "PENCIL CASE"];
     case 'materials':
       return ["SEALER BRIHTNER", "OTHERS", "BOXES & STORAGES", "LED LIGHT PAD", "CORRECTION & FENEL", "CLIPS & MON-STICK PAPPER", "LABEL NUMBER STICKERS", "PLATE & ROLLER", "PENS"];
     default:

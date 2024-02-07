@@ -197,6 +197,8 @@ router.push(`/5D DIY KITS/products`)}}
 
 {[
   "LANDSCAPES",
+ 'PORTRAIT',
+
   "NATURE",
   "RELIGIOUS",
   "KIDS & CARTOONS",

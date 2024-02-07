@@ -93,6 +93,7 @@ COLLECTION
        
 <MenuHover img='' category={'5D DIY Kits'} subcategories={[  
  "LANDSCAPES",
+ 'PORTRAIT',
  "NATURE",
  "RELIGIOUS",
  "KIDS & CARTOONS",
