@@ -58,7 +58,7 @@ mx:'1em',
 alignItems: 'center',
 
 fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
-ALMOST DONE
+Almost Done
 </Typography>
 </Link>
 

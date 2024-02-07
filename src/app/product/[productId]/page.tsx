@@ -105,8 +105,9 @@ const Index = () => {
          </Box>
    
       
+      
          
-            {data?.product?.inStock !== false ? <Box className='flex wrap ' sx={{my:2,position:'relative'}}>
+            { data?.product?.category?.toLocaleLowerCase() !== 'almost done'  &&  data?.product?.inStock !== false ? <Box className='flex wrap ' sx={{my:2,position:'relative'}}>
               <Box sx={{width:{xs:'max-content'}}}>
 
              <QuantityPicker 
@@ -118,7 +119,7 @@ const Index = () => {
               selectedSize={selectedSize}
               setselectedSize={setselectedSize}
               sizes={data?.product?.sizes || [{price:Number(data?.product?.price),size:parseFloat(data?.product?.size)}]}/> */}
-             <Btn 
+         <Btn 
                      onClick={()=>addToCart(selectedQuantity,`${data?.product?._id}`,{title : data.product.title ,category: data.product.category,img:data.product.images[0], _id : data.product._id,price:selectedSize?.price ? selectedSize?.price : data?.product?.price, productselectedSize:selectedSize?.size},true,true)}
              
               sx={{gap:.5,
@@ -126,10 +127,10 @@ const Index = () => {
              width:{xs:'95%',sm:'95%'}}}>
                  <Typography component='h1'>
                  ADD TO CART
-
                  </Typography>
                  <AiOutlineShoppingCart  fontSize={'medium'}/>
              </Btn>
+             
             
 
              <a 

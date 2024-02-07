@@ -36,7 +36,7 @@ const Preloader3 = ({res}:{res:any}) => {
         setImgs(res?.MainCarousel)
     }
     }, [])
-  const {text} = useLanguage()
+//   const {text} = useLanguage()
     
     return (
         <Box

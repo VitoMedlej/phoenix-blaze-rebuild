@@ -121,7 +121,7 @@ const ProductCard = ({
                 }}>
                     {price}$
                 </Typography> */}
-                <Btn 
+               {category?.toLocaleLowerCase() !== 'almost done' && <Btn 
             className='cursor bg black  gap1'
                 
                      onClick={()=>
@@ -143,7 +143,7 @@ const ProductCard = ({
                     {sizes && sizes?.length > 0 ? 'Select Size' :  'ADD'}
                     <BiCartAdd color='black' fontSize='20px'/>
                     </Box>
-                </Btn>
+                </Btn>}
                 
                </>
 
