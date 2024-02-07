@@ -104,12 +104,12 @@ const ProductCard = ({
         fontSize: { xs: '.99em', sm: '1em' },
     }}
 >
-    {newPrice ? (
+    {category?.toLocaleLowerCase() !== 'almost done' && newPrice ? (
         <>
             <s>{price}$</s> {newPrice}$
         </>
     ) : (
-        `${price}$`
+        category?.toLocaleLowerCase() !== 'almost done' ? `${price}$` : category
     )}
 </Typography>
                {/* <Typography

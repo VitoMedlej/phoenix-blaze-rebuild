@@ -153,7 +153,7 @@ useEffect(()=>{
                 <ListItemButton>
                 
                       <Typography component='h1' sx={{fontWeight:600}}>
-                     {i.toUpperCase()}
+                     {i}
                 </Typography>
                 </ListItemButton>
       

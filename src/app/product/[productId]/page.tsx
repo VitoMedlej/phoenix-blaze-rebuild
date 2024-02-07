@@ -72,9 +72,9 @@ const Index = () => {
   return (
      
     
-      <Box sx={{mt:4}}>
+      <Box sx={{mt:{xs:2,md:4}}}>
  
-{!loading && data?.product !== undefined && data?.product?.title ?  <Grid sx={{maxWidth:'lg',mx:1,pt:{sm:15,md:15,lg:9}}} className='auto' container>
+{!loading && data?.product !== undefined && data?.product?.title ?  <Grid sx={{maxWidth:'lg',mx:1,pt:{sm:8,md:8,lg:6}}} className='auto' container>
        <Grid  item xs={12}  md={7} >
          <ProductImageCarousel images={data?.product?.images}/>
    
@@ -83,23 +83,26 @@ const Index = () => {
         // border:'1px solid #00000029',
         px:{xs:1,sm:1.5}}} item xs={12}  md={5}>
          <Box sx={{pt:{xs:3,sm:0}}}>
-             <Typography component={'h1'} sx={{fontWeight:400,pt:1,fontSize:{xs:'2em',sm:'2.25sem',md:'3em'}}}>
+             <Typography component={'h1'} sx={{fontWeight:400,pt:1,fontSize:{xs:'2em',sm:'2.25em',md:'3em'}}}>
               {data?.product?.title || 'Loading Product Details'}
              </Typography>
-           { data?.product?.inStock !== false ? <Typography className='green' component={'h1'} sx={{fontSize:'1.25em',fontWeight:300}}>
+             <Typography component={'p'} sx={{fontWeight:400,pt:1,fontSize:{xs:'1em',sm:'1.25em',md:'1.2em'}}}>
+              {data?.product?.category || 'Collection'}
+             </Typography>
+           {  data?.product?.inStock !== false ? (data?.product?.category?.toLocaleLowerCase() !== 'almost done' && <Typography className='green' component={'h1'} sx={{fontSize:'1.25em',fontWeight:300}}>
                In Stock
-             </Typography>
+             </Typography>)
             : 
-            <Typography className='red' component={'h1'} sx={{color:'red',fontSize:'1.25em',fontWeight:300}}>
+            data?.product?.category?.toLocaleLowerCase() !== 'almost done' ? <Typography className='red' component={'h1'} sx={{color:'red',fontSize:'1.25em',fontWeight:300}}>
                Out of stock
-             </Typography>
+             </Typography> :''
             }
-          {data?.product?.inStock !== false &&   <Typography 
+          {data?.product?.inStock !== false &&  (data?.product?.category?.toLocaleLowerCase() !== 'almost done' && <Typography 
                  component={'h1'} sx={{my:.25,fontWeight:500,color:'green',fontSize:{xs:'1em',sm:'1.55em'}}}>
                  ${
                  selectedSize?.price ||
                  data?.product?.price || 0}
-             </Typography>}
+             </Typography>)}
              
             
          </Box>
@@ -152,9 +155,7 @@ const Index = () => {
 
              </Box>
             :
-            <Typography component={'h1'} sx={{color:'red',fontWeight:400,pt:1,fontSize:{xs:'1.5em',sm:'2.25sem'}}}>
-            Out of Stock
-           </Typography>
+        ''
             }
          <Divider></Divider>
 

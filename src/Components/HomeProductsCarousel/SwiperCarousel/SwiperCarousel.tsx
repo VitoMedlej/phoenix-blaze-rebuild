@@ -59,8 +59,8 @@ const SwiperCarousel = ({data, delay} : {
         }}
         
         >
-
-                {data && data.length > 0 && data.map((item : any) => {
+{data && data.length > 0 && data.slice().reverse().map((item : any) => {
+                {/* {data && data.length > 0 && data.map((item : any) => { */}
                     if (!item._id) 
                         return
                     return <SwiperSlide
