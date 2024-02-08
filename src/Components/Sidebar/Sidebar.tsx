@@ -91,78 +91,7 @@ useEffect(()=>{
 
           </ListItem>
 
-      <ListItem
-          sx={{fontWeight:400}}
-
-          onClick={()=>{router.push(`/almost-done`); toggleDrawer(false)}}
-           disablePadding>
-            <ListItemButton>
-            
-                  <Typography component='h1' sx={{fontWeight:600}}>
-              Almost Done
-            </Typography>
-            </ListItemButton>
-  
-
-          </ListItem>
-          <ListItem
-          sx={{fontWeight:400}}
-
-          onClick={()=>{router.push(`/#FEEDBACK`); toggleDrawer(false)}}
-           disablePadding>
-            <ListItemButton>
-            
-                  <Typography component='h1' sx={{fontWeight:600}}>
-              Feedback
-            </Typography>
-            </ListItemButton>
-  
-
-          </ListItem>
-      <ListItem
-          sx={{fontWeight:400}}
-
-          onClick={()=>{router.push(`/collection/products`); toggleDrawer(false)}}
-           disablePadding>
-            <ListItemButton>
-            
-                  <Typography component='h1' sx={{fontWeight:600}}>
-              All products
-            </Typography>
-            </ListItemButton>
-  
-
-          </ListItem>
-          
-       
-    
-          {
-       [   
-        // `Craft Supplies`,
-      //  `DIY Kits`,
-      //  'MATERIELS',
-       `Customized`,
-      
-       ].map(i=>{
-              return    <ListItem
-              key={i}
-              sx={{fontWeight:400}}
-    
-              onClick={()=>{router.push(`/${i.toLocaleLowerCase()}/products`); toggleDrawer(false)}}
-               disablePadding>
-                <ListItemButton>
-                
-                      <Typography component='h1' sx={{fontWeight:600}}>
-                     {i}
-                </Typography>
-                </ListItemButton>
-      
-    
-              </ListItem>
-             })
-          }
-
-<Accordion sx={{border:'none',boxShadow:'none',}}>
+          <Accordion sx={{border:'none',boxShadow:'none',}}>
             
             <AccordionSummary
     expandIcon={<AiOutlineArrowUp />}
@@ -230,8 +159,6 @@ key={i}>
   </AccordionDetails>
 </Accordion>
 
-
-
 <Accordion sx={{border:'none',boxShadow:'none',}}>
             
             <AccordionSummary
@@ -298,6 +225,89 @@ key={i}>
 
   </AccordionDetails>
 </Accordion>
+
+{
+       [   
+        // `Craft Supplies`,
+      //  `DIY Kits`,
+      //  'MATERIELS',
+       `Customized`,
+      
+       ].map(i=>{
+              return    <ListItem
+              key={i}
+              sx={{fontWeight:400}}
+    
+              onClick={()=>{router.push(`/${i.toLocaleLowerCase()}/products`); toggleDrawer(false)}}
+               disablePadding>
+                <ListItemButton>
+                
+                      <Typography component='h1' sx={{fontWeight:600}}>
+                     {i}
+                </Typography>
+                </ListItemButton>
+      
+    
+              </ListItem>
+             })
+          }
+
+      <ListItem
+          sx={{fontWeight:400}}
+
+          onClick={()=>{router.push(`/almost-done`); toggleDrawer(false)}}
+           disablePadding>
+            <ListItemButton>
+            
+                  <Typography component='h1' sx={{fontWeight:600}}>
+              Almost Done
+            </Typography>
+            </ListItemButton>
+  
+
+          </ListItem>
+
+          <ListItem
+          sx={{fontWeight:400}}
+
+          onClick={()=>{router.push(`/collection/products`); toggleDrawer(false)}}
+           disablePadding>
+            <ListItemButton>
+            
+                  <Typography component='h1' sx={{fontWeight:600}}>
+              All products
+            </Typography>
+            </ListItemButton>
+  
+
+          </ListItem>
+
+
+          <ListItem
+          sx={{fontWeight:400}}
+
+          onClick={()=>{router.push(`/#FEEDBACK`); toggleDrawer(false)}}
+           disablePadding>
+            <ListItemButton>
+            
+                  <Typography component='h1' sx={{fontWeight:600}}>
+              Feedback
+            </Typography>
+            </ListItemButton>
+  
+
+          </ListItem>
+    
+          
+       
+    
+       
+
+
+
+
+
+
 
 
                   {/* <Accordion sx={{border:'none',boxShadow:'none',}}>
