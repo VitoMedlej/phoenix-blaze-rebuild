@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box,  Container, Grid, Typography } from "@mui/material"
 // import ContactSection from './ContactSection/ContactSection'
 import HomeProductCollection from './HomeProductCollection/HomeProductCollection'
@@ -18,45 +18,46 @@ const
 PreLoader = ({data,resImages}:any) => {
   const router= useRouter();
   const {text} = useLanguage()
-  const textsArray = [
-    {
-      id: 1,
-      title: text('100% Natural', '100٪ طبيعي'),
-      desc: text(
-        'Our honey is sourced from the purest natural environments, ensuring 100% natural goodness without any artificial additives or preservatives.',
-        'عسلنا يأتي من أجواء طبيعية نقية، مما يضمن لك الخير الطبيعي بنسبة 100٪ دون أي إضافات صناعية أو مواد حافظة.'
-      ),
-    },
-    {
-      id: 2,
-      title: text('Purity and Potency', 'النقاء والفعالية'),
-      desc: text(
-        'We carefully select our beehives in pristine locations, ensuring the purity and potency of our honey, so you experience the best benefits.',
-        'نحن نختار خلايانا بعناية في أماكن نقية، مما يضمن نقاء وفعالية عسلنا، لتجربة فوائد متميزة.'
-      ),
-    },
-    {
-      id: 3,
-      title: text('Expertly Formulated', 'صياغة خبيرة'),
-      desc: text(
-        'Our honey is expertly crafted by our team of experienced beekeepers, ensuring a premium product that delivers superior taste and quality.',
-        'تم تصنيع عسلنا بخبرة من قبل فريق من مربي النحل ذوي الخبرة، مما يضمن لك منتجًا ممتازًا يقدم طعمًا وجودة فائقين.'
-      ),
-    },
-    {
-      id: 4,
-      title: text('Great Value', 'قيمة عظيمة'),
-      desc: text(
-        'DIY CRAFTS honey provides great value for your health, offering the highest quality honey at an affordable price for you and your family.',
-        'عسل بي أورجانيك يقدم قيمة عظيمة لصحتك، حيث يوفر عسل عالي الجودة بسعر معقول لك ولعائلتك.'
-      ),
-    },
-  ];
+  // const textsArray = [
+  //   {
+  //     id: 1,
+  //     title: text('100% Natural', '100٪ طبيعي'),
+  //     desc: text(
+  //       'Our honey is sourced from the purest natural environments, ensuring 100% natural goodness without any artificial additives or preservatives.',
+  //       'عسلنا يأتي من أجواء طبيعية نقية، مما يضمن لك الخير الطبيعي بنسبة 100٪ دون أي إضافات صناعية أو مواد حافظة.'
+  //     ),
+  //   },
+  //   {
+  //     id: 2,
+  //     title: text('Purity and Potency', 'النقاء والفعالية'),
+  //     desc: text(
+  //       'We carefully select our beehives in pristine locations, ensuring the purity and potency of our honey, so you experience the best benefits.',
+  //       'نحن نختار خلايانا بعناية في أماكن نقية، مما يضمن نقاء وفعالية عسلنا، لتجربة فوائد متميزة.'
+  //     ),
+  //   },
+  //   {
+  //     id: 3,
+  //     title: text('Expertly Formulated', 'صياغة خبيرة'),
+  //     desc: text(
+  //       'Our honey is expertly crafted by our team of experienced beekeepers, ensuring a premium product that delivers superior taste and quality.',
+  //       'تم تصنيع عسلنا بخبرة من قبل فريق من مربي النحل ذوي الخبرة، مما يضمن لك منتجًا ممتازًا يقدم طعمًا وجودة فائقين.'
+  //     ),
+  //   },
+  //   {
+  //     id: 4,
+  //     title: text('Great Value', 'قيمة عظيمة'),
+  //     desc: text(
+  //       'DIY CRAFTS honey provides great value for your health, offering the highest quality honey at an affordable price for you and your family.',
+  //       'عسل بي أورجانيك يقدم قيمة عظيمة لصحتك، حيث يوفر عسل عالي الجودة بسعر معقول لك ولعائلتك.'
+  //     ),
+  //   },
+  // ];
+  
   
 
   return (
     <Box >
-      <MainCarousel resImages={resImages}/>
+      <MainCarousel imgs={resImages}/>
       {/* <HomeProductCollection  products={data}/> */}
  
         <HomeProductsCarousel data={data} Collectiontitle={''} delay={2000}/>
@@ -101,7 +102,7 @@ Explore our curated collection of diamond painting kits designed to inspire and 
         </Grid>
         <Grid item xs={12} md={7}>
           <Box className='auto' sx={{width:'95%',height:'100%'}}>
-            <img style={{borderRadius:'4px'}} src="https://www.diamondartclub.com/cdn/shop/products/panda-valley-diamond-art-painting-28849132699841.jpg?v=1618161449&width=4058" alt="" className="img" />
+            <img style={{borderRadius:'4px'}} src={ resImages &&  resImages?.categoryImage &&  resImages?.categoryImage[0]?.img || "https://www.diamondartclub.com/cdn/shop/products/panda-valley-diamond-art-painting-28849132699841.jpg?v=1618161449&width=4058"} alt="" className="img" />
           </Box>
         </Grid>
       </Grid>
@@ -109,7 +110,7 @@ Explore our curated collection of diamond painting kits designed to inspire and 
       <Grid container sx={{my:{xs:6,sm:12},maxWidth:'lg',mx:'auto'}}>
       <Grid item xs={12} md={7}>
           <Box className='auto' sx={{width:'95%',height:'100%'}}>
-            <img style={{borderRadius:'4px'}} src="https://files.ekmcdn.com/d43ebb/images/diamond-dotz-diamond-painting-kit-kitty-basket-1-249415-p.webp" alt="" className="img" />
+            <img style={{borderRadius:'4px'}} src={resImages &&  resImages?.categoryImage && resImages?.categoryImage[1]?.img || "https://files.ekmcdn.com/d43ebb/images/diamond-dotz-diamond-painting-kit-kitty-basket-1-249415-p.webp"} alt="" className="img" />
           </Box>
         </Grid>
         

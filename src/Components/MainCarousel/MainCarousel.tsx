@@ -2,7 +2,8 @@
 
 import Preloader3 from '../Preloader3';
 
-const MainCarousel = ({resImages}: any) => {
+const MainCarousel = ({imgs}: any) => {
+  console.log('imgs: ', imgs);
 
 
 
@@ -13,13 +14,13 @@ const MainCarousel = ({resImages}: any) => {
         // let res : any = await  req.json() ;
         // let res = {data:null}
         return (
-          <Preloader3 res={resImages}/>
+          <Preloader3 res={imgs}/>
          )
   }
   catch (e) {
     console.log('e home: ', e);
     return (
-      <Preloader3 res={resImages || null}/>
+      <Preloader3 res={imgs || null}/>
      )
   
   }

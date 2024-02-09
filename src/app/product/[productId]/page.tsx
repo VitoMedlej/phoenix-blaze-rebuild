@@ -89,15 +89,15 @@ const Index = () => {
              <Typography component={'p'} sx={{fontWeight:400,pt:1,fontSize:{xs:'1em',sm:'1.25em',md:'1.2em'}}}>
               {data?.product?.category || 'Collection'}
              </Typography>
-           {  data?.product?.inStock !== false ? (data?.product?.category?.toLocaleLowerCase() !== 'almost done' && <Typography className='green' component={'h1'} sx={{fontSize:'1.25em',fontWeight:300}}>
+           {  data?.product?.price > 0 && data?.product?.inStock !== false ? (data?.product?.category?.toLocaleLowerCase() !== 'almost done' && <Typography className='green' component={'h1'} sx={{fontSize:'1.25em',fontWeight:300}}>
                In Stock
              </Typography>)
             : 
-            data?.product?.category?.toLocaleLowerCase() !== 'almost done' ? <Typography className='red' component={'h1'} sx={{color:'red',fontSize:'1.25em',fontWeight:300}}>
+            data?.product?.price > 0 && data?.product?.category?.toLocaleLowerCase() !== 'almost done' ? <Typography className='red' component={'h1'} sx={{color:'red',fontSize:'1.25em',fontWeight:300}}>
                Out of stock
              </Typography> :''
             }
-          {data?.product?.inStock !== false &&  (data?.product?.category?.toLocaleLowerCase() !== 'almost done' && <Typography 
+          {data?.product?.price > 0 && data?.product?.inStock !== false &&  (data?.product?.category?.toLocaleLowerCase() !== 'almost done' && <Typography 
                  component={'h1'} sx={{my:.25,fontWeight:500,color:'green',fontSize:{xs:'1em',sm:'1.55em'}}}>
                  ${
                  selectedSize?.price ||
