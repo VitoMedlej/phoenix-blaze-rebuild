@@ -45,10 +45,60 @@ mx:'1em',
 alignItems: 'center',
 
 fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
-LEARN MORE
+Learn More
 </Typography>
 </Link>
-<Link className='black decor-none ' href={`/almost-done`}>
+
+<MenuHover img='' category={'5D Diy Kits'} subcategories={[  
+ "LANDSCAPES",
+ 'PORTRAIT',
+ "NATURE",
+ "RELIGIOUS",
+ "KIDS & CARTOONS",
+ "TISSUE BOX",
+ "CUP COASTER",
+ "KEY CHAINS",
+ "DOUBLE MIRROR",
+ "PENCIL CASE"
+]}/>
+
+<MenuHover img='' category={'Materials'} subcategories={[  "SEALER BRIHTNER",
+  "OTHERS",
+  "BOXES & STORAGES",
+  "LED LIGHT PAD",
+  "CORRECTION & FENEL",
+  "CLIPS & MON-STICK PAPPER",
+  "LABEL NUMBER STICKERS",
+  "PLATE & ROLLER",
+  "PENS"
+]}/>
+
+
+{
+    [   
+        // `Craft Supplies`,
+    // `5D DIY Kits`,
+    // 'MATERIELS',
+    `Customized`,
+   
+    ].map(i=>{
+        return <Link key={i} className='black decor-none ' href={`/${i.toLocaleLowerCase()}/products`}>
+
+        <Typography 
+        component='h1'
+        className=' cursor center flex gap1 black decor-none captialize'
+        id="button"
+        sx={{width:'max-content',
+        mx:'1em',
+        alignItems: 'center',
+        fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
+        {i}
+        </Typography>
+        </Link>
+    })
+}
+
+<Link className='black decor-none ' href={`/almost done/products`}>
 
 <Typography 
 className=' cursor center flex gap1 black decor-none captialize'
@@ -62,6 +112,23 @@ Almost Done
 </Typography> 
 </Link>
 
+<Link className='black decor-none ' href={`/collection/products`}>
+
+<Typography 
+className=' cursor center flex gap1 black decor-none captialize'
+id="button"
+component='h1' sx={{width:'max-content',
+mx:'1em',
+alignItems: 'center',
+
+fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
+Collection
+</Typography>
+</Link>
+
+
+
+
 <Link className='black decor-none ' href={`/#FEEDBACK`}>
 
 <Typography 
@@ -72,72 +139,18 @@ mx:'1em',
 alignItems: 'center',
 
 fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
-FEEDBACK
+Feedbacks
 </Typography>
 </Link>
 
                
-                <Link className='black decor-none ' href={`/collection/products`}>
-
-<Typography 
-className=' cursor center flex gap1 black decor-none captialize'
-id="button"
-component='h1' sx={{width:'max-content',
-mx:'1em',
-alignItems: 'center',
-
-fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
-COLLECTION
-</Typography>
-</Link>
+               
        
-<MenuHover img='' category={'5D DIY Kits'} subcategories={[  
- "LANDSCAPES",
- 'PORTRAIT',
- "NATURE",
- "RELIGIOUS",
- "KIDS & CARTOONS",
- "TISSUE BOX",
- "CUP COASTER",
- "KEY CHAINS",
- "DOUBLE MIRROR",
- "PENCIL CASE"
-]}/>
-        <MenuHover img='' category={'MATERIELS'} subcategories={[  "SEALER BRIHTNER",
-  "OTHERS",
-  "BOXES & STORAGES",
-  "LED LIGHT PAD",
-  "CORRECTION & FENEL",
-  "CLIPS & MON-STICK PAPPER",
-  "LABEL NUMBER STICKERS",
-  "PLATE & ROLLER",
-  "PENS"
-]}/>
+
+
 
  
-{
-    [   
-        // `Craft Supplies`,
-    // `5D DIY Kits`,
-    // 'MATERIELS',
-    `CUSTOMIZED`,
-   
-    ].map(i=>{
-        return <Link key={i} className='black decor-none ' href={`/${i.toLocaleLowerCase()}/products`}>
 
-        <Typography 
-        component='h1'
-        className=' cursor center flex gap1 black decor-none captialize'
-        id="button"
-        sx={{width:'max-content',
-        mx:'1em',
-        alignItems: 'center',
-        fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
-        {i.toUpperCase()}
-        </Typography>
-        </Link>
-    })
-}
 
 {/* <Link className='black decor-none ' href={`/organic herbs/products`}>
 

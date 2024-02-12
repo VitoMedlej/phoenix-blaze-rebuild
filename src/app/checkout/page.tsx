@@ -60,7 +60,7 @@ export default function Checkout() {
 
     const handleNext = () => {
       if (info?.checkbox2 && info?.checkbox && info && info.email && info.firstName && info.lastName && info.address1 && info.phone) {
-        localStorage.setItem('25VNSFKJNJKNX14hhJ52cknv',JSON.stringify({...info, name : `${info.firstName} ${info.lastName}`}))
+        localStorage.setItem('2VI1H2OI-FJ04BJZ2X',JSON.stringify({...info, name : `${info.firstName} ${info.lastName}`}))
         saveState('2VI1H2OI-FJ04BJZ2X',info)
         setActiveStep(activeStep + 1);
       
@@ -75,7 +75,7 @@ export default function Checkout() {
 
 
     const saveOrder = async () => {
-      const products = loadState('2VI1H2OI-FJ04BJZ2X')
+      const products = loadState('l12oxio951209XJkgop15v')
  
 
       const total = 10
