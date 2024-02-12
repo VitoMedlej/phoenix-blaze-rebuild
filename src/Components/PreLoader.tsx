@@ -16,7 +16,7 @@ import HomeProductsCarousel from './HomeProductsCarousel/HomeProductsCarousel'
 
 const 
 PreLoader = ({data,resImages,vids}:any) => {
-  let videosArray = vids[0]?.videos?.videos || null
+  let videosArray = vids && vids[0]?.videos?.videos || null
   const router= useRouter();
   const {text} = useLanguage()
   // const textsArray = [

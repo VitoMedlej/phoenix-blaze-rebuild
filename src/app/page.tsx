@@ -80,18 +80,7 @@ const fetchDataAndSetImgs = async () => {
   // setImgs(data?.record); // Assuming 'record' is the property containing the images in the response
 return data?.record
 }
-const fetchDataAndSetVideos = async () => {
-  try {
-    const req= await fetch(`${process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'}/api/get-videos`,{next:{revalidate:1000}})
 
-    const data = await req.json();
-    console.log('data: ', data);
-   return data || null
-  } catch (error) {
-    console.error('fetchDataAndSetVideos error: ', error);
-    return null
-  }
-};
 // useEffect(() => {
 //   fetchDataAndSetImgs()
 // }, [])
