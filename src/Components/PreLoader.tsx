@@ -15,7 +15,8 @@ import ContactSection from './ContactSection/ContactSection'
 import HomeProductsCarousel from './HomeProductsCarousel/HomeProductsCarousel'
 
 const 
-PreLoader = ({data,resImages}:any) => {
+PreLoader = ({data,resImages,vids}:any) => {
+  let videosArray = vids[0]?.videos?.videos || null
   const router= useRouter();
   const {text} = useLanguage()
   // const textsArray = [
@@ -156,7 +157,7 @@ Elevate your crafting game with DIY Crafts Diamond Painting. Join the trend swee
 
       <Perks/>
 
-      <Box className='bg'>
+      {/* <Box className='bg'>
             <Container sx={{py:8}} className='flex row wrap justify-around space-around'>
               {[{
                 img:'https://www.diamonddotz.com/image/banners/greeting-cards.jpg',
@@ -192,10 +193,69 @@ Elevate your crafting game with DIY Crafts Diamond Painting. Join the trend swee
                 </Box>
             })}
             </Container>
-      </Box>
+      </Box> */}
       {/* <HomeProductCollection  products={data}/> */}
 
 
+      <Container>
+      <Box className='flex col center text-center' sx={{my:6}}>
+      <Typography
+component={'h1'}
+    className='sectionTitle   text-center box'
+    sx={{
+ 
+    fontSize: {
+        xs: '2em',
+        sm: '3em'
+    },
+    padding:.5,
+    fontWeight: '900'
+}}>
+ DIY Diamond Painting Videos
+</Typography>
+<Typography
+component={'p'}
+    className='sectionTitle   text-center box'
+    sx={{
+ 
+    fontSize: {
+        xs: '.8em',
+        sm: '1em'
+    },
+    padding:.5,
+    fontWeight: '300'
+}}>
+Collection of our latest video reels from our social media!
+</Typography>
+      </Box>
+      <Box sx={{gap:'.5em'}} className='flex wrap row center   auto'>
+
+        {    
+
+            //  [
+            //   `https://res.cloudinary.com/dwcu3wcol/video/upload/v1707643034/Ultimate_ASMR_Diamond_Painting_may334.mp4`,
+            //   `https://res.cloudinary.com/dwcu3wcol/video/upload/v1707643174/Satisfying_ASMR_Diamond_Painting_Magic_ptpwhd.mp4`,
+            //   `https://res.cloudinary.com/dwcu3wcol/video/upload/v1707643143/Diamond_painting_tutorial_for_beginners_at_a_glance_dplhge.mp4`,
+            // ]
+            
+            vids && videosArray && videosArray.map((video:any)=>{
+              console.log('video: ', video);
+
+                    return <Box sx={{maxHeight:{xs:'400px',sm:'500px'},maxWidth:{xs:'100%',sm:'48%',md:'32%'}}} key={video}>
+
+          <video
+          controls={true}
+          style={{objectFit:'cover'}}
+          key={video} muted loop autoPlay width="100%" height="100%" >
+                <source src={video} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+                    </Box>
+            })
+        }
+        
+        </Box>
+      </Container>
     
 
         

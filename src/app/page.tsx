@@ -80,6 +80,18 @@ const fetchDataAndSetImgs = async () => {
   // setImgs(data?.record); // Assuming 'record' is the property containing the images in the response
 return data?.record
 }
+const fetchDataAndSetVideos = async () => {
+  try {
+    const req= await fetch(`${process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'}/api/get-videos`,{next:{revalidate:1000}})
+
+    const data = await req.json();
+    console.log('data: ', data);
+   return data || null
+  } catch (error) {
+    console.error('fetchDataAndSetVideos error: ', error);
+    return null
+  }
+};
 // useEffect(() => {
 //   fetchDataAndSetImgs()
 // }, [])
@@ -89,16 +101,21 @@ try {
   const req = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-data`,{ cache: 'no-store',next:{revalidate:0} })
   // const req = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-data`)
   let res = req &&  await req.json();
+  
+  // const vids = 
   // console.log('res: ', res);
   // const reqImages = await fetch(`https://getpantry.cloud/apiv1/pantry/732d3c8c-d53a-4c4c-830c-fe9b7e021958/basket/Images`,{  cache:'no-store', next: { revalidate: 400 } })
   // let resImages : any = await  reqImages.json();
   const imgs = await fetchDataAndSetImgs()
-  console.log('imgs: ', imgs);
+  // const vids = await fetchDataAndSetVideos()
+  // console.log('vids: ', vids);
+    let vids = res?.data?.vids;
+    console.log('vids: ', vids);
       // let resImages : any ={}
       // let res = {data:{featuredProducts:null}}
       
       return (
-        <PreLoader resImages={imgs || null} data={res?.data?.featuredProducts}/>
+        <PreLoader vids={vids || null} resImages={imgs || null} data={res?.data?.featuredProducts}/>
        )
 }
 catch (e) {
