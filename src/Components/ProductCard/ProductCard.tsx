@@ -14,7 +14,7 @@ const ProductCard = ({
     title,
     price,
     sizes,
-
+    stock,
     images,
     category,
     _id,
@@ -28,6 +28,7 @@ const ProductCard = ({
     inStock?:boolean,
     _id: string,
     title: string,
+    stock?: string | number,
     sizes: {
         size: number;
         price: number;
@@ -93,7 +94,7 @@ const ProductCard = ({
         
                
               
-               {inStock !== false ?
+               {inStock !== false && Number(stock) !== 0  ?
                <>
                <Typography
                component='p'
@@ -109,7 +110,7 @@ const ProductCard = ({
             <s>{price}$</s> {newPrice}$
         </>
     ) : (
-        category?.toLocaleLowerCase() !== 'almost done' ? `${price}$` : category
+        category?.toLocaleLowerCase() !== 'almost done' && price ? `${price}$` : category
     )}
 </Typography>
                {/* <Typography
@@ -127,7 +128,7 @@ const ProductCard = ({
                      onClick={()=>
                         sizes &&  sizes?.length > 0 ? 
                         router.push(`/product/${_id}`)
-                        :
+                        :  Number(stock) !== 0 &&
                         addToCart(1,_id,{title,category,img:images[0],_id,price:newPrice?Number(newPrice):price},true)}
                     v2
                     sx={{

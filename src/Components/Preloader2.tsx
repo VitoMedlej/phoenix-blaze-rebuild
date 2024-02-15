@@ -125,6 +125,8 @@ const Preloader2 = ({data,totalPages}:any) => {
     }}>
         {products && products?.length > 0 ? products.map((i:IProduct) => {
             return <ProductCard
+            stock={i?.stock}
+
             sizes={i?.sizes || null}
             width={{xs:'45%',sm:'32%'}}
             key={i?._id}

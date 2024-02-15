@@ -54,6 +54,8 @@ onClick={()=>router.push('/collection/products')}
                   {products && products?.length > 0 && products.map(i=>{
 
                       return <ProductCard 
+            stock={i?.stock}
+
 
                 newPrice={i?.newPrice}
                     sizes={null}

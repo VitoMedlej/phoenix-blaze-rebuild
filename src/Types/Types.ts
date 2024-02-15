@@ -1,6 +1,7 @@
 export interface IProduct {
     title: string;
     price: number;
+    stock ?:number | string;
     _id: string;
     newPrice?:number;
     inStock ?: boolean;

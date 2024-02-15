@@ -35,9 +35,10 @@ const Index = () => {
       product : null,
       moreProducts : []
     })
-    const multiWeight = data?.product?.sizes && data?.product?.sizes?.length > 0 
-    ? data?.product?.sizes[0] : {price: data?.product?.price, size:data?.product?.size }
-    const [selectedSize, setselectedSize] = useState(multiWeight);
+    console.log('data: ', data);
+    
+    
+    const [selectedSize, setselectedSize] = useState({size:'',price:''});
     
        const InitialFetch = async () => {
         try {
@@ -47,8 +48,10 @@ const Index = () => {
         
           if (res?.success && res?.product) {
           setData({product:res?.product,moreProducts : res?.moreProducts})
-          setLoading(false)
-
+          
+          setLoading(false);
+        
+    
           }
           setLoading(false)
           return null
@@ -68,13 +71,13 @@ const Index = () => {
         return  ()=> setLoading(false)
 
       }, [])
-
+      console.log('parseFloat(data?.product?.size): ', parseFloat(data?.product?.size));
   return (
      
     
-      <Box sx={{mt:{xs:2,md:4}}}>
+      <Box sx={{mt:4}}>
  
-{!loading && data?.product !== undefined && data?.product?.title ?  <Grid sx={{maxWidth:'lg',mx:1,pt:{sm:8,md:8,lg:6}}} className='auto' container>
+{!loading && data?.product !== undefined && data?.product?.title ?  <Grid sx={{maxWidth:'lg',mx:1,pt:{sm:15,md:15,lg:9}}} className='auto' container>
        <Grid  item xs={12}  md={7} >
          <ProductImageCarousel images={data?.product?.images}/>
    
@@ -83,79 +86,99 @@ const Index = () => {
         // border:'1px solid #00000029',
         px:{xs:1,sm:1.5}}} item xs={12}  md={5}>
          <Box sx={{pt:{xs:3,sm:0}}}>
-             <Typography component={'h1'} sx={{fontWeight:400,pt:1,fontSize:{xs:'2em',sm:'2.25em',md:'3em'}}}>
+             <Typography component={'h1'} sx={{fontWeight:500,pt:1,fontSize:{xs:'2em',sm:'2.25sem',md:'2.8em'}}}>
               {data?.product?.title || 'Loading Product Details'}
              </Typography>
-             <Typography component={'p'} sx={{fontWeight:400,pt:1,fontSize:{xs:'1em',sm:'1.25em',md:'1.2em'}}}>
-              {data?.product?.category || 'Collection'}
-             </Typography>
-           {  data?.product?.price > 0 && data?.product?.inStock !== false ? (data?.product?.category?.toLocaleLowerCase() !== 'almost done' && <Typography className='green' component={'h1'} sx={{fontSize:'1.25em',fontWeight:300}}>
-               In Stock
-             </Typography>)
+           { Number(data?.product?.stock) !== 0 && data?.product?.inStock !== false 
+           ? 
+      
+            
+            <Typography className='green' component={'h1'} sx={{fontSize:'1.05em',fontWeight:300}}>
+            In Stock 
+          </Typography>
             : 
-            data?.product?.price > 0 && data?.product?.category?.toLocaleLowerCase() !== 'almost done' ? <Typography className='red' component={'h1'} sx={{color:'red',fontSize:'1.25em',fontWeight:300}}>
+            <Typography className='red' component={'h1'} sx={{color:'red',fontSize:'1.25em',fontWeight:300}}>
                Out of stock
-             </Typography> :''
+             </Typography>
             }
-          {data?.product?.price > 0 && data?.product?.inStock !== false &&  (data?.product?.category?.toLocaleLowerCase() !== 'almost done' && <Typography 
-                 component={'h1'} sx={{my:.25,fontWeight:500,color:'green',fontSize:{xs:'1em',sm:'1.55em'}}}>
+          { Number(data?.product?.stock) !== 0 && data?.product?.inStock !== false &&   <Typography 
+                 component={'h1'} sx={{my:.25,fontWeight:500,color:'green',fontSize:{xs:'1.25em',sm:'1.55em'}}}>
                  ${
                  selectedSize?.price ||
                  data?.product?.price || 0}
-             </Typography>)}
+             </Typography>}
              
             
          </Box>
    
       
-      
          
-            { data?.product?.category?.toLocaleLowerCase() !== 'almost done'  &&  data?.product?.inStock !== false ? <Box className='flex wrap ' sx={{my:2,position:'relative'}}>
+            { Number(data?.product?.stock)!== 0 &&data?.product?.inStock !== false ? <Box className='flex wrap ' sx={{my:2,position:'relative'}}>
               <Box sx={{width:{xs:'max-content'}}}>
 
-             <QuantityPicker 
-                    onChange={(e:number)=>{setSelectedQuantity(e)}}
-                    
-                    min={1} max={10} value={selectedQuantity}/>
+       
               </Box>
+            
+     
               {/* <SelectWeight
               selectedSize={selectedSize}
               setselectedSize={setselectedSize}
-              sizes={data?.product?.sizes || [{price:Number(data?.product?.price),size:parseFloat(data?.product?.size)}]}/> */}
-         <Btn 
+              sizes={data?.product?.mutlisize && data?.product?.sizes && data?.product?.sizes?.length > 0 ?
+               data?.product?.sizes:  
+               [{price:Number(data?.product?.price)
+               ,
+               size:parseFloat(data?.product?.size)}]}/> */}
+     
+         
+            
+
+     <Box className='flex wrap ' sx={{mt:1,position:'relative'}}>
+              <Box className='flex row center items-center w100' sx={{width:{xs:'max-content',sm:'100%'}}}>
+              <Btn 
                      onClick={()=>addToCart(selectedQuantity,`${data?.product?._id}`,{title : data.product.title ,category: data.product.category,img:data.product.images[0], _id : data.product._id,price:selectedSize?.price ? selectedSize?.price : data?.product?.price, productselectedSize:selectedSize?.size},true,true)}
              
               sx={{gap:.5,
                 borderRadius:0,
-             width:{xs:'95%',sm:'95%'}}}>
-                 <Typography component='h1'>
-                 ADD TO CART
-                 </Typography>
-                 <AiOutlineShoppingCart  fontSize={'medium'}/>
+             width:{xs:'100%',sm:'100%'}}}>
+                <Typography component='h1'>
+                ADD TO CART
+                </Typography>
+                
              </Btn>
-             
+             <QuantityPicker 
+                    onChange={(e:number)=>{setSelectedQuantity(e)}}
+                    
+                    min={1} max={data?.product?.stock ? Number(data?.product?.stock) : 10} value={selectedQuantity}/>
+            
+          
+             </Box>
             
 
              <a 
              className='center  text-center'
-             style={{textDecoration:'none',width:'95%'}} href={`https://wa.me/${process.env.NEXT_PUBLIC_WA}?text=I would like to know more about: ${data?.product?.title || 'Product Name'}`} target='_blank' rel='noopener'>
+             style={{textDecoration:'none',width:'100%'}} href={`https://wa.me/${process.env.NEXT_PUBLIC_WA}?text=I would like to know more about: ${data?.product?.title || 'Product Name'}`} target='_blank' rel='noopener'>
 
 
 <Btn      sx={{gap:.5,
                 borderRadius:0,
                 mt:1,
-                border:'none',
-                background:'white',color:'green',
+                border:'1px solid black',
+                background:'white',color:'black',
              width:{xs:'100%'}}}>
-                 WHATSAPP 
-                 <BsWhatsapp fontSize={'medium'}/>
+                <Typography component='h1'>
+
+                 BUY IT NOW 
+                </Typography>
              </Btn>
              </a>
           
 
              </Box>
+          
+
+             </Box>
             :
-        ''
+            ''
             }
          <Divider></Divider>
 
@@ -199,10 +222,15 @@ const Index = () => {
             
          </Box>}
 
-           
-             <Typography className='gray' sx={{whiteSpace:'pre-wrap',maxWidth:'100%'}}>
+            {/* PRODUCT DESCRIPTION: */}
+             {/* <Typography className='gray' sx={{pt:.5,whiteSpace:'pre-wrap',maxWidth:'100%'}}>
    {data?.product?.description}
-             </Typography>
+             </Typography> */}
+              <Typography 
+      className='gray' 
+      sx={{whiteSpace:'pre-wrap',maxWidth:'100%'}}
+      dangerouslySetInnerHTML={{ __html: data?.product?.description }}
+    />
          </Box>
        </Grid>
          {/* <ProductReview/>  */}
