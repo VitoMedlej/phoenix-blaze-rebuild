@@ -22,6 +22,7 @@ export interface IProduct {
 }
 export interface ICartItem {
     title: string;
+    stock: number;
     _id: string;
     price: number;
     img : string;

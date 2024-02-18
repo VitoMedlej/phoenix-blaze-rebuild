@@ -150,7 +150,7 @@ const ProductCard = ({
 
                :
 
-                  <Typography
+        (category?.toLocaleLowerCase() !== 'almost done' || category?.toLocaleLowerCase() !== 'customized' ?          <Typography
                     sx={{
                     mb:.5,
                     color:'red',
@@ -158,7 +158,7 @@ const ProductCard = ({
                     fontSize: {xs:'.99em',sm:'1.06em'}
                 }}>
                     Out Of Stock
-                </Typography>
+                </Typography> :`${category}`)
                 }
             </Box>
         </Box>

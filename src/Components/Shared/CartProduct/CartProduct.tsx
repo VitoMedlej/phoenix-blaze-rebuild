@@ -13,7 +13,9 @@ import Btn from '@/Components/Btn/Btn';
 
 
 
-const CartProduct = ({onChange,_id,price,category,title,remove,qty,img,productselectedSize}:ICartItem) => {
+const CartProduct = ({onChange,_id,
+    stock,
+    price,category,title,remove,qty,img,productselectedSize}:ICartItem) => {
  
     const {incrementQty} = useCart()
 
@@ -141,10 +143,10 @@ const CartProduct = ({onChange,_id,price,category,title,remove,qty,img,productse
                         }}/>
                         
                     </IconButton> */}
-                    <QuantityPicker 
+               <QuantityPicker 
                     onChange={(e:number)=>{incrementQty(_id,e),onChange && onChange()}}
                     
-                    min={1} max={10} value={qty > 10 ? 10 : qty}/>
+                    min={1} max={stock ? stock : 10} value={qty > stock ? stock : qty}/>
                 </Box>
             </Box>
         </Box>

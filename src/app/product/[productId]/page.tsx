@@ -97,9 +97,9 @@ const Index = () => {
             In Stock 
           </Typography>
             : 
-            <Typography className='red' component={'h1'} sx={{color:'red',fontSize:'1.25em',fontWeight:300}}>
+        (data?.product?.category !== 'customized' &&   <Typography className='red' component={'h1'} sx={{color:'red',fontSize:'1.25em',fontWeight:300}}>
                Out of stock
-             </Typography>
+             </Typography>)
             }
           { Number(data?.product?.stock) !== 0 && data?.product?.inStock !== false &&   <Typography 
                  component={'h1'} sx={{my:.25,fontWeight:500,color:'green',fontSize:{xs:'1.25em',sm:'1.55em'}}}>
