@@ -4,7 +4,6 @@ import { Box, Typography } from '@mui/material'
 import React from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react';
 import TestimonialCard from './TestimonialCard';
-import { Autoplay } from 'swiper';
 import useLanguage from '@/Hooks/useLanguage';
 // import { Autoplay, Pagination } from 'swiper/modules';
 // import {FreeMode, Autoplay, Pagination} from "swiper";
@@ -121,7 +120,7 @@ const Testimonial = () => {
 }
 
                 }
-                modules={[ Autoplay]}
+                // modules={[ Autoplay]}
               >
 
                 {tests.map((item ) => {
