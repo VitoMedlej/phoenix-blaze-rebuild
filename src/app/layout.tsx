@@ -8,8 +8,8 @@ import QuickCart from '@/Components/Shared/QuickCart/QuickCart'
 import ContextWrapper from '@/context/Contexts'
 
 export const metadata = {
-    title: 'DIY Crafts: Sparkle with Diamond Painting Supplies in Lebanon',
-    description: `Explore the world of creative expression with diamond painting! Discover our exclusive collection of DIY crafts that combine relaxation and self-expression. Unleash your creativity and create breathtaking masterpieces with our high-quality diamond painting kits`,
+    title: 'Ghanem Trading Lebanon | Electronics & Home Appliances',
+    description: `Discover top-quality electronics and home appliances at Ghanem Trading in Lebanon. From smartphones to refrigerators, find the latest innovations from trusted brands.`,
     icons: {
         icon: `https://ucarecdn.com/77556735-08f8-4344-95b9-bd17bca69a11/WhatsAppImage20240429at094244_75617fcf.jpg`
     }

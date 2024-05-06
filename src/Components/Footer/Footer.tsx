@@ -22,7 +22,7 @@ const Footer = () => (
             </Link>
           </div>
           <Typography component='h1' sx={{ fontSize: '.85em',color:"2b2b2b" }}  className='footer-p '>
-          Welcome to DIY Crafts Diamond Painting, where creativity knows no bounds. Explore our curated collection of diamond painting kits designed to inspire and captivate. Whether you&apos;re a seasoned artist or just starting your creative journey, our kits provide a perfect blend of relaxation and artistic satisfaction. Order now and embark on a dazzling adventure of self-expression!
+          Welcome to Ghanem Trading Diamond Painting, where creativity knows no bounds. Explore our curated collection of diamond painting kits designed to inspire and captivate. Whether you&apos;re a seasoned artist or just starting your creative journey, our kits provide a perfect blend of relaxation and artistic satisfaction. Order now and embark on a dazzling adventure of self-expression!
           </Typography>
 
           {/* <ul className="site-footer__social-networks">
@@ -65,7 +65,7 @@ const Footer = () => (
             
             {/* <li><a href="https://www.facebook.com/profile.php?id=100076163602459/" target="_blank" rel="noreferrer" >Facebook</a></li> */}
 
-            <li><a href="https://www.instagram.com/ghanem.trading/" target="_blank" rel="noreferrer" >@diy_crafts_diamond_painting</a></li>
+            <li><a href="https://www.instagram.com/ghanem.trading/" target="_blank" rel="noreferrer" >@ghanem.trading</a></li>
             <li><a href={`https://wa.me/${process.env.NEXT_PUBLIC_WA}`} rel="noreferrer" target='_blank' >+{process.env.NEXT_PUBLIC_WA}</a></li>
             {/* <li><a href={`http://tiktok.com/@thecraftroomlb`} rel="noreferrer" target='_blank' >TikTok</a></li> */}
         

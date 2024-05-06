@@ -10,8 +10,8 @@ import { Box } from '@mui/material';
 
 const FAQs = [
   {
-    "Q": "What is DIY CRAFTS and what do you sell?",
-    "A": "DIY CRAFTS is an online store devoted to providing natural supplements that promote health and wellness. Our products include premium-quality organic herbs and mushrooms such as ashwagandha, tongkat ali, cordyceps, lion’s mane, and more."
+    "Q": "What is Ghanem Trading and what do you sell?",
+    "A": "Ghanem Trading is an online store devoted to providing natural supplements that promote health and wellness. Our products include premium-quality organic herbs and mushrooms such as ashwagandha, tongkat ali, cordyceps, lion’s mane, and more."
   },
   {
     "Q": "Are your products organic?",

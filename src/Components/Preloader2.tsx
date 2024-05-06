@@ -114,21 +114,21 @@ const Preloader2 = ({data,totalPages}:any) => {
         width: '100%',
         minHeight: '100px'
     }}>
-        <FilterBar handleSubmit={handleSubmit} setNewValue={setnewValue} newValue={newValue}/>
+        {/* <FilterBar handleSubmit={handleSubmit} setNewValue={setnewValue} newValue={newValue}/> */}
     <FilterSection handleSubmit={handleSubmit} options={options} setOptions={setOptions} setProducts={setProducts}/>
     </Box>
     {/* <BreadCrumb></BreadCrumb> */}
    
 
     <Box className='flex wrap' sx={{
-        px: 1
+        // px: 1
     }}>
         {products && products?.length > 0 ? products.map((i:IProduct) => {
             return <ProductCard
             stock={i?.stock}
 
             sizes={i?.sizes || null}
-            width={{xs:'45%',sm:'32%'}}
+            width={{xs:'47%',sm:'32%'}}
             key={i?._id}
             inStock={i?.inStock 
             }

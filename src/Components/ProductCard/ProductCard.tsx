@@ -77,7 +77,7 @@ const ProductCard = ({
             
             <Box 
             sx={{
-                px: .95,
+                // px: .95,
                 mt:1.5,
             }}>  <Typography
             className=' cursor limited   '

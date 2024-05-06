@@ -4,10 +4,10 @@ import { Container, Box, Typography, Divider } from '@mui/material'
 import React from 'react'
 
 const text = [
-    `DIY Crafts Diamond Painting is a unique and enjoyable craft that combines the precision of paint-by-numbers with the sparkle of beautiful diamonds. Our kits come with everything you need to create stunning, shimmering works of art, right from the comfort of your own home. Each kit includes a canvas with a pre-printed design, a set of colorful resin diamonds, and all the tools you need to place each diamond in its proper place.`,
-   `Our products are designed with the customer in mind. The canvas in each kit is clearly marked with symbols that correspond to the colors of the diamonds, making it easy to follow along and create your masterpiece. The diamonds themselves are made of high-quality resin that catches the light and sparkles brilliantly, bringing your artwork to life.`,
-`Creating a diamond painting is a simple and relaxing process. Simply dip the applicator tool into the wax, pick up a diamond by its flat side, and place it on the corresponding symbol on the canvas. It’s a soothing, repetitive process that’s perfect for unwinding after a long day. And the best part? Watching your artwork come to life, one diamond at a time`,
-`At DIY Crafts Diamond Painting, we believe that everyone is an artist. Our kits are designed to be user-friendly and suitable for crafters of all skill levels, from beginners to seasoned pros. So why wait? Dive into the world of diamond painting and discover the artist within you!`,
+    `Ghanem Trading is a leading name in the Lebanese market, known for its commitment to quality, reliability, and customer satisfaction. With years of experience in the industry, we have established ourselves as a go-to destination for premium electronics and home appliances.`,
+   `Our journey began with a simple mission: to provide our customers with access to the latest innovations in technology and home convenience, all under one roof. Today, we continue to uphold this commitment by offering a diverse range of products from top brands, coupled with unparalleled service and support.`,
+`What sets us apart is our dedication to fostering long-term relationships with our customers. We understand that each purchase is an investment, which is why we strive to offer personalized assistance and guidance every step of the way. Whether you're shopping online or visiting our showroom, our knowledgeable team is here to help you find the perfect solution to meet your needs.`,
+`At Ghanem Trading, we don't just sell products; we deliver peace of mind. Join us on our journey and experience the difference firsthand.`,
   
 ]
 const Index = () => {
@@ -15,7 +15,7 @@ const Index = () => {
     <Container maxWidth='lg' className='auto' sx={{mx:1,py:4}}>
          
         <Typography sx={{fontSize:{xs:'2em',sm:'3em'},fontWeight:900}} component='h1'>
-            About us - Diy Crafts Diamond Painting
+        Welcome to Ghanem Trading
         </Typography>
         <Box sx={{my:4}}>
                 {
@@ -24,7 +24,7 @@ const Index = () => {
                     })
                 } 
         </Box>
-      
+                <FAQ/>
     </Container>
   )
 }
