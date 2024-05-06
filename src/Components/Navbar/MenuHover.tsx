@@ -7,7 +7,7 @@ import {AiOutlineDown} from 'react-icons/ai'
 
 
 const HoverMenu = ({ category, subcategories ,img } : {img:string,category: string, subcategories: string[]}) => {
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
 
   const handleMouseEnter = () => {
     setShowMenu(true);
