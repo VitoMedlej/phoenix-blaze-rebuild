@@ -4,9 +4,9 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import { BiMenuAltRight ,BiSearchAlt  ,BiCart } from "react-icons/bi";
-import { RiMenu2Fill } from "react-icons/ri";
 
+import { RiMenu2Fill } from "react-icons/ri";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 // import {BiCart} from 'react-icons/ci'
 
 import { useEffect, useState} from 'react';
@@ -150,7 +150,7 @@ export default function Navbar() {
 
                         <IconButton
                             onClick={() => setOpen(!open)}
-                            size="large"
+                            size="small"
                             edge="start"
                             aria-label="menu"
                             sx={{
@@ -272,6 +272,8 @@ className='absolute '
 
 
                      <IconButton
+                            size="small"
+
                               onClick={() => setCartOpen(!cartOpen)}
 
                             // onClick={() => router.push('/collection/products')}
@@ -279,12 +281,14 @@ className='absolute '
                                 margin : '8px',padding:0,
                             color: 'black'
                         }}>
-                            <Typography sx={{fontSize:'.67em !important',fontWeight:400}} className=''>
+                            <Typography sx={{
+                                display:{xs:'none',sm:'flex'},
+                                fontSize:'.67em !important',fontWeight:400}} className=''>
                             Basket
                             </Typography>
                             {/* <Badge color='primary' badgeContent={`${localCart.length || '0'}`}> */}
 
-                                <BiCart color='black'/>
+                                <AiOutlineShoppingCart color='black'/>
                             {/* </Badge> */}
                          
                         </IconButton>

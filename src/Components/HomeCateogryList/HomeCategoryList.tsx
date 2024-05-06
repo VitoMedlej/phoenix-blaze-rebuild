@@ -27,7 +27,8 @@ const Category = () => {
 
         <Box
             sx={{
-            mt: {
+            mt:1,
+                mb: {
                 xs: '4em',
                 sm: '6em'
             },

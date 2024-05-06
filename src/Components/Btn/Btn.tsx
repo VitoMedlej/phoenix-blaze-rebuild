@@ -24,9 +24,9 @@ let style1 = {
   outline: 'none',
 }
 let style2 = {
-  color: 'white',
+  color: '#1554ba',
   background: 'transparent',
-  border: '1px solid white',
+  border: '1px solid #1554ba',
   borderRadius: '4px', 
   // boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
   transition: 'background 0.3s ease, transform 0.2s ease',

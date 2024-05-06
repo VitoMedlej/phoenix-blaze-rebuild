@@ -7,8 +7,7 @@ import Btn from '../Btn/Btn'
 import {useRouter} from 'next/navigation'
 import useCart from '@/Hooks/useCart'
 
-import {BiCartAdd} from 'react-icons/bi';
-
+import { BsCartPlus } from "react-icons/bs";
 
 const ProductCard = ({
     title,
@@ -66,11 +65,11 @@ const ProductCard = ({
                onClick={() => router.push(`/product/${_id}`)}
             sx={{
                 width:{xs:'98%',sm:'100%',md:'auto'},
-                height: height || {xs:'350px',sm:'350px',md:'400px'}
+                height: height || {xs:'250px',sm:'350px',md:'400px'}
             }}>
                 <img
                     src={images
-                    ? images[0]
+                    ? `${images[0]}/-/resize/600/`
                     : ''}
                     alt="Prdouct image"
                     className="img contain"/>
@@ -81,12 +80,13 @@ const ProductCard = ({
                 px: .95,
                 mt:1.5,
             }}>  <Typography
-            className=' cursor limited  center text-center '
+            className=' cursor limited   '
                     component='h1'
                     onClick={() => router.push(`/product/${_id}`)}
                     sx={{
-                        color:'black'
-                    ,fontSize: {xs:'1em',sm:'1.15em',md:'1.32em'},
+                        color:'black',
+                        textAlign:'left'
+                    ,fontSize: {xs:'.8em',sm:'1.15em',md:'1.32em'},
                     fontWeight: '400'
                 }}>
                     {title}
@@ -98,11 +98,11 @@ const ProductCard = ({
                <>
                <Typography
                component='p'
-               className="clr2"
     sx={{
         mb: 0.5,
         fontWeight: '400',
-        fontSize: { xs: '.99em', sm: '1em' },
+        color:'green',
+        fontSize: { xs: '.9em', sm: '1em' },
     }}
 >
     {category?.toLocaleLowerCase() !== 'almost done' && newPrice ? (
@@ -141,8 +141,8 @@ const ProductCard = ({
                 }}>
                     <Box  className="flex">
 
-                    {sizes && sizes?.length > 0 ? 'Select Size' :  'ADD'}
-                    <BiCartAdd color='black' fontSize='20px'/>
+                    {/* {sizes && sizes?.length > 0 ? 'Select Size' :  'ADD'} */}
+                    <BsCartPlus color='white' fontSize='20px'/>
                     </Box>
                 </Btn>}
                 

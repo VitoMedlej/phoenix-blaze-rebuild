@@ -26,29 +26,29 @@ const ProductCollection = ({sx,delay,Collectiontitle,data,setQuickView} : {
             width :'99%',
             margin: '0 auto',
             // my: '3em',
-            mt:'4em',
+            // mt:'4em',
             mb:'3em',
             ...sx,
         }}>
-             <Box className="flex justify-between row auto" sx={{px:1,pt:8,pb:4,maxWidth:'lg'}}>
+             <Box className="flex justify-between row auto" sx={{px:1,pb:0,maxWidth:'lg'}}>
 
 <Typography
 component={'h1'}
-    className='sectionTitle  center text-center box'
+    className='sectionTitle   box'
     sx={{
- 
-    fontSize: {
+ textAlign: 'left',
+     fontSize: {
         xs: '1em',
     },
     padding:.5,
     fontWeight: '500'
 }}>
- Our Latest Collections
+{Collectiontitle || `Our Latest Collections`}
 </Typography>
 
 
-<Btn 
-sx={{width:'fit-content',border:'1px solid #eef6f9 ',color:'white',mx:.5}}
+<Btn v2
+sx={{px:{xs:1,sm:2},fontSize:{xs:'.7em',sm:'.8em'},width:'fit-content'}}
 onClick={()=>router.push('/collection/products')}
 >
    Explore More

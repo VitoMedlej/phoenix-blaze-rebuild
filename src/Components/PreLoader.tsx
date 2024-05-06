@@ -14,12 +14,14 @@ import useLanguage from '@/Hooks/useLanguage'
 import ContactSection from './ContactSection/ContactSection'
 import HomeProductsCarousel from './HomeProductsCarousel/HomeProductsCarousel'
 import HomeCategoryList from './HomeCateogryList/HomeCategoryList'
+import FullscreenPoster from './FullscreenPoster/FullscreenPoster'
 
 const 
-PreLoader = ({data,resImages,vids}:any) => {
-  let videosArray = vids && vids[0]?.videos?.videos || null
-  const router= useRouter();
-  const {text} = useLanguage()
+PreLoader = ({data,featuredProducts,resImages,vids}:any) => {
+  
+  // let videosArray = vids && vids[0]?.videos?.videos || null
+  // const router= useRouter();
+  // const {text} = useLanguage()
   // const textsArray = [
   //   {
   //     id: 1,
@@ -62,17 +64,53 @@ PreLoader = ({data,resImages,vids}:any) => {
       <MainCarousel imgs={resImages}/>
       {/* <HomeProductCollection  products={data}/> */}
     <HomeCategoryList/>
-        <HomeProductsCarousel data={data} Collectiontitle={''} delay={2000}/>
+
+    
+        <HomeProductsCarousel  data={data} Collectiontitle={'Our Latest Collections'} delay={2000}/>
   
 
 
       {/* <Perks/> */}
 
+        <Grid container className='flex' sx={{gap:1,px:1}}>
+          <Grid item xs={12} sm={5.9}>
+            <Box>
+              <img src="https://www.ishtari.com/image/data/system_banner/10000/3600/3424/app-1.jpg" alt="" className="img" />
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={5.9}>
+            <Box>
+              <img src="https://www.ishtari.com/image/data/system_banner/10000/3600/3424/app-2.jpg" alt="" className="img" />
+            </Box>
+          </Grid>
+        </Grid>
    
-      <HomeProductCollection  products={data} sectionTitle={'Most Sold'}/>
+        <HomeProductsCarousel  sx={{mt:2}} data={data.slice(7,12)} Collectiontitle={'Home & Tools Collection'} delay={2000}/>
 
 
-      <Container className='' sx={{maxWidth:'lg',py:8}}>
+
+        <Grid container className='flex' sx={{gap:1,px:1}}>
+          <Grid item xs={12} sm={5.9}>
+            <Box>
+              <img src="https://www.ishtari.com/image/data/system_banner/10000/3600/3456/cleaning.png" alt="" className="img" />
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={5.9}>
+            <Box>
+              <img src="https://www.ishtari.com/image/data/system_banner/10000/3600/3456/car-tools.png" alt="" className="img" />
+            </Box>
+          </Grid>
+        </Grid>
+   
+        <HomeProductsCarousel  sx={{mt:2}} data={data.slice(6,33)} Collectiontitle={'Car & Cleaning Collection'} delay={2000}/>
+       
+       
+       
+
+      <FullscreenPoster img={` https://www.ishtari.com/image/data/system_banner/10000/3600/3449/moulinex-web.png`} imgPc={`https://www.ishtari.com/image/data/system_banner/10000/3600/3449/moulinex-web.png`} />
+
+
+      <Container className='' sx={{maxWidth:'lg',pt:1,pb:4}}>
    
 
         <Box sx={{mt:1}} className='flex row  wrap justify-between center text-center'>
@@ -90,7 +128,7 @@ PreLoader = ({data,resImages,vids}:any) => {
            `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/total.png`,
            `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/mulinex.png`,
           ].map(i=>{
-            return  <Box key={i} sx={{width:{xs:'33%',sm:'22%',md:'22%'},maxWidth:'220px'}}>
+            return  <Box key={i} sx={{width:{xs:'30%',sm:'22%',md:'22%'},maxWidth:'220px'}}>
             <Box>
               <img 
                src={i} alt="" className="img" />
@@ -101,6 +139,9 @@ PreLoader = ({data,resImages,vids}:any) => {
           })}
         </Box>
       </Container>
+
+
+
         <ContactSection/>
   </Box>
   )

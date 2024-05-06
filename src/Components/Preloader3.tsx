@@ -6,9 +6,8 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useRouter } from 'next/navigation';
-import { Autoplay } from 'swiper';
+import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
 import Btn from './Btn/Btn';
-import useLanguage from '@/Hooks/useLanguage';
 
 
 
@@ -17,8 +16,8 @@ const Preloader3 = ({res}:{res:any}) => {
  const [imgs,setImgs] = useState(
      
      [
-         {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3435/first.png',position:'centerd'},
-  {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3437/water-sports.png',position:'topd'},
+         {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3435/2.gif',position:'centerd'},
+  {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3437/water-sport-web-gif.gif',position:'topd'},
 
 ]
 )
@@ -43,7 +42,7 @@ useEffect(() => {
             // maxWidth: 'lg',
             minHeight:'300px',
             height:'100%',
-            maxHeight:{sm:'100%',md:'500px',lg:'500px'},
+            maxHeight:{sm:'100%',md:'400px',lg:'100%'},
             margin: '0 auto',
             // height : {xs:'100%',sm:'450px',md:'100%'},
             
@@ -79,7 +78,7 @@ useEffect(() => {
                       
                             <img
             
-                                className={`img contain  ${item?.position} 
+                                className={`img cover  ${item?.position} 
                                 `}
                                 // ${item?.className}
                                 src={`${item.img}`}

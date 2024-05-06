@@ -2,16 +2,18 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 
 // import required modules
-import { Autoplay, Pagination } from "swiper";
+import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+
 import { Box } from "@mui/material";
 
 export default function App({images}:{images:string[] | []| undefined}) {
@@ -19,6 +21,8 @@ export default function App({images}:{images:string[] | []| undefined}) {
     <>
       <Swiper
         spaceBetween={30}
+        freeMode={true}
+
         effect={"fade"}
         autoplay={
           {delay:2000}
@@ -27,7 +31,7 @@ export default function App({images}:{images:string[] | []| undefined}) {
         pagination={{
           clickable: true,
         }}
-        modules={[Autoplay, Pagination]}
+        modules={[FreeMode, Autoplay, Pagination]}
         className="mySwiper"
       >
 {

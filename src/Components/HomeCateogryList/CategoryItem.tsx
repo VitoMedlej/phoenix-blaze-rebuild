@@ -14,8 +14,8 @@ const CategoryItem = ({img, desktopHeight,phone,height, href, title} : any) => {
             sx={{
                 display:'flex',
             // display : {xs:phone ? 'flex' : 'none',sm:'flex'},
-           width:{xs:'150px',sm:'200px'},
-           height:{xs:'150px',sm:'200px'},
+           width:{xs:'45%',sm:'200px'},
+           height:{xs:'45vw',sm:'200px'},
             position: 'relative',
             margin: '5px',
             cursor: 'pointer',
