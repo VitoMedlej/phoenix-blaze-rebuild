@@ -17,9 +17,9 @@ const Preloader3 = ({res}:{res:any}) => {
  const [imgs,setImgs] = useState(
      
      [
-         {img:'https://www.diamonddotz.com/image/cache/catalog/banners/2024%20web%20sliders/DOTZIES%20for%20Kids_jan%202024-1600x684.jpg',position:'centerd'},
-  {img:'https://www.diamonddotz.com/image/cache/catalog/banners/202401/new%20year%20new%20things_DD%20kits_0102-1600x684.jpg',position:'topd'},
-  {img:`https://www.diamonddotz.com/image/cache/catalog/banners/202401/new%20year%20new%20things_Masterclass0101-1600x684.jpg`,position:'topd'},
+         {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3435/first.png',position:'centerd'},
+  {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3437/water-sports.png',position:'topd'},
+
 ]
 )
 console.log('imgs: ', imgs);

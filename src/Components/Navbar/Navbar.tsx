@@ -5,6 +5,8 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import { BiMenuAltRight ,BiSearchAlt  ,BiCart } from "react-icons/bi";
+import { RiMenu2Fill } from "react-icons/ri";
+
 // import {BiCart} from 'react-icons/ci'
 
 import { useEffect, useState} from 'react';
@@ -15,21 +17,21 @@ import {Badge, Divider, Typography} from '@mui/material';
 // import { loadState } from '../../Utils/LocalstorageFn';
 import {useRouter} from 'next/navigation';
 // import {AiOutlinePhone, AiOutlineSearch, AiOutlineMenu} from 'react-icons/ai'
-import {AiOutlineHome,AiOutlineShoppingCart} from 'react-icons/ai'
-import SearchInput from './SearchInput';
+// import {AiOutlineHome,AiOutlineShoppingCart} from 'react-icons/ai'
+// import SearchInput from './SearchInput';
 
 import NavButtom from './NavButtom';
-import { useCartContext, useDrawerContext, useLangContext } from '@/context/Contexts';
-import Btn from '../Btn/Btn';
-import useLanguage from '@/Hooks/useLanguage';
+import { useCartContext, useDrawerContext } from '@/context/Contexts';
+import SearchInput from './SearchInput';
+// import Btn from '../Btn/Btn';
 
 
 
 export const categories =  [`Craft Supplies`,
 `DIY Kits`,
 `customized`,
-
 `Home Decor`];
+
 export default function Navbar() {
     const {open, setOpen} = useDrawerContext();
     const [openModal,
@@ -53,7 +55,7 @@ export default function Navbar() {
     return ( <>
      <Box
      id='navy'
-    className='center auto relative   bg flex'
+    className='center auto relative    flex'
         sx={{
             zIndex:12,
         flexWrap: 'wrap',
@@ -68,7 +70,7 @@ export default function Navbar() {
         <AppBar
      id='navy2'
 
-    className='center relative  flex'
+    className='center relative   flex'
 
             sx={{
 
@@ -79,47 +81,33 @@ export default function Navbar() {
                 width:'100%',
             margin: '0 auto',
         }}>
-            <Box className='center text-center' sx={{background:'#0f0f0f',width:'100%',py:.25}}>
+            {/* <Box className='center text-center' sx={{background:'#0f0f0f',width:'100%',py:.25}}>
                 <Typography className='clr' component='p' sx={{py:.2,fontSize:{xs:'.75em',sm:'.75em'}}}>
             DELIVERY AVAILABLE ALL OVER LEBANON
                 </Typography>
-            </Box>
+            </Box> */}
             <Toolbar
      id='navy3'
 
-    className='center relative  flex  w100  auto'
+    className=' relative  flex   w100  auto'
 
                 sx={{
-                
+                    justifyContent: {xs:'space-between',md:'space-evenly'},
+                    
                 background:'white',
                     maxWidth:'lg',
                 px:'0 !important',
                 
                 flexWrap: 'wrap'
             }}> 
-                  <Link className='flex center  aling-center items-center '  href='/' color='inherit'>
-
-<Box className='flex'
-    sx={{
-    mx: {
-        xs:'.15em',
-        sm: '1em'
-    },
-    width:{xs:'90px',sm: '100px'}
-}}>
-    <img
-        className='img'
-        src={`https://ucarecdn.com/8dfcc837-04af-471f-b263-efd704c1be94/WhatsAppImage20240203at0814371.jpeg`}
-        alt="diy_crafts_diamond_painting logo"/>
-</Box>
-</Link>
+              
 
                 <Box
                     sx={{
                     px:1,
                     display:{xs:'flex',md:'flex'},
 
-                    flex: 1,
+                    // flex: 1,
                     flexWrap: 'wrap',
                     justifyContent: {
                         xs: 'right',
@@ -157,34 +145,7 @@ export default function Navbar() {
                                 <CiSearch color='black'/>
                           
                         </IconButton> */}
-                   <IconButton
-                            onClick={() => setOpenModal(!openModal)}
-                            size="large"
-                            edge="start"
-                            aria-label="menu"
-                            sx={{
-                            margin : '8px',padding:0,
-                            color: 'black',
-                       
-                        }}>
-                            <BiSearchAlt  color='black'/>
-                        </IconButton>
-
-
-                     <IconButton
-                              onClick={() => setCartOpen(!cartOpen)}
-
-                            // onClick={() => router.push('/collection/products')}
-                            sx={{
-                                margin : '8px',padding:0,
-                            color: 'black'
-                        }}>
-                            {/* <Badge color='primary' badgeContent={`${localCart.length || '0'}`}> */}
-
-                                <BiCart color='black'/>
-                            {/* </Badge> */}
-                         
-                        </IconButton>
+                 
    
 
                         <IconButton
@@ -200,10 +161,36 @@ export default function Navbar() {
                                 md: 'none'
                             }
                         }}>
-                            <BiMenuAltRight color='black'/>
+                            <RiMenu2Fill color='black'/>
                         </IconButton>
+<Box
+sx={{display:{xs:'none',md:'flex'}}}
+>
 
+                        <Link 
                         
+                        className='flex center  aling-center items-center '
+                        
+                        
+                        href='/' color='inherit'>
+
+<Box className='flex'
+    sx={{
+    mx: {
+        xs:'.15em',
+        sm: '1em'
+    },
+    width:{xs:'120px',sm: '120px'}
+}}>
+    <img
+        className='img cover'
+        src={`https://ucarecdn.com/5796ba3f-8471-4ae4-9da0-9009623d470d/logosmall.PNG`}
+        alt="ghanem trading logo"/>
+</Box>
+</Link>
+
+</Box>
+
                    
    {/* <a href={`https://wa.me/${process.env.NEXT_PUBLIC_WA}`} target='_blank' className='flex decor-none' rel='noopener'>
 
@@ -222,17 +209,93 @@ export default function Navbar() {
 
                 </Box>
 
+<Box
+sx={{
+    backgroundColor:'transparent',
+    pointerEvents:'none',
+    display:{xs:'flex',md:'none'},
+    height:{xs:'90px',sm: '100px'}
+
+}}
+className="decoy">
+
+</Box>
 
 
-  {/* <SearchInput/> */}
-  {/* <SearchInput
+                <Box
+sx={{display:{xs:'flex',md:'none'},
+    right:'50%',
+    width:{xs:'110px'},
+    top: 0,
+    transform: 'translateX(50%)',
+}}
+className='absolute '
+>
+
+                        <Link 
+                        
+                        className='flex center  aling-center items-center '
+                        
+                        
+                        href='/' color='inherit'>
+
+<Box className='flex'
+    sx={{
+    mx: {
+        xs:'.15em',
+        sm: '1em'
+    },
+    height:{xs:'90px',sm: '100px'}
+}}>
+    <img
+        className='img contain'
+        src={`https://ucarecdn.com/5796ba3f-8471-4ae4-9da0-9009623d470d/logosmall.PNG`}
+        alt="ghanem trading logo"/>
+</Box>
+</Link>
+
+</Box>
+  <SearchInput/>
+
+  {/* <IconButton
+                            onClick={() => setOpenModal(!openModal)}
+                            size="large"
+                            edge="start"
+                            aria-label="menu"
+                            sx={{
+                            margin : '8px',padding:0,
+                            color: 'black',
+                       
+                        }}>
+                            <BiSearchAlt  color='black'/>
+                        </IconButton> */}
+
+
+                     <IconButton
+                              onClick={() => setCartOpen(!cartOpen)}
+
+                            // onClick={() => router.push('/collection/products')}
+                            sx={{
+                                margin : '8px',padding:0,
+                            color: 'black'
+                        }}>
+                            <Typography sx={{fontSize:'.67em !important',fontWeight:400}} className=''>
+                            Basket
+                            </Typography>
+                            {/* <Badge color='primary' badgeContent={`${localCart.length || '0'}`}> */}
+
+                                <BiCart color='black'/>
+                            {/* </Badge> */}
+                         
+                        </IconButton>
+                        <SearchInput
 mobile
-                    />  */}
-
-
+                    /> 
 <SearchModal openModal={openModal} setOpenModal={setOpenModal }/>
              
             </Toolbar>
+
+            
 <NavButtom/>
 
         </AppBar>

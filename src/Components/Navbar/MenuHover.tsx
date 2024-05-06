@@ -3,11 +3,11 @@ import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import {AiOutlineDown} from 'react-icons/ai'
-import NestedMenuAccordion from '../Sidebar/NestedAccordion';
+// import NestedMenuAccordion from '../Sidebar/NestedAccordion';
 
 
 const HoverMenu = ({ category, subcategories ,img } : {img:string,category: string, subcategories: string[]}) => {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(true);
 
   const handleMouseEnter = () => {
     setShowMenu(true);
@@ -26,7 +26,7 @@ const HoverMenu = ({ category, subcategories ,img } : {img:string,category: stri
     <Box className='' sx={{
       margin:'0 1em ',
       zIndex:12345678,
- 
+      maxHeight:'600px',
       background:'transparent',
         }}>
     
@@ -34,7 +34,7 @@ const HoverMenu = ({ category, subcategories ,img } : {img:string,category: stri
        onMouseEnter={handleMouseEnter}
        onMouseLeave={handleMouseLeave}
         component='h1'
-        className=' cursor center flex gap1 black decor-none captialize'
+        className=' cursor center flex gap1 white decor-none captialize'
         id="button"
         sx={{width:'max-content',
         mx:'1em',
@@ -61,20 +61,23 @@ const HoverMenu = ({ category, subcategories ,img } : {img:string,category: stri
           }}
           onMouseLeave={handleMouseLeave}
         >
-          <ul style={{paddingTop:7,width:'30%'}}>
-          <Link className=' decor-none uppercase' key={category} href={`/${category.replace(/ /g, '-').toLocaleLowerCase()}/products`}>
+          <ul  className='decor-none list-none black' style={{paddingTop:7,width:'30%'}}>
+          <Link className=' decor-none uppercase black' key={category} href={`/${category.replace(/ /g, '-').toLocaleLowerCase()}/products`}>
 
-            <li>
-            <Typography onClick={()=>setShowMenu(false)}  component='p' sx={{color:'black',width:'max-content',fontWeight:600,fontSize:{xs:'.86em',sm:'1.125em'}}}>
+            <li className='decor-none list-none black'>
+            <Typography onClick={()=>setShowMenu(false)}  component='p' sx={{color:'white',width:'max-content',fontWeight:600,fontSize:{xs:'.86em',sm:'1.125em'}}}>
                 {category}
      </Typography>
             </li>
           </Link>
             {subcategories.map((subcategory) => (
               <li className='' key={subcategory}>
-              <Link className=' decor-none uppercase' key={subcategory} href={`/${category.replace(/ /g, '-').toLocaleLowerCase()}/products?type=${ subcategory.replace(/ /g, '-').toLocaleLowerCase()}`}>
+              <Link className=' decor-none list-none uppercase' key={subcategory} href={`/${category.replace(/ /g, '-').toLocaleLowerCase()}/products?type=${ subcategory.replace(/ /g, '-').toLocaleLowerCase()}`}>
                 
-     <Typography onClick={()=>setShowMenu(false)}  component='p' sx={{width:'max-content',fontWeight:300,py:.15,fontSize:{xs:'.7em',sm:'.85em'}}}>
+     <Typography onClick={()=>setShowMenu(false)}  component='p' 
+     
+     
+     sx={{width:'max-content',color:'black',fontWeight:300,py:.5,fontSize:{xs:'.7em',sm:'.85em'}}}>
                 {subcategory}
      </Typography>
  </Link>
@@ -83,9 +86,15 @@ const HoverMenu = ({ category, subcategories ,img } : {img:string,category: stri
           </ul>
         {/* <NestedMenuAccordion/> */}
 
-          {/* <Box  sx={{pointerEvents:'none',cursor:'none', width:'70%',height:'100%',minHeight:'350px'}}>
-            <img src={`${img}`} alt="Category Image" className="img " />
-          </Box> */}
+          <Box  sx={{pointerEvents:'none',cursor:'none', 
+          
+          
+          width:'70%',
+          
+          maxHeight:'500px',
+          minHeight:'350px'}}>
+            <img src={`${img}`} alt="Category Image" className="img cover " />
+          </Box> 
         </Box>
       )}
     </Box>

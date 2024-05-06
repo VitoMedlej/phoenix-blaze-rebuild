@@ -1,5 +1,5 @@
 "use client"
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React from 'react'
 // import {FaInstagram,FaWhatsapp} from 'react-icons/fa';
 // import {BsTiktok} from 'react-icons/bs';
@@ -16,16 +16,21 @@ const sm = [
  ]
 const SMicons = ({sx,color}:{color?:string,sx?:any}) => {
   return (
-    <Box className='row flex' sx={{zIndex:1234567,...sx}}>
+    <Box className='col flex' sx={{zIndex:1234567,...sx}}>
+      <Typography sx={{fontWeight:500}} component={'p'}> 
+        Connect With Us
+      </Typography>
+      <Box className="flex row" >
 
     {sm.map((item)=>{
       return <Box  key={item.href} className='relative bg flex center items-center justify-center space-between' sx={{borderRadius:'50%',width:'50px',mx:.35,mt:1,height:'50px'}}>
       <a   style={{width:'80%',height:'80%'}} className='img absolute' href={`${item.href}`} target='_blank' rel={'noneferrer'}>
           
-            <img src={item.Icon} alt="" className="img contain " />
+            <img src={item.Icon} style={{filter:'invert(1)'}} alt="" className="img contain " />
          </a>
             </Box>
     })}
+    </Box>
     </Box>
   )
 }

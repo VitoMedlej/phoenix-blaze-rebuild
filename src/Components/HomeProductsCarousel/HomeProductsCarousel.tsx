@@ -30,7 +30,7 @@ const ProductCollection = ({sx,delay,Collectiontitle,data,setQuickView} : {
             mb:'3em',
             ...sx,
         }}>
-             <Box className="flex justify-between col auto" sx={{px:1,pt:8,pb:4,maxWidth:'lg'}}>
+             <Box className="flex justify-between row auto" sx={{px:1,pt:8,pb:4,maxWidth:'lg'}}>
 
 <Typography
 component={'h1'}
@@ -38,31 +38,17 @@ component={'h1'}
     sx={{
  
     fontSize: {
-        xs: '2em',
-        sm: '3em'
-    },
-    padding:.5,
-    fontWeight: '900'
-}}>
- Diamond Painting is easy and fun!
-</Typography>
-<Typography
-component={'p'}
-    className='sectionTitle  center text-center box'
-    sx={{
- 
-    fontSize: {
         xs: '1em',
-        sm: '1.1em'
     },
     padding:.5,
-    fontWeight: '300'
+    fontWeight: '500'
 }}>
-Relax and unwind as you seamlessly create your own stunning diamond art.
+ Our Latest Collections
 </Typography>
 
+
 <Btn 
-sx={{width:'fit-content',border:'1px solid #eef6f9 ',mt:1,mx:'auto'}}
+sx={{width:'fit-content',border:'1px solid #eef6f9 ',color:'white',mx:.5}}
 onClick={()=>router.push('/collection/products')}
 >
    Explore More

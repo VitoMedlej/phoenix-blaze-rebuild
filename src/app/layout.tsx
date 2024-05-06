@@ -11,7 +11,7 @@ export const metadata = {
     title: 'DIY Crafts: Sparkle with Diamond Painting Supplies in Lebanon',
     description: `Explore the world of creative expression with diamond painting! Discover our exclusive collection of DIY crafts that combine relaxation and self-expression. Unleash your creativity and create breathtaking masterpieces with our high-quality diamond painting kits`,
     icons: {
-        icon: `https://ucarecdn.com/8dfcc837-04af-471f-b263-efd704c1be94/WhatsAppImage20240203at0814371.jpeg`
+        icon: `https://ucarecdn.com/77556735-08f8-4344-95b9-bd17bca69a11/WhatsAppImage20240429at094244_75617fcf.jpg`
     }
 }
 
@@ -23,7 +23,7 @@ export default function RootLayout({children} : {
             <head>
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet"/>
             </head>
 
             <body className='relative'>

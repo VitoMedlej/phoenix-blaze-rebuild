@@ -13,6 +13,7 @@ import Btn from './Btn/Btn'
 import useLanguage from '@/Hooks/useLanguage'
 import ContactSection from './ContactSection/ContactSection'
 import HomeProductsCarousel from './HomeProductsCarousel/HomeProductsCarousel'
+import HomeCategoryList from './HomeCateogryList/HomeCategoryList'
 
 const 
 PreLoader = ({data,resImages,vids}:any) => {
@@ -60,205 +61,46 @@ PreLoader = ({data,resImages,vids}:any) => {
     <Box >
       <MainCarousel imgs={resImages}/>
       {/* <HomeProductCollection  products={data}/> */}
- 
+    <HomeCategoryList/>
         <HomeProductsCarousel data={data} Collectiontitle={''} delay={2000}/>
-        <Testimonials/>
-      <Grid container sx={{maxWidth:'lg',mx:'auto'}}>
-        <Grid className='flex items-center' item xs={12} md={5}>
-            <Box className=' col flex items-center' sx={{
-              background:'#eef6f9 ',
-             px:{xs:1,sm:4},py:4,
-              borderRadius:'4px',
-              transform:{md:'translateX(25%)'},
-           }}>
-            <Typography
-component={'h1'}
-    className='sectionTitle   text-center box'
-    sx={{
- 
-    fontSize: {
-        xs: '2em',
-        sm: '3em'
-    },
-    padding:.5,
-    fontWeight: '900'
-}}>
- Diamond Painting is easy and fun!
-</Typography>
-<Typography
-component={'p'}
-    className='sectionTitle   text-center box'
-    sx={{
- 
-    fontSize: {
-        xs: '.8em',
-        sm: '1em'
-    },
-    padding:.5,
-    fontWeight: '300'
-}}>
-Explore our curated collection of diamond painting kits designed to inspire and captivate. 
-</Typography>
-            </Box>
-        </Grid>
-        <Grid item xs={12} md={7}>
-          <Box className='auto' sx={{width:'95%',height:'100%'}}>
-            <img style={{borderRadius:'4px'}} src={ resImages &&  resImages?.categoryImage &&  resImages?.categoryImage[0]?.img || "https://www.diamondartclub.com/cdn/shop/products/panda-valley-diamond-art-painting-28849132699841.jpg?v=1618161449&width=4058"} alt="" className="img" />
-          </Box>
-        </Grid>
-      </Grid>
+  
 
-      <Grid container sx={{my:{xs:6,sm:12},maxWidth:'lg',mx:'auto'}}>
-      <Grid item xs={12} md={7}>
-          <Box className='auto' sx={{width:'95%',height:'100%'}}>
-            <img style={{borderRadius:'4px'}} src={resImages &&  resImages?.categoryImage && resImages?.categoryImage[1]?.img || "https://files.ekmcdn.com/d43ebb/images/diamond-dotz-diamond-painting-kit-kitty-basket-1-249415-p.webp"} alt="" className="img" />
-          </Box>
-        </Grid>
-        
-        <Grid className='flex items-center' item xs={12} md={5}>
-            <Box className=' col flex items-center' sx={{
-              background:'#eef6f9 ',
-             px:{xs:1,sm:4},py:4,
-              borderRadius:'4px',
-              transform:{md:'translateX(-25%)'},
-           }}>
-            <Typography
-component={'h1'}
-    className='sectionTitle   text-center box'
-    sx={{
- 
-    fontSize: {
-        xs: '2em',
-        sm: '3em'
-    },
-    padding:.5,
-    fontWeight: '900'
-}}>
- Lebanon&apos;s Shining DIY Trend
-</Typography>
-<Typography
-component={'p'}
-    className='sectionTitle   text-center box'
-    sx={{
- 
-    fontSize: {
-        xs: '.8em',
-        sm: '1em'
-    },
-    padding:.5,
-    fontWeight: '300'
-}}>
-Elevate your crafting game with DIY Crafts Diamond Painting. Join the trend sweeping Lebanon—easy, enjoyable, and dazzling creativity at your fingertips.
-</Typography>
-            </Box>
-        </Grid>
-     
-      </Grid>
 
-      <Perks/>
+      {/* <Perks/> */}
 
-      {/* <Box className='bg'>
-            <Container sx={{py:8}} className='flex row wrap justify-around space-around'>
-              {[{
-                img:'https://www.diamonddotz.com/image/banners/greeting-cards.jpg',
-                category:'Greeting Cards'
-              },
-              {
-                img:'https://www.diamonddotz.com/image/banners/dotz-box.jpg',
-                category:'DOTZ BOX'
-              },
-              {
-                img:'https://www.diamonddotz.com/image/banners/accessories.jpg',
-                category:'Freestyle Accessories'
-              },
-              {
-                img:'https://www.diamonddotz.com/image/banners/dotzies.jpg',
-                category:'DOTZIES Kits for kids'
-              }
+   
+      <HomeProductCollection  products={data} sectionTitle={'Most Sold'}/>
+
+
+      <Container className='' sx={{maxWidth:'lg',py:8}}>
+   
+
+        <Box sx={{mt:1}} className='flex row  wrap justify-between center text-center'>
+          {[
+            `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/dorsch.png`,
+           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/electrolux.png`,
+           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/kenwood.png`,
+           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/korkmaz.png`,
+           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/optimal.png`,
+           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/chicco.png`,
+           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/braun.png`,
+           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/beper.png`,
+           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/barista.png`,
+           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/tefal.png`,
+           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/total.png`,
+           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/mulinex.png`,
+          ].map(i=>{
+            return  <Box key={i} sx={{width:{xs:'33%',sm:'22%',md:'22%'},maxWidth:'220px'}}>
+            <Box>
+              <img 
+               src={i} alt="" className="img" />
+              </Box>
               
-              ].map(i=>{ return    <Box sx={{my:2,height:{xs:'100%'},maxWidth:'550px',width:{xs:"95%",sm:'49%'}}} key={i?.category}>
-                
-                <Box sx={{height:{xs:'400px',sm:'500px',md:'600px'},width:'100%'}}>
-                      <img style={{borderRadius:'4px'}} src={`${i?.img}`} alt="" className="img" /> 
-              </Box>
-              <Box sx={{pt:1}} className='flex row justify-between space-between'>
 
-                    <Typography component='h1' sx={{fontSize:'1.5em'}} className='center'>
-                      {i?.category}
-                    </Typography>
-                    <Btn sx={{border:'none'}}>
-                      Shop Now
-                    </Btn>
-              </Box>
-                </Box>
-            })}
-            </Container>
-      </Box> */}
-      {/* <HomeProductCollection  products={data}/> */}
-
-
-      <Container>
-      <Box className='flex col center text-center' sx={{my:6}}>
-      <Typography
-component={'h1'}
-    className='sectionTitle   text-center box'
-    sx={{
- 
-    fontSize: {
-        xs: '2em',
-        sm: '3em'
-    },
-    padding:.5,
-    fontWeight: '900'
-}}>
- DIY Diamond Painting Videos
-</Typography>
-<Typography
-component={'p'}
-    className='sectionTitle   text-center box'
-    sx={{
- 
-    fontSize: {
-        xs: '.8em',
-        sm: '1em'
-    },
-    padding:.5,
-    fontWeight: '300'
-}}>
-Collection of our latest video reels from our social media!
-</Typography>
-      </Box>
-      <Box sx={{gap:'.5em'}} className='flex wrap row center   auto'>
-
-        {    
-
-            //  [
-            //   `https://res.cloudinary.com/dwcu3wcol/video/upload/v1707643034/Ultimate_ASMR_Diamond_Painting_may334.mp4`,
-            //   `https://res.cloudinary.com/dwcu3wcol/video/upload/v1707643174/Satisfying_ASMR_Diamond_Painting_Magic_ptpwhd.mp4`,
-            //   `https://res.cloudinary.com/dwcu3wcol/video/upload/v1707643143/Diamond_painting_tutorial_for_beginners_at_a_glance_dplhge.mp4`,
-            // ]
-            
-            vids && videosArray && videosArray.map((video:any)=>{
-              console.log('video: ', video);
-
-                    return <Box sx={{maxHeight:{xs:'400px',sm:'500px'},maxWidth:{xs:'100%',sm:'48%',md:'32%'}}} key={video}>
-
-          <video
-          controls={true}
-          style={{objectFit:'cover'}}
-          key={video} muted loop autoPlay width="100%" height="100%" >
-                <source src={video} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-                    </Box>
-            })
-        }
-        
+            </Box>
+          })}
         </Box>
       </Container>
-    
-
-        
         <ContactSection/>
   </Box>
   )

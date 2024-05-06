@@ -12,15 +12,12 @@ const CategoryItem = ({img, desktopHeight,phone,height, href, title} : any) => {
             className='box'
             onClick={() => router.push(`/real-estate-and-homes/${href}`)}
             sx={{
-            display : {xs:phone ? 'flex' : 'none',sm:'flex'},
-            height: {
-                xs: `${height 
-                    ? height
-                    : '150px'}`,
-                sm: desktopHeight? desktopHeight: height 
-            },
+                display:'flex',
+            // display : {xs:phone ? 'flex' : 'none',sm:'flex'},
+           width:{xs:'150px',sm:'200px'},
+           height:{xs:'150px',sm:'200px'},
             position: 'relative',
-            // m: '5px',
+            margin: '5px',
             cursor: 'pointer',
             transition: '.2s ease',
             overflow: 'hidden'
@@ -36,10 +33,10 @@ const CategoryItem = ({img, desktopHeight,phone,height, href, title} : any) => {
                 width: '100%',
                 position: 'absolute',
                 height: `100%`,
-                borderRadius: '4px'
+                borderRadius: '0%'
             }}>
                 
-                <img  className='img BR' src={`${img}`} alt="Category Image"/>
+                <img  className='img   contain' src={`${img}`} alt="Category Image"/>
             </Box>
         </Box>
     )

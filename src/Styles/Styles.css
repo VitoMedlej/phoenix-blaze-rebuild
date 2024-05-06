@@ -2,15 +2,15 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 h1 {
-  font-family: "Playfair Display", serif !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 *, h2, h3, h4, h5, h6, p, button, input, select, textarea, a {
-  font-family: "Roboto", sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 .w100 {
@@ -18,7 +18,7 @@ h1 {
 }
 
 .color3 {
-  color: #eef6f9 !important;
+  color: #1554ba !important;
 }
 
 .topd {
@@ -51,11 +51,11 @@ h1 {
 }
 
 .bg2 {
-  background: #eef6f9 !important;
+  background: #1554ba !important;
 }
 
 .borderColor {
-  border-color: #eef6f9 !important;
+  border-color: #1554ba !important;
 }
 
 .borderColor2 {
@@ -71,11 +71,15 @@ h1 {
 }
 
 .color {
-  color: #eef6f9 !important;
+  color: #1554ba !important;
 }
 
 .flex {
   display: flex;
+}
+
+.list-none {
+  list-style: none;
 }
 
 .shadow {
@@ -111,7 +115,7 @@ h1 {
 }
 
 .bg {
-  background: #eef6f9 !important;
+  background: #1554ba !important;
 }
 
 .white {
@@ -164,7 +168,7 @@ button[disabled] {
 }
 
 .clr {
-  color: #eef6f9 !important;
+  color: #1554ba !important;
 }
 
 .auto {
