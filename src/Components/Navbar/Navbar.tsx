@@ -150,7 +150,7 @@ export default function Navbar() {
 
                         <IconButton
                             onClick={() => setOpen(!open)}
-                            size="small"
+                            size="medium"
                             edge="start"
                             aria-label="menu"
                             sx={{
@@ -272,7 +272,7 @@ className='absolute '
 
 
                      <IconButton
-                            size="small"
+                            size="medium"
 
                               onClick={() => setCartOpen(!cartOpen)}
 
