@@ -65,7 +65,6 @@ try {
 
 
 
-    console.log('products: ', products);
     if (!featuredProducts || !products || featuredProducts.length < 0 || products.length < 0) {
         return NextResponse.json({success: false});
     }

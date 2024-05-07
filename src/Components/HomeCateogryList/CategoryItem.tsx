@@ -10,7 +10,7 @@ const CategoryItem = ({img, desktopHeight,phone,height, href, title} : any) => {
     return (
         <Box
             className='box'
-            onClick={() => router.push(`/real-estate-and-homes/${href}`)}
+            onClick={() => router.push(`/collection/products`)}
             sx={{
                 display:'flex',
             // display : {xs:phone ? 'flex' : 'none',sm:'flex'},
