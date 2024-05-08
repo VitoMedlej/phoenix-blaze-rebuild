@@ -1,7 +1,8 @@
 "use client"
+import useCategories from "@/Hooks/useCategories";
 import { createContext, useContext, useEffect, useState } from "react";
-import NextNProgress from 'nextjs-progressbar';
-import { loadState, saveState } from "@/Utils/LocalstorageFn";
+// import NextNProgress from 'nextjs-progressbar';
+// import { loadState, saveState } from "@/Utils/LocalstorageFn";
 
 
 export const DrawerContext = createContext < any > ({});
@@ -15,31 +16,31 @@ export const LangContext = createContext < any > ('en');
         children: React.ReactNode;
       }
       ) => {
-            const a = 421412;
         const [open,
             setOpen] = useState(false);
         const [cartOpen,
             setCartOpen] = useState(false);
-            const [cates,
-                setCates] = useState([]);
+            const categories = useCategories()
+        
                 const [lang,
                     setLang] = useState('en');
                         // Load language from localStorage on component mount
-    useEffect(() => {
-        const savedLang = loadState('Vz124tf');
-        if (savedLang) {
-            setLang(savedLang);
-        }
-    }, []);
+    // useEffect(() => {
+    //     const savedLang = loadState('Vz124tf');
+    //     if (savedLang) {
+    //         setLang(savedLang);
+    //     }
+    // }, []);
 
     // Save language to localStorage whenever it changes
-    useEffect(() => {
-        saveState('Vz124tf', lang);
-    }, [lang]);
+    // useEffect(() => {
+    //     saveState('Vz124tf', lang);
+    // }, [lang]);
             return (
                 
                 <DrawerContext.Provider value={{open,setOpen}}>
-        <Categories.Provider value={{cates, setCates}}>
+              <Categories.Provider value={{categories}}>
+
             
         <CartContext.Provider value={{cartOpen, setCartOpen}}>
         <LangContext.Provider value={{lang, setLang}}>

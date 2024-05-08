@@ -85,6 +85,13 @@ import { useEffect, useState } from "react"
 // useEffect(() => {
 //   fetchDataAndSetImgs()
 // }, [])
+const fetchDataAndSetImgs = async () => {
+  const req = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-images`,
+  {cache: 'no-store',next:{revalidate:0} })
+  let res = req &&  await req.json();
+  if (res?.success && res?.data?.Images) return res
+  return null;
+}
 try {
 
   // const req = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-data`,{ next: { revalidate: 10 } })
@@ -96,7 +103,7 @@ try {
   // console.log('res: ', res);
   // const reqImages = await fetch(`https://getpantry.cloud/apiv1/pantry/732d3c8c-d53a-4c4c-830c-fe9b7e021958/basket/Images`,{  cache:'no-store', next: { revalidate: 400 } })
   // let resImages : any = await  reqImages.json();
-  // const imgs = await fetchDataAndSetImgs()
+  const imgs = await fetchDataAndSetImgs()
   // const vids = await fetchDataAndSetVideos()
   // console.log('vids: ', vids);
     // let vids = res?.data?.vids;
@@ -105,7 +112,7 @@ try {
       // let res = {data:{featuredProducts:null}}
       
       return (
-        <PreLoader vids={ null} resImages={ null} 
+        <PreLoader vids={ null} resImages={ imgs} 
         
         // data={null}
         featuredProducts={res?.data?.featuredProducts}
