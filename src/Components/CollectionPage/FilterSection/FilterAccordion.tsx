@@ -13,10 +13,12 @@ import { Box, MenuItem } from '@mui/material';
 import Btn from '@/Components/Btn/Btn';
 import { categories } from '@/Components/Navbar/Navbar';
 import { getCategorySubcategories, mainCategories } from '@/Components/Sidebar/NestedAccordion';
+import { useCategoriesContext } from '@/context/Contexts';
 // import SearchInput from '@/Components/Navbar/SearchInput';
 
 export default function SimpleAccordion({handleSubmit,options,setOptions}:any) {
-   
+    const {categories} = useCategoriesContext();
+    let categoryArray = categories && categories?.map((category:any) => category?.categoryName);
     const handleChange = (val: string) => {
         // setValue(();
         // let val = (event.target as HTMLInputElement).value;
@@ -44,21 +46,21 @@ export default function SimpleAccordion({handleSubmit,options,setOptions}:any) {
         //             my: '1em'
         //         }}/>
         // },
-         {
-             comp: <SelectOneForm
-             sx={{maxWidth:'250px'}}
-             title= 'Category'
-            List={
+        {
+            comp: <SelectOneForm
+            sx={{maxWidth:'250px'}}
+            title= 'Category'
+           List={
+           
+               categoryArray
             
-                mainCategories
-             
-           }
-            value={options.category?.toLocaleLowerCase()}
-            setValue={
-                handleChange
-                }
-            />
-        },
+          }
+           value={options.category}
+           setValue={
+               handleChange
+               }
+           />
+       },
         {
             comp: <SelectOneForm
             sx={{maxWidth:'250px'}}
