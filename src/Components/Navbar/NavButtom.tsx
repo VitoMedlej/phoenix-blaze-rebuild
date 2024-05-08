@@ -9,7 +9,7 @@ import MenuHover from './MenuHover'
 
 
 
-const NavButtom = () => {
+const NavButtom = ({categories} : any) => {
 
   return (
     <Box
@@ -35,7 +35,7 @@ const NavButtom = () => {
                     Sale
                     </Typography>
                 </Link> */}
-                  <Link className='white decor-none ' href={`/about`}>
+                  <Link className='white decor-none ' href={`/`}>
 
 <Typography 
 className=' cursor center flex gap1 white decor-none captialize'
@@ -45,11 +45,64 @@ mx:'1em',
 alignItems: 'center',
 
 fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
-Learn More
+Home
 </Typography>
 </Link>
 
-<MenuHover img='https://www.ishtari.com/image/data/system_banner/10000/600/519/home-appliances.png' category={'5D Diy Kits'} subcategories={[  
+<Link className='white decor-none ' href={`/collection/products`}>
+
+<Typography 
+className=' cursor center flex gap1 white decor-none captialize'
+id="button"
+component='h1' sx={{width:'max-content',
+mx:'1em',
+alignItems: 'center',
+
+fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
+Collection
+</Typography>
+</Link>
+
+{
+    categories && categories.map((cate: any) => {
+        return cate?.cateArray.map((item: any, index: number) => {
+            if (item?.subcategories?.length === 0) {
+                return (
+                    <Link 
+                        key={item?.categoryName} 
+                        className='white decor-none' 
+                        href={`/${item?.categoryName?.toLocaleLowerCase()}/products`}
+                    >
+                        <Typography 
+                            className='cursor center flex gap1 white decor-none captialize'
+                            component='h1' 
+                            sx={{
+                                width:'max-content',
+                                mx:'1em',
+                                alignItems: 'center',
+                                fontWeight:500,
+                                fontSize:{xs:'.86em',sm:'.95em'}
+                            }}
+                        >
+                            {`${item?.categoryName}`}
+                        </Typography>
+                    </Link>
+                );
+            } else {
+                return (
+                    <MenuHover 
+                        key={item?.categoryName}
+                        img={cate.img} // assuming img is stored in the cate object
+                        category={`${item?.categoryName}`} 
+                        subcategories={item?.subcategories} 
+                    />
+                );
+            }
+        });
+    })
+}
+
+{/* <MenuHover img='https://www.ishtari.com/image/data/system_banner/10000/600/519/home-appliances.png' category={'5D Diy Kits'} subcategories={[  
  "LANDSCAPES",
  'PORTRAIT',
  "NATURE",
@@ -96,118 +149,20 @@ Learn More
         </Typography>
         </Link>
     })
-}
-
-<Link className='white decor-none ' href={`/almost done/products`}>
-
-<Typography 
-className=' cursor center flex gap1 white decor-none captialize'
-id="button"
-component='h1' sx={{width:'max-content',
-mx:'1em',
-alignItems: 'center',
-
-fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
-Almost Done
-</Typography> 
-</Link>
-
-<Link className='white decor-none ' href={`/collection/products`}>
-
-<Typography 
-className=' cursor center flex gap1 white decor-none captialize'
-id="button"
-component='h1' sx={{width:'max-content',
-mx:'1em',
-alignItems: 'center',
-
-fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
-Collection
-</Typography>
-</Link>
+} */}
 
 
 
 
-<Link className='white decor-none ' href={`/#FEEDBACK`}>
-
-<Typography 
-className=' cursor center flex gap1 white decor-none captialize'
-id="button"
-component='h1' sx={{width:'max-content',
-mx:'1em',
-alignItems: 'center',
-
-fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
-Feedbacks
-</Typography>
-</Link>
-
-               
-               
-       
 
 
 
- 
-
-
-{/* <Link className='white decor-none ' href={`/organic herbs/products`}>
-
-<Typography 
-className=' cursor center flex gap1 white decor-none captialize'
-id="button"
-component='p' sx={{width:'max-content',
-mx:'1em',
-alignItems: 'center',
-
-fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
-Organic Herbs
-</Typography>
-</Link>
-<Link className='white decor-none ' href={`/natural supplements/products`}>
-
-<Typography 
-className=' cursor center flex gap1 white decor-none captialize'
-id="button"
-component='p' sx={{width:'max-content',
-mx:'1em',
-alignItems: 'center',
-
-fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
-Natural Supplements
-</Typography>
-</Link> */}
 
 
 
-{/* <Link className='white decor-none ' href={`/about`}>
 
-<Typography 
-className=' cursor center flex gap1 white decor-none '
-id="button"
-component='p' sx={{width:'max-content',
-mx:'1em',
-alignItems: 'center',
 
-fontWeight:500,fontSize:{xs:'.86em',sm:'.95em'}}}>
-About Us
-</Typography>
-</Link> */}
 
-{/* <Link className='white decor-none uppercase' href={`/new-arrivals/products`}>
-
-<Typography 
-className=' cursor center flex gap1 white decor-none uppercase'
-id="button"
-component='p' sx={{width:'max-content',
-alignItems: 'center',
-mx:'1em',
-
-fontWeight:600,fontSize:{xs:'.6em',sm:'.75em'}}}>
-New Arrivals
-</Typography>
-</Link> */}
                 {/* <Link className='white decor-none uppercase' href={`/birds/products`}>
 
                 <Typography 

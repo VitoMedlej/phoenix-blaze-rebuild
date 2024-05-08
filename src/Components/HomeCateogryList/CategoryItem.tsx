@@ -10,7 +10,7 @@ const CategoryItem = ({img, desktopHeight,phone,height, href, title} : any) => {
     return (
         <Box
             className='box'
-            onClick={() => router.push(`/collection/products`)}
+            onClick={() => router.push(`${href}`)}
             sx={{
                 display:'flex',
             // display : {xs:phone ? 'flex' : 'none',sm:'flex'},
@@ -22,11 +22,6 @@ const CategoryItem = ({img, desktopHeight,phone,height, href, title} : any) => {
             transition: '.2s ease',
             overflow: 'hidden'
         }}>
-            <Box className='layerText'>
-                <Typography fontSize='1.4em'>
-                    {title}
-                </Typography>
-            </Box>
             <Box
                 className='layered'
                 sx={{
@@ -37,6 +32,11 @@ const CategoryItem = ({img, desktopHeight,phone,height, href, title} : any) => {
             }}>
                 
                 <img  className='img   contain' src={`${img}`} alt="Category Image"/>
+            </Box>
+            <Box className=' auto center text-center'>
+                <Typography fontSize='.8em'>
+                    {title}
+                </Typography>
             </Box>
         </Box>
     )

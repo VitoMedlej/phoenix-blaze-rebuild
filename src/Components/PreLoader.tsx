@@ -6,18 +6,18 @@ import HomeProductCollection from './HomeProductCollection/HomeProductCollection
 // import HomeProductsCarousel from './HomeProductsCarousel/HomeProductsCarousel'
 import MainCarousel from './MainCarousel/MainCarousel'
 import { useRouter } from 'next/navigation'
-import Perks from './Perks/Perks'
 // import FullscreenPoster from './FullscreenPoster/FullscreenPoster'
-import Testimonials from './Testimonials/Testimonials'
 import Btn from './Btn/Btn'
-import useLanguage from '@/Hooks/useLanguage'
 import ContactSection from './ContactSection/ContactSection'
 import HomeProductsCarousel from './HomeProductsCarousel/HomeProductsCarousel'
 import HomeCategoryList from './HomeCateogryList/HomeCategoryList'
 import FullscreenPoster from './FullscreenPoster/FullscreenPoster'
+import { useCategoriesContext } from '@/context/Contexts'
 
 const 
 PreLoader = ({data,featuredProducts,resImages,vids}:any) => {
+  const {categories} = useCategoriesContext();
+  console.log('categories: ', categories);
   
   // let videosArray = vids && vids[0]?.videos?.videos || null
   // const router= useRouter();
@@ -63,8 +63,12 @@ PreLoader = ({data,featuredProducts,resImages,vids}:any) => {
     <Box >
       <MainCarousel imgs={resImages}/>
       {/* <HomeProductCollection  products={data}/> */}
-    <HomeCategoryList/>
 
+{
+  categories &&
+  <HomeCategoryList categories={categories}/>
+
+}
     
         <HomeProductsCarousel  data={data} Collectiontitle={'Our Latest Collections'} delay={2000}/>
   
@@ -138,6 +142,8 @@ PreLoader = ({data,featuredProducts,resImages,vids}:any) => {
             </Box>
           })}
         </Box>
+
+
       </Container>
 
 

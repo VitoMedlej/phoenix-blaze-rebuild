@@ -496,7 +496,7 @@ key={i}>
     <div>
 
           <Drawer
-            anchor={'right'}
+            anchor={'left'}
             open={open}
             onClose={toggleDrawer(false)}
           >

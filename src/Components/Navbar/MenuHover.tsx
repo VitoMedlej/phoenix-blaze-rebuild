@@ -6,7 +6,9 @@ import {AiOutlineDown} from 'react-icons/ai'
 // import NestedMenuAccordion from '../Sidebar/NestedAccordion';
 
 
-const HoverMenu = ({ category, subcategories ,img } : {img:string,category: string, subcategories: string[]}) => {
+const HoverMenu = ({ category, subcategories ,img } : {img:string,category: string, subcategories: {id:string,name:string}[]}) => {
+  console.log('category: ', category);
+  console.log('subcategories: ', subcategories);
   const [showMenu, setShowMenu] = useState(false);
 
   const handleMouseEnter = () => {
@@ -34,7 +36,7 @@ const HoverMenu = ({ category, subcategories ,img } : {img:string,category: stri
        onMouseEnter={handleMouseEnter}
        onMouseLeave={handleMouseLeave}
         component='h1'
-        className=' cursor center flex gap1 white decor-none captialize'
+        className='white cursor center flex gap1 white decor-none captialize'
         id="button"
         sx={{width:'max-content',
         mx:'1em',
@@ -65,20 +67,24 @@ const HoverMenu = ({ category, subcategories ,img } : {img:string,category: stri
           <Link className=' decor-none uppercase black' key={category} href={`/${category.replace(/ /g, '-').toLocaleLowerCase()}/products`}>
 
             <li className='decor-none list-none black'>
-            <Typography onClick={()=>setShowMenu(false)}  component='p' sx={{color:'white',width:'max-content',fontWeight:600,fontSize:{xs:'.86em',sm:'1.125em'}}}>
+            <Typography onClick={()=>setShowMenu(false)} 
+            
+            
+            component='p' sx={{color:'black',width:'max-content',fontWeight:600,fontSize:{xs:'.86em',sm:'1.125em'}}}>
                 {category}
      </Typography>
             </li>
           </Link>
-            {subcategories.map((subcategory) => (
-              <li className='' key={subcategory}>
-              <Link className=' decor-none list-none uppercase' key={subcategory} href={`/${category.replace(/ /g, '-').toLocaleLowerCase()}/products?type=${ subcategory.replace(/ /g, '-').toLocaleLowerCase()}`}>
+            {subcategories && subcategories?.map((subcategory) => (
+              <li className='' key={subcategory?.id}>
+              <Link className=' decor-none list-none uppercase'
+               href={`/${category?.replace(/ /g, '-').toLocaleLowerCase()}/products?type=${subcategory?.name ? `${subcategory?.name}`?.replace(/ /g, '-').toLocaleLowerCase() : null}`}>
                 
      <Typography onClick={()=>setShowMenu(false)}  component='p' 
      
      
      sx={{width:'max-content',color:'black',fontWeight:300,py:.5,fontSize:{xs:'.7em',sm:'.85em'}}}>
-                {subcategory}
+                {subcategory?.name}
      </Typography>
  </Link>
                 </li>

@@ -4,21 +4,21 @@ import CategoryItem from "./CategoryItem"
 import {useRef, useEffect} from "react";
 // import staticData from '../../staticData.json'
 
-const Category = () => {
-    const CategoryItems = [
-        {phone:true,img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/appliances.png'},
-        {phone:true,img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/automotives.png'},
-        {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/beauty.png'},
+const Category = ({categories} : {categories:any} ) => {
+    // const CategoryItems = [
+    //     {phone:true,img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/appliances.png'},
+    //     {phone:true,img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/automotives.png'},
+    //     {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/beauty.png'},
 
 
-        {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/camping.png'},
-        {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/kitchen.png'},
-        {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/massager.png'},
-        {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/office.png'},
-        {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/inflatable.png'},
+    //     {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/camping.png'},
+    //     {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/kitchen.png'},
+    //     {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/massager.png'},
+    //     {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/office.png'},
+    //     {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/inflatable.png'},
 
 
-        {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/camera.png'}]
+    //     {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3436/camera.png'}]
 
 
 
@@ -58,7 +58,22 @@ const Category = () => {
             }}>
                 
 
-                <Box
+
+                <Box className='auto center flex' sx={{ flexWrap: 'wrap', width: { xs: "100%" } }}>
+    {categories && categories.map((cate: any) => (
+        cate && cate?.cateArray.map((item: any) => (
+            <CategoryItem
+                key={item?.img}
+                href={`/${item?.categoryName.toLocaleLowerCase()}/products`}
+                title={item?.categoryName}
+                height='200px'
+                // phone={item.phone} // Assuming phone is a property of item
+                img={item.img}
+            />
+        ))
+    ))}
+</Box>
+                {/* <Box
                 className='auto center flex'
                     sx={{
                     flexWrap: 'wrap',
@@ -78,7 +93,7 @@ return   <CategoryItem
                                 img={`${item.img}`}/>
                     })}
 
-                </Box>
+                </Box> */}
 
             </Grid>
         </Box>

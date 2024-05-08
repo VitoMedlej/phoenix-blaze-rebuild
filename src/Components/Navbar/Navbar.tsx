@@ -21,7 +21,7 @@ import {useRouter} from 'next/navigation';
 // import SearchInput from './SearchInput';
 
 import NavButtom from './NavButtom';
-import { useCartContext, useDrawerContext } from '@/context/Contexts';
+import { useCartContext, useCategoriesContext, useDrawerContext } from '@/context/Contexts';
 import SearchInput from './SearchInput';
 // import Btn from '../Btn/Btn';
 
@@ -42,6 +42,10 @@ export default function Navbar() {
 
     const {cartOpen, setCartOpen} = useCartContext();
     const router = useRouter()
+
+
+    const {categories} = useCategoriesContext();
+
     // const localCart = [1]
     useEffect(() => {
         const cart : any = []
@@ -245,6 +249,7 @@ className='absolute '
         xs:'.15em',
         sm: '1em'
     },
+    width:'120px',
     height:{xs:'90px',sm: '100px'}
 }}>
     <img
@@ -300,7 +305,7 @@ mobile
             </Toolbar>
 
             
-<NavButtom/>
+<NavButtom categories={categories}/>
 
         </AppBar>
     </Box> 
