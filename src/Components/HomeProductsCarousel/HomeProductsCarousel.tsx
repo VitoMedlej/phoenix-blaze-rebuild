@@ -6,9 +6,10 @@ import { IProduct } from '@/Types/Types'
 import Btn from '../Btn/Btn'
 import SwiperCarousel from './SwiperCarousel/SwiperCarousel'
 import { useRouter } from 'next/navigation'
-const ProductCollection = ({sx,delay,Collectiontitle,data,setQuickView} : {
+const ProductCollection = ({sx,delay,Collectiontitle,data,setQuickView,category} : {
     Collectiontitle: string,
     delay : number,
+    category : string,
     data: IProduct[],
     sx ?: any;
     setQuickView ?: Dispatch<SetStateAction<{
@@ -26,7 +27,7 @@ const ProductCollection = ({sx,delay,Collectiontitle,data,setQuickView} : {
             width :'99%',
             margin: '0 auto',
             // my: '3em',
-            // mt:'4em',
+            mt:'1em',
             mb:'3em',
             ...sx,
         }}>
@@ -49,7 +50,7 @@ component={'h1'}
 
 <Btn v2
 sx={{px:{xs:1,sm:2},fontSize:{xs:'.7em',sm:'.8em'},width:'fit-content'}}
-onClick={()=>router.push('/collection/products')}
+onClick={()=>router.push(`/${category || 'collection'}/products`)}
 >
    Explore More
 </Btn>

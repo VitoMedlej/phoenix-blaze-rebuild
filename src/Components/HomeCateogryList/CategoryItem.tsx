@@ -9,7 +9,7 @@ const CategoryItem = ({img, desktopHeight,phone,height, href, title} : any) => {
 
     return (
         <Box
-            className='box'
+            className='box flex col'
             onClick={() => router.push(`${href}`)}
             sx={{
                 display:'flex',
@@ -26,18 +26,18 @@ const CategoryItem = ({img, desktopHeight,phone,height, href, title} : any) => {
                 className='layered'
                 sx={{
                 width: '100%',
-                position: 'absolute',
+                // position: 'absolute',
                 height: `100%`,
                 borderRadius: '0%'
             }}>
                 
                 <img  className='img   contain' src={`${img}`} alt="Category Image"/>
             </Box>
-            <Box className=' auto center text-center'>
+            {/* <Box className=' auto center text-center'>
                 <Typography fontSize='.8em'>
                     {title}
                 </Typography>
-            </Box>
+            </Box> */}
         </Box>
     )
 }

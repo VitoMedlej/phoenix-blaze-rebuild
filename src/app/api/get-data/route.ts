@@ -17,7 +17,7 @@ try {
 
 
 
-    ProductsCollection
+    // ProductsCollection
     const featuredProductsQuery = await ProductsCollection
         .find({isFeatured: true})
         // .find({})
@@ -73,7 +73,7 @@ try {
         success: true,
         data: {
             products : productsQuery,
-            featuredProducts,
+            featuredProducts : featuredProductsQuery,
             vids: null
         }
     });

@@ -15,9 +15,9 @@ import FullscreenPoster from './FullscreenPoster/FullscreenPoster'
 import { useCategoriesContext } from '@/context/Contexts'
 
 const 
-PreLoader = ({data,featuredProducts,resImages,vids}:any) => {
+PreLoader = ({data,featuredProducts,resImages,vids,SectionsRes}:any) => {
+  console.log('SectionsRes: ', SectionsRes);
   const {categories} = useCategoriesContext();
-  console.log('categories: ', categories);
   
   // let videosArray = vids && vids[0]?.videos?.videos || null
   // const router= useRouter();
@@ -69,31 +69,49 @@ PreLoader = ({data,featuredProducts,resImages,vids}:any) => {
   <HomeCategoryList categories={categories}/>
 
 }
-    
-        <HomeProductsCarousel  data={data} Collectiontitle={'Our Latest Collections'} delay={2000}/>
+
+
+
+    {
+      SectionsRes && SectionsRes?.map((section:any)=>{
+        return <Box>
+
+{
+  section?.images && section?.images?.length > 0 && section?.images?.map((img:string,idx:number)=>{
+    return <Grid container className='flex' sx={{gap:1,px:1}}>
+        
+    <Grid item xs={12} sm={ section?.images?.length > 1 ? 5.9 : 12}>
+      <Box>
+        <img src={`${img}`} alt="" className="img" />
+      </Box> 
+    </Grid>
+  </Grid>
+  })
+}
+
+        <HomeProductsCarousel  
+        
+        data={featuredProducts}
+        
+        category={section?.category}
+        Collectiontitle={section?.title || 'Our Latest Collections'}
+        delay={2000}/>
+        </Box>  
+      })
+    }
+       
   
 
 
       {/* <Perks/> */}
 
-        <Grid container className='flex' sx={{gap:1,px:1}}>
-          <Grid item xs={12} sm={5.9}>
-            <Box>
-              <img src="https://www.ishtari.com/image/data/system_banner/10000/3600/3424/app-1.jpg" alt="" className="img" />
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={5.9}>
-            <Box>
-              <img src="https://www.ishtari.com/image/data/system_banner/10000/3600/3424/app-2.jpg" alt="" className="img" />
-            </Box>
-          </Grid>
-        </Grid>
+      
    
-        <HomeProductsCarousel  sx={{mt:2}} data={data.slice(7,12)} Collectiontitle={'Home & Tools Collection'} delay={2000}/>
+        {/* <HomeProductsCarousel  sx={{mt:2}} data={data.slice(7,12)} Collectiontitle={'Home & Tools Collection'} delay={2000}/> */}
 
 
 
-        <Grid container className='flex' sx={{gap:1,px:1}}>
+        {/* <Grid container className='flex' sx={{gap:1,px:1}}>
           <Grid item xs={12} sm={5.9}>
             <Box>
               <img src="https://www.ishtari.com/image/data/system_banner/10000/3600/3456/cleaning.png" alt="" className="img" />
@@ -107,11 +125,11 @@ PreLoader = ({data,featuredProducts,resImages,vids}:any) => {
         </Grid>
    
         <HomeProductsCarousel  sx={{mt:2}} data={data.slice(6,33)} Collectiontitle={'Car & Cleaning Collection'} delay={2000}/>
-       
+        */}
        
        
 
-      <FullscreenPoster img={` https://www.ishtari.com/image/data/system_banner/10000/3600/3449/moulinex-web.png`} imgPc={`https://www.ishtari.com/image/data/system_banner/10000/3600/3449/moulinex-web.png`} />
+     
 
 
       <Container className='' sx={{maxWidth:'lg',pt:1,pb:4}}>

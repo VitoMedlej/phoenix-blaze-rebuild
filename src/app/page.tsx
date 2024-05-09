@@ -85,15 +85,27 @@ import PreLoader from "@/Components/PreLoader"
 // useEffect(() => {
 //   fetchDataAndSetImgs()
 // }, [])
-const fetchDataAndSetImgs = async () => {
+const fetchDataAndSetImgsAndSections = async () => {
   const req = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-images`,
   // {cache: 'no-store',next:{revalidate:0} }
 
 )
   let res = req &&  await req.json();
-  if (res?.success && res?.data?.Images) return res
+
+  const SectionsReq = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-sections`,
+  // {cache: 'no-store',next:{revalidate:0} }
+
+)
+  let SectionsRes = SectionsReq &&  await SectionsReq.json();
+  console.log('SectionsRes: ', SectionsRes);
+
+
+  if (SectionsRes?.success && res?.success && res?.data?.Images && SectionsRes?.data?.Images)
+     return {imgs : res, SectionsRes: SectionsRes?.data?.Images[0]?.imagesArray?.sections}
   return null;
 }
+
+
 try {
 
   // const req = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-data`,{ next: { revalidate: 10 } })
@@ -107,7 +119,9 @@ try {
   // console.log('res: ', res);
   // const reqImages = await fetch(`https://getpantry.cloud/apiv1/pantry/732d3c8c-d53a-4c4c-830c-fe9b7e021958/basket/Images`,{  cache:'no-store', next: { revalidate: 400 } })
   // let resImages : any = await  reqImages.json();
-  const imgs = await fetchDataAndSetImgs()
+  const result = await fetchDataAndSetImgsAndSections()
+  const imgs = result?.imgs;
+  const SectionsRes = result?.SectionsRes;
   // const vids = await fetchDataAndSetVideos()
   // console.log('vids: ', vids);
     // let vids = res?.data?.vids;
@@ -117,7 +131,7 @@ try {
       
       return (
         <PreLoader vids={ null} resImages={ imgs} 
-        
+        SectionsRes={SectionsRes}
         // data={null}
         featuredProducts={res?.data?.featuredProducts}
         data={res?.data?.products}
