@@ -16,6 +16,7 @@ import { useCategoriesContext } from '@/context/Contexts'
 
 const 
 PreLoader = ({data,featuredProducts,resImages,vids,SectionsRes}:any) => {
+  console.log('data: ', data);
   console.log('SectionsRes: ', SectionsRes);
   const {categories} = useCategoriesContext();
   
@@ -57,7 +58,22 @@ PreLoader = ({data,featuredProducts,resImages,vids,SectionsRes}:any) => {
   //   },
   // ];
   
+  const filterProductsByCategory = (data: any, categoryName: string) => {
+    // If the category name is 'collection', return all data
+    if (categoryName === 'collection') {
+      return data;
+    }
   
+    // Filter products based on the category name
+    const filteredProducts = data.filter((product: any) => product?.category === categoryName);
+  
+    // If there are no products with the specified category, return an empty array
+    if (!filteredProducts || filteredProducts.length === 0) {
+      return [];
+    }
+  
+    return filteredProducts;
+  };
 
   return (
     <Box >
@@ -71,34 +87,34 @@ PreLoader = ({data,featuredProducts,resImages,vids,SectionsRes}:any) => {
 }
 
 
-
-    {
-      SectionsRes && SectionsRes?.map((section:any)=>{
-        return <Box>
-
 {
-  section?.images && section?.images?.length > 0 && section?.images?.map((img:string,idx:number)=>{
-    return <Grid container className='flex' sx={{gap:1,px:1}}>
-        
-    <Grid item xs={12} sm={ section?.images?.length > 1 ? 5.9 : 12}>
-      <Box>
-        <img src={`${img}`} alt="" className="img" />
-      </Box> 
-    </Grid>
-  </Grid>
+  SectionsRes && SectionsRes.map((section: any) => {
+    const productsForCategory = filterProductsByCategory(data, `${section?.category || 'collection'}` );
+
+    return (
+      <Box key={`${section?.title}`}>
+        {/* Render images */}
+        {section?.images && <Grid  container className='flex' sx={{ gap: 1, px: 1 }}>
+        { section?.images?.length > 0 && section?.images.map((img: string, idx: number) => (
+            <Grid key={idx} item xs={12} sm={section.images.length > 1 ? 5.9 : 12}>
+              <Box>
+                <img src={`${img}`} alt="" className="img" />
+              </Box> 
+          </Grid>
+        ))}
+        </Grid>
+}
+        {/* Render HomeProductsCarousel */}
+        <HomeProductsCarousel  
+          data={productsForCategory}
+          category={section?.category}
+          Collectiontitle={section?.title || 'Our Latest Collections'}
+          delay={2000}
+        />
+      </Box>
+    );
   })
 }
-
-        <HomeProductsCarousel  
-        
-        data={featuredProducts}
-        
-        category={section?.category}
-        Collectiontitle={section?.title || 'Our Latest Collections'}
-        delay={2000}/>
-        </Box>  
-      })
-    }
        
   
 
