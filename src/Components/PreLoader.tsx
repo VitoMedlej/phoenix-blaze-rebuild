@@ -86,6 +86,13 @@ PreLoader = ({data,featuredProducts,resImages,vids,SectionsRes}:any) => {
 
 }
 
+<HomeProductsCarousel  
+          data={featuredProducts}
+          category={'collection'}
+          Collectiontitle={'Featured Products'}
+          delay={2000}
+        />
+
 
 {
   SectionsRes && SectionsRes.map((section: any) => {
