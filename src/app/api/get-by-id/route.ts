@@ -19,8 +19,8 @@ export async function GET(req : NextRequest, res : NextApiResponse) {
     .collection("Products");
 
     // let moreProducts: any[]= []
-    const product = await ProductsCollection.findOne({_id:new ObjectId(`65a979b1d3cae8f7f6b10957`)});
-    console.log('product: ', product);
+    const product = await ProductsCollection.findOne({_id:new ObjectId(`${id}`)});
+    // console.log('product: ', product);
 
 
 

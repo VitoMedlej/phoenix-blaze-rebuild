@@ -12,6 +12,7 @@ import Btn from './Btn/Btn';
 
 
 const Preloader3 = ({res}:{res:any}) => {
+   
     const router = useRouter()
  const [imgs,setImgs] = useState(
      
@@ -25,8 +26,8 @@ console.log('imgs: ', imgs);
 useEffect(() => {
   
 
-    if (res && res?.MainCarousel) {
-        setImgs(res?.MainCarousel)
+    if (res && res?.data?.Images[0]?.imagesArray) {
+        setImgs(res?.data?.Images[0]?.imagesArray)
     }
 }, [])
 
@@ -78,7 +79,7 @@ useEffect(() => {
                       
                             <img
             
-                                className={`img cover  ${item?.position} 
+                                className={`img contain  ${item?.position} 
                                 `}
                                 // ${item?.className}
                                 src={`${item.img}`}

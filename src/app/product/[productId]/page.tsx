@@ -139,9 +139,10 @@ const Index = () => {
                      onClick={()=>addToCart(selectedQuantity,`${data?.product?._id}`,{title : data.product.title ,category: data.product.category,img:data.product.images[0], _id : data.product._id,price:selectedSize?.price ? selectedSize?.price : data?.product?.price, productselectedSize:selectedSize?.size},true,true)}
              
               sx={{gap:.5,
+                padding:'1.2em .2em',
                 borderRadius:0,
              width:{xs:'100%',sm:'100%'}}}>
-                <Typography component='h1'>
+                <Typography sx={{color:'white',fontSize:{xs:'.8em',sm:'.9em'}}} component='h1'>
                 ADD TO CART
                 </Typography>
                 
