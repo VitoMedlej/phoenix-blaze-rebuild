@@ -26,8 +26,8 @@ console.log('imgs: ', imgs);
 useEffect(() => {
   
 
-    if (res && res?.data[0]?.imagesArray) {
-        setImgs(res?.data[0]?.imagesArray)
+    if (res && res[0]?.imagesArray) {
+        setImgs(res[0]?.imagesArray)
     }
 }, [])
 
