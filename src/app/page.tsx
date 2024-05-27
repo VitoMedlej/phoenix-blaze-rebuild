@@ -103,8 +103,8 @@ const fetchDataAndSetImgsAndSections = async () => {
 
   if (SectionsRes?.success && res?.success && res?.data?.Images && SectionsRes?.data?.Images)
    
-    return {imgs : res?.Images,
-    Brands: res?.Brands
+    return {imgs : res?.data?.Images,
+    Brands: res?.data?.Brands
       , SectionsRes: SectionsRes?.data?.Images[0]?.imagesArray?.sections}
   return null;
 }
