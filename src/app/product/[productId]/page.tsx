@@ -87,7 +87,7 @@ const Index = () => {
         // border:'1px solid #00000029',
         px:{xs:1,sm:1.5}}} item xs={12}  md={5}>
          <Box sx={{pt:{xs:3,sm:0}}}>
-             <Typography component={'h1'} sx={{fontWeight:500,pt:1,fontSize:{xs:'2em',sm:'2.25sem',md:'2.8em'}}}>
+             <Typography component={'h1'} sx={{fontWeight:500,pt:1,fontSize:{xs:'1.5em',sm:'1.5em',md:'2em'}}}>
               {data?.product?.title || 'Loading Product Details'}
              </Typography>
            { Number(data?.product?.stock) !== 0 && data?.product?.inStock !== false 

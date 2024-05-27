@@ -13,13 +13,12 @@ import HomeProductsCarousel from './HomeProductsCarousel/HomeProductsCarousel'
 import HomeCategoryList from './HomeCateogryList/HomeCategoryList'
 import FullscreenPoster from './FullscreenPoster/FullscreenPoster'
 import { useCategoriesContext } from '@/context/Contexts'
+import useProducts from '@/Hooks/useProducts'
 
 const 
-PreLoader = ({data,featuredProducts,resImages,vids,SectionsRes}:any) => {
-  console.log('data: ', data);
-  console.log('SectionsRes: ', SectionsRes);
+PreLoader = ({data,featuredProducts,brands,resImages,vids,SectionsRes}:any) => {
   const {categories} = useCategoriesContext();
-  
+  const { array1, array2, array3 } = useProducts(data)
   // let videosArray = vids && vids[0]?.videos?.videos || null
   // const router= useRouter();
   // const {text} = useLanguage()
@@ -59,20 +58,20 @@ PreLoader = ({data,featuredProducts,resImages,vids,SectionsRes}:any) => {
   // ];
   
   const filterProductsByCategory = (data: any, categoryName: string) => {
-    // If the category name is 'collection', return all data
-    if (categoryName === 'collection') {
-      return data;
-    }
+    // // If the category name is 'collection', return all data
+    // if (categoryName === 'collection') {
+    //   return data;
+    // }
   
-    // Filter products based on the category name
-    const filteredProducts = data.filter((product: any) => product?.category === categoryName);
+    // // Filter products based on the category name
+    // const filteredProducts = data.filter((product: any) => product?.category === categoryName);
   
-    // If there are no products with the specified category, return an empty array
-    if (!filteredProducts || filteredProducts.length === 0) {
-      return [];
-    }
+    // // If there are no products with the specified category, return an empty array
+    // if (!filteredProducts || filteredProducts.length === 0) {
+    //   return [];
+    // }
   
-    return filteredProducts;
+    return data;
   };
 
   return (
@@ -87,20 +86,19 @@ PreLoader = ({data,featuredProducts,resImages,vids,SectionsRes}:any) => {
 }
 
 <HomeProductsCarousel  
-          data={featuredProducts}
+          data={array2}
           category={'collection'}
-          Collectiontitle={'Featured Products'}
-          delay={2000}
+          Collectiontitle={'Browse Collections'}
+          delay={2500}
         />
 
 
-{
+{/* {
   SectionsRes && SectionsRes.map((section: any) => {
     const productsForCategory = filterProductsByCategory(data, `${section?.category || 'collection'}` );
 
     return (
       <Box key={`${section?.title}`}>
-        {/* Render images */}
         {section?.images && <Grid  container className='flex' sx={{ gap: 1, px: 1 }}>
         { section?.images?.length > 0 && section?.images.map((img: string, idx: number) => (
             <Grid key={idx} item xs={12} sm={section.images.length > 1 ? 5.9 : 12}>
@@ -111,7 +109,6 @@ PreLoader = ({data,featuredProducts,resImages,vids,SectionsRes}:any) => {
         ))}
         </Grid>
 }
-        {/* Render HomeProductsCarousel */}
         <HomeProductsCarousel  
           data={productsForCategory}
           category={section?.category}
@@ -121,14 +118,24 @@ PreLoader = ({data,featuredProducts,resImages,vids,SectionsRes}:any) => {
       </Box>
     );
   })
-}
+} */}
        
   
-
+       <HomeProductsCarousel  
+          data={array1}
+          category={'collection'}
+          Collectiontitle={'Our Latest Collections'}
+          delay={2500}
+        />
 
       {/* <Perks/> */}
 
-      
+      <HomeProductsCarousel  
+          data={array3}
+          category={'collection'}
+          Collectiontitle={'Shop Products'}
+          delay={3000}
+        />
    
         {/* <HomeProductsCarousel  sx={{mt:2}} data={data.slice(7,12)} Collectiontitle={'Home & Tools Collection'} delay={2000}/> */}
 

@@ -21,9 +21,9 @@ const Footer = () => (
             <img className='img ' src='https://ucarecdn.com/77556735-08f8-4344-95b9-bd17bca69a11/WhatsAppImage20240429at094244_75617fcf.jpg' alt="Pets Town Lebanon Logo" />
             </Link>
           </div>
-          <Typography component='h1' sx={{ fontSize: '.85em',color:"2b2b2b" }}  className='footer-p '>
+          {/* <Typography component='h1' sx={{ fontSize: '.85em',color:"2b2b2b" }}  className='footer-p '>
           Welcome to Ghanem Trading Diamond Painting, where creativity knows no bounds. Explore our curated collection of diamond painting kits designed to inspire and captivate. Whether you&apos;re a seasoned artist or just starting your creative journey, our kits provide a perfect blend of relaxation and artistic satisfaction. Order now and embark on a dazzling adventure of self-expression!
-          </Typography>
+          </Typography> */}
 
           {/* <ul className="site-footer__social-networks">
           <li><a href="https://www.facebook.com/profile.php?id=100063581229923" rel="noreferrer" target='_blank'><i className="icon-facebook"></i></a></li>

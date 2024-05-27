@@ -16,6 +16,15 @@ try {
     .limit(20)
     .toArray()
 
+    const BrandsCollection = await client
+    .db("GNM")
+    .collection("Brands");
+
+const Brands = await BrandsCollection
+.find({})
+.limit(500)
+.toArray()
+
     if (!Images) {
         return NextResponse.json({success: false});
     }
@@ -23,7 +32,8 @@ try {
     return NextResponse.json({
         success: true,
         data: {
-            Images
+            Images,
+            Brands
         }
     });
 }

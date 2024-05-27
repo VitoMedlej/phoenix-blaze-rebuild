@@ -19,6 +19,16 @@ const Preloader2 = ({data,totalPages}:any) => {
     
     const [newValue,setnewValue] = useState<any>('')
     const [products,setProducts] = useState<any>()
+    const [options,setOptions] = useState({
+        price : [1,100000],
+        sort : 'latest',
+        type : 'All',
+        category : 'All',
+        // query : '',
+        
+    })
+
+
     useEffect(() => {
       
         // if (!products) {
@@ -30,6 +40,7 @@ const Preloader2 = ({data,totalPages}:any) => {
     const {category} = useParams() 
     const searchParams = useSearchParams();
     const type =  searchParams.get('type')
+    const sort =  searchParams.get('sort')
     const subCategory   =  searchParams.get('subCategory')
 
 
@@ -40,7 +51,7 @@ const Preloader2 = ({data,totalPages}:any) => {
 
 
     const fetchData = async (val:number) => {
-    const url =  `/api/get-cate?category=${category ? category : 'all'}&search=${newValue ? encodeURIComponent(newValue) : null}&page=${Number(val - 1) || 0}&type=${type ? type : null}`  ;
+    const url =  `/api/get-cate?category=${category ? category : 'all'}&search=${newValue ? encodeURIComponent(newValue) : null}&page=${Number(val - 1) || 0}&type=${type ? type : null}&sort=${options.sort ? options.sort : null}`  ;
     const req = await fetch(`${server}${url}`,{cache:'no-store', next: { revalidate: 0 }})
     const res = await req.json()
         
@@ -51,14 +62,7 @@ const Preloader2 = ({data,totalPages}:any) => {
             }
 
       };
-      const [options,setOptions] = useState({
-          price : [1,100000],
-          sort : 'latest',
-          type : 'All',
-          category : 'All',
-          // query : '',
-          
-      })
+     
       const handleSubmit = async (reset?:boolean,e?:any) => {
         if (e) {
             e.preventDefault()
@@ -76,6 +80,7 @@ const Preloader2 = ({data,totalPages}:any) => {
             
         })
         const url =   `/api/sort?min=${options.price[0]}&max=${options.price[1]}&type=${'all'}&category=${'collection'}`  ;
+        console.log('url: ', url);
         const req = await fetch(`${server}${url}`,{cache:'no-store', next: { revalidate: 0 }})
         const res = await req.json()
         // if () {
@@ -83,11 +88,14 @@ const Preloader2 = ({data,totalPages}:any) => {
             setProducts(res?.data?.products ? res?.data?.products : [])
             return
     }
-        const url =   `/api/sort?search=${encodeURIComponent(`${newValue}`)}&min=${options.price[0]}&max=${options.price[1]}&type=${options.type}&category=${options?.category}`  ;
+        const url =   `/api/sort?search=${encodeURIComponent(`${newValue}`)}&min=${options.price[0]}&max=${options.price[1]}&type=${options.type}&category=${options?.category}&sort=${options?.sort}`  ;
         console.log('url: ', url);
-      
+        // router.push('')
+       
+
         const req = await fetch(`${server}${url}`,{cache:'no-store', next: { revalidate: 0 }})
         const res = await req.json()
+        console.log('res: ', res);
         // if () {
 
             setProducts(res?.data?.products ? res?.data?.products : [])
@@ -105,7 +113,7 @@ const Preloader2 = ({data,totalPages}:any) => {
     //     products : [],
        
     //   })
-    
+    console.log('options: ', options);
   return (
     <Container sx={{mt:2}} disableGutters maxWidth='lg'>
     <Box

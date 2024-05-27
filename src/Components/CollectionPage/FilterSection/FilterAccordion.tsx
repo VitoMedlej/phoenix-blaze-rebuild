@@ -33,9 +33,9 @@ export default function SimpleAccordion({handleSubmit,options,setOptions}:any) {
     //     // let price = ;
     //     setOptions({...options,price:value})
     // }
-    // const handleSort = (val:string) => {
-    //     setOptions({...options,sort:val})
-    // }
+    const handleSort = (val:string) => {
+        setOptions({...options,sort:val})
+    }
     const filters = [
         // {
         //     title: 'Price',
@@ -46,49 +46,49 @@ export default function SimpleAccordion({handleSubmit,options,setOptions}:any) {
         //             my: '1em'
         //         }}/>
         // },
-        {
-            comp: <SelectOneForm
-            sx={{maxWidth:'250px'}}
-            title= 'Category'
-           List={
+    //     {
+    //         comp: <SelectOneForm
+    //         sx={{maxWidth:'250px'}}
+    //         title= 'Category'
+    //        List={
            
-               categoryArray
+    //            categoryArray
             
-          }
-           value={options.category}
-           setValue={
-               handleChange
-               }
-           />
-       },
+    //       }
+    //        value={options.category}
+    //        setValue={
+    //            handleChange
+    //            }
+    //        />
+    //    },
+    //     {
+    //         comp: <SelectOneForm
+    //         sx={{maxWidth:'250px'}}
+    //         title= 'Type'
+    //        List={
+    //         getCategorySubcategories(`${options?.category?.toLocaleLowerCase()}`)
+    //       }
+    //        value={options?.type}
+    //        setValue={
+    //         handleTypeChange
+    //            }
+    //        />
+    //    },
+
         {
             comp: <SelectOneForm
-            sx={{maxWidth:'250px'}}
-            title= 'Type'
-           List={
-            getCategorySubcategories(`${options?.category?.toLocaleLowerCase()}`)
-          }
-           value={options?.type}
-           setValue={
-            handleTypeChange
-               }
+            title= 'Sort By'
+            List={[
+                'latest',
+                'highestPrice',
+                'lowestPrice'
+            ]
+
+             }
+            value={options.sort}
+            setValue={handleSort}
            />
-       },
-
-        // {
-        //     comp: <SelectOneForm
-        //     title= 'Sort By'
-        //     List={[
-        //         'latest',
-        //         'highestPrice',
-        //         'lowestPrice'
-        //     ]
-
-        //      }
-        //     value={options.sort}
-        //     setValue={handleSort}
-        //    />
-        // },
+        },
         // {
         //     title: 'Sort By',
 

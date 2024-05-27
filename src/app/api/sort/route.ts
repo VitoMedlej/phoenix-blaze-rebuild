@@ -58,7 +58,9 @@ export async function GET(req :NextRequest , res : NextApiResponse) {
             break;
           default:
             sortCriteria = {_id : -1};
-        }
+          }
+          console.log('sortCriteria: ', sortCriteria);
+
         let filterByCate = !category || category?.toLocaleLowerCase() === 'collection' 
         || category?.toLocaleLowerCase() == 'all' 
         || category== 'All' 

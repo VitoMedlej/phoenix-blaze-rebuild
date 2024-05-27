@@ -86,7 +86,7 @@ const ProductCard = ({
                     sx={{
                         color:'black',
                         textAlign:'left'
-                    ,fontSize: {xs:'.8em',sm:'1.15em',md:'1.32em'},
+                    ,fontSize: {xs:'.8em',sm:'1.05em',md:'1.12em'},
                     fontWeight: '400'
                 }}>
                     {title}

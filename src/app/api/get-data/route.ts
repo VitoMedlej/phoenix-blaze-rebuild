@@ -18,15 +18,15 @@ try {
 
 
     // ProductsCollection
-    const featuredProductsQuery = await ProductsCollection
-        .find({isFeatured: true})
-        // .find({})
-        .limit(20)
-        .toArray();
+    // const featuredProductsQuery = await ProductsCollection
+    //     // .find({isFeatured: true})
+    //     // .find({})
+    //     .limit(50)
+    //     .toArray();
         const productsQuery = await ProductsCollection
         // .find({isFeatured: true})
         .find({})
-        .limit(20)
+        .limit(80)
         .toArray();
         
     // const ProductsQuery = await ProductsCollection
@@ -73,7 +73,7 @@ try {
         success: true,
         data: {
             products : productsQuery,
-            featuredProducts : featuredProductsQuery,
+            featuredProducts : null,
             vids: null
         }
     });

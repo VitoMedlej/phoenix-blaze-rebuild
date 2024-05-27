@@ -86,6 +86,8 @@ import PreLoader from "@/Components/PreLoader"
 //   fetchDataAndSetImgs()
 // }, [])
 const fetchDataAndSetImgsAndSections = async () => {
+  
+  
   const req = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-images`,
   {cache: 'no-store',next:{revalidate:0} }
 
@@ -97,11 +99,13 @@ const fetchDataAndSetImgsAndSections = async () => {
 
 )
   let SectionsRes = SectionsReq &&  await SectionsReq.json();
-  console.log('SectionsRes: ', SectionsRes);
 
 
   if (SectionsRes?.success && res?.success && res?.data?.Images && SectionsRes?.data?.Images)
-     return {imgs : res, SectionsRes: SectionsRes?.data?.Images[0]?.imagesArray?.sections}
+   
+    return {imgs : res?.Images,
+    Brands: res?.Brands
+      , SectionsRes: SectionsRes?.data?.Images[0]?.imagesArray?.sections}
   return null;
 }
 
@@ -121,17 +125,17 @@ try {
   // let resImages : any = await  reqImages.json();
   const result = await fetchDataAndSetImgsAndSections()
   const imgs = result?.imgs;
+  const brands = result?.Brands;
   const SectionsRes = result?.SectionsRes;
   // const vids = await fetchDataAndSetVideos()
-  // console.log('vids: ', vids);
     // let vids = res?.data?.vids;
-    // console.log('vids: ', vids);
       // let resImages : any ={}
       // let res = {data:{featuredProducts:null}}
       
       return (
         <PreLoader vids={ null} resImages={ imgs} 
         SectionsRes={SectionsRes}
+        brands={brands}
         // data={null}
         featuredProducts={res?.data?.featuredProducts}
         data={res?.data?.products}
