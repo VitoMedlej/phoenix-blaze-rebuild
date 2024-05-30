@@ -73,8 +73,8 @@ const ProductCard = ({
 
             <Box
                 sx={{
-                    mt: 1.5,
-                    flexGrow: 1
+                    mt: .5,
+                    // flexGrow: 1
                 }}>
                 <Typography
                     className='cursor'
@@ -83,7 +83,7 @@ const ProductCard = ({
                     sx={{
                         color: 'black',
                         textAlign: 'left',
-                        fontSize: { xs: '.75em', sm: '1.0em', md: '1em' },
+                        fontSize: { xs: '.75em', sm: '.85em', md: '.95em' },
                         fontWeight: '600',
                         overflow: 'hidden',
                         textOverflow: 'ellipsis',
