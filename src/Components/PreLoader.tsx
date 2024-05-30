@@ -85,11 +85,12 @@ PreLoader = ({data,featuredProducts,brands,resImages,vids,SectionsRes}:any) => {
 
 }
 
-<HomeProductsCarousel  
-          data={array2}
-          category={'collection'}
-          Collectiontitle={'Browse Collections'}
-          delay={2500}
+<HomeProductCollection  
+          products={array2}
+          pt={1}
+          // category={'collection'}
+          sectionTitle={'Browse Collections'}
+          // delay={2500}
         />
 
 
@@ -130,11 +131,11 @@ PreLoader = ({data,featuredProducts,brands,resImages,vids,SectionsRes}:any) => {
 
       {/* <Perks/> */}
 
-      <HomeProductsCarousel  
-          data={array3}
-          category={'collection'}
-          Collectiontitle={'Shop Products'}
-          delay={3000}
+      <HomeProductCollection  
+          products={array3}
+          // category={'collection'}
+          sectionTitle={'Shop Products'}
+          // delay={3000}
         />
    
         {/* <HomeProductsCarousel  sx={{mt:2}} data={data.slice(7,12)} Collectiontitle={'Home & Tools Collection'} delay={2000}/> */}
@@ -166,24 +167,27 @@ PreLoader = ({data,featuredProducts,brands,resImages,vids,SectionsRes}:any) => {
    
 
         <Box sx={{mt:1}} className='flex row  wrap justify-between center text-center'>
-          {[
-            `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/dorsch.png`,
-           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/electrolux.png`,
-           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/kenwood.png`,
-           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/korkmaz.png`,
-           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/optimal.png`,
-           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/chicco.png`,
-           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/braun.png`,
-           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/beper.png`,
-           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/barista.png`,
-           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/tefal.png`,
-           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/total.png`,
-           `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/mulinex.png`,
-          ].map(i=>{
-            return  <Box key={i} sx={{width:{xs:'30%',sm:'22%',md:'22%'},maxWidth:'220px'}}>
+          { 
+
+// [
+//   `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/dorsch.png`,
+//  `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/electrolux.png`,
+//  `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/kenwood.png`,
+//  `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/korkmaz.png`,
+//  `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/optimal.png`,
+//  `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/chicco.png`,
+//  `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/braun.png`,
+//  `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/beper.png`,
+//  `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/barista.png`,
+//  `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/tefal.png`,
+//  `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/total.png`,
+//  `https://www.ishtari.com/image/data/system_banner/10000/3600/3402/mulinex.png`,
+// ]
+brands && brands[0] && brands[0]?.BrandsArray.map((i: {img:string})=>{
+            return  <Box key={i?.img} sx={{width:{xs:'30%',sm:'22%',md:'22%'},maxWidth:'220px'}}>
             <Box>
               <img 
-               src={i} alt="" className="img" />
+               src={i?.img} alt="" className="img" />
               </Box>
               
 

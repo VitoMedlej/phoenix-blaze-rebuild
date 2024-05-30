@@ -6,12 +6,12 @@ import { IProduct } from '@/Types/Types'
 import Btn from '../Btn/Btn'
 import { useRouter } from 'next/navigation'
 
-const HomeProductCollection = ({sectionTitle,products} : {sectionTitle:string,products:IProduct[] | never[]}) => {
+const HomeProductCollection = ({sectionTitle,products, pt} : {pt?:number,sectionTitle:string,products:IProduct[] | never[]}) => {
  const router = useRouter()
   return (
     <Box sx={{my:4}} className='center auto'>
            
-           <Box className="flex justify-between row auto" sx={{px:1,pt:8,pb:4,maxWidth:'lg'}}>
+           <Box className="flex justify-between row auto" sx={{px:1,pt:pt || 8,pb:4,maxWidth:'lg'}}>
 
 <Typography
 component={'h1'}
