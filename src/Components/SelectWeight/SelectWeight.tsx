@@ -7,26 +7,39 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 
 export default function ProductCard({ setselectedSize,selectedSize, sizes } : any) {
+  console.log('sizes: ', sizes);
+  console.log('selectedSize: ', selectedSize);
 
   const handleChange = (event:any) => {
 if (!sizes) {
   // setselectedSize({price:price});
-  console.log('weights: ', sizes);
 
   return
 }
     
     const weight = event.target.value;
-    const option = sizes.find((option:any) => option.size == weight);
-    setselectedSize(option);
+    const option = sizes.find((option:any) => `${option?.size}` == weight);
+    console.log('option: ', option);
+    setselectedSize({size:option.size,price: option.price});
   };
 
-  return (
-    <Box className='flex items-center' sx={{ minWidth: {xs:120,lg:200} }}>
+  // React.useEffect(() => {
+
+  
+  //     if (sizes && !selectedSize.size) {
+  //       console.log('selectedSize: useeffect 2 ', selectedSize);
+
+  //       setselectedSize({price:sizes[0]?.price, size:sizes[0]?.size});
+  //     }
+    
+  // }, [selectedSize])
+  
+  return (  
+    <Box className='flex items-center' sx={{ minWidth: {xs:'100%',lg:'100%'} }}>
       <FormControl fullWidth>
         <InputLabel id="weight-label">Sizes</InputLabel>
         <Select
-        size='small'
+        size='medium'
           labelId="weight-label"
           id="weight-select"
           value={selectedSize?.size}
@@ -35,7 +48,7 @@ if (!sizes) {
         >
           {sizes && sizes?.map((option : any) => (
             <MenuItem key={option.size} value={option.size}>
-              {option.size}g
+              {option.size}
             </MenuItem>
           ))}
         </Select>

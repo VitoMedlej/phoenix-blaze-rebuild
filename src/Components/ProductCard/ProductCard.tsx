@@ -74,7 +74,6 @@ const ProductCard = ({
             <Box
                 sx={{
                     mt: .5,
-                    // flexGrow: 1
                 }}>
                 <Typography
                     className='cursor'
@@ -101,7 +100,7 @@ const ProductCard = ({
                             sx={{
                                 mb: 0.5,
                                 fontWeight: '500',
-                                color: 'green',
+                                color:  'green',
                                 fontSize: { xs: '.9em', sm: '1em' },
                             }}>
                             {category?.toLocaleLowerCase() !== 'almost done' && newPrice ? (
@@ -109,14 +108,37 @@ const ProductCard = ({
                                     <s>{price}$</s> {newPrice}$
                                 </>
                             ) : (
-                                category?.toLocaleLowerCase() !== 'almost done' && price ? `${price}$` : category
+                                category?.toLocaleLowerCase() !== 'almost done' 
+                                && price ? `${price}$` : `${sizes && sizes[0].price}$`
                             )}
                         </Typography>
+                        {/* {sizes && sizes.length > 0 && (
+                            <Box sx={{ mt: 1 }}>
+                                <Typography component="div" sx={{ mb: 0.5, fontWeight: '500', fontSize: { xs: '.9em', sm: '1em' } }}>
+                                    Available Sizes:
+                                </Typography>
+                                <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '10px' }}>
+                                    {sizes.map((sizeOption) => (
+                                        <Box
+                                            key={sizeOption.size}
+                                            sx={{
+                                                border: '1px solid black',
+                                                borderRadius: '5px',
+                                                padding: '5px 10px',
+                                                cursor: 'default'
+                                            }}
+                                        >
+                                            {sizeOption.size} - ${sizeOption.price}
+                                        </Box>
+                                    ))}
+                                </Box>
+                            </Box>
+                        )} */}
                         {category?.toLocaleLowerCase() !== 'almost done' &&
                             <Btn
                                 className='cursor bg black gap1'
                                 onClick={() =>
-                                    sizes && sizes?.length > 0 ?
+                                    sizes && sizes.length > 0 ?
                                         router.push(`/product/${_id}`)
                                         : Number(stock) !== 0 &&
                                         addToCart(1, _id, { title, category, img: images[0], _id, price: newPrice ? Number(newPrice) : price }, true)}
@@ -130,7 +152,8 @@ const ProductCard = ({
                                     transform: 'translateX(-50%)',
                                     width: '90%'
                                 }}>
-                                <Box className="flex">
+                                <Box className="flex white gap1 gap">
+                                    {sizes && sizes.length > 0 ? 'Select Size' : 'ADD TO CART'}
                                     <BsCartPlus color='white' fontSize='20px' />
                                 </Box>
                             </Btn>}

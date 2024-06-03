@@ -59,7 +59,7 @@ export default function Review({setActiveStep}:{setActiveStep:any}) {
         
           if (!product?._id) return;
          return <ListItem key={product.title} sx={{ py: 1, px: 0 }}>
-             <ListItemText primary={`${product?.qty || '1'} x ${product?.title || 'Product Name'} - ${product?.productselectedSize ? product?.productselectedSize : ''}g`}  />
+             <ListItemText primary={`${product?.qty || '1'} x ${product?.title || 'Product Name'}  ${product?.productselectedColor ? ` - ${product?.productselectedColor}` : ''} - ${product?.productselectedSize ? product?.productselectedSize : ''}`}  />
             <Typography variant="body2">${product?.newPrice ? Number(product?.newPrice * Number(product?.qty || 1) ) : product?.price * Number(product?.qty || 1) }</Typography>
           </ListItem>
         })}

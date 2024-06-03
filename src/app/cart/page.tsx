@@ -112,13 +112,15 @@ const Cart = () => {
                     cartItems.map(item=>{
                         if (!item?._id) return;
                         return <CartProduct 
-                        stock={Number(item?.stock)}
-                        productselectedSize={item?.productselectedSize}
-                        onChange={refetchState}
-                        key={item._id}
-                        img={item.img} qty={item.qty}
-                         remove={remove} title={item.title}
-                          _id={item._id} price={item.price}/>
+                            stock={Number(item?.stock)}
+                            productselectedSize={item?.productselectedSize}
+                            onChange={refetchState}
+                            key={item._id}
+                            img={item.img} qty={item.qty}
+                            remove={remove} title={item.title}
+                            _id={item._id} price={item.price}
+                            
+                            productselectedColor={item?.productselectedColor}/>
                     }) :
                     <EmptyCartAlert/>     
                 }

@@ -6,7 +6,7 @@ export interface IProduct {
     newPrice?:number;
     inStock ?: boolean;
     description: string;
-    sizes ?: {
+    sizes : {
         size: number;
         price: number;
       }[] | null;
@@ -24,6 +24,7 @@ export interface ICartItem {
     title: string;
     stock: number;
     _id: string;
+    productselectedColor: any;
     price: number;
     img : string;
     qty : number;
@@ -31,5 +32,5 @@ export interface ICartItem {
     category ?: string;
     remove: (id:string) => void;
     shortdesc ?: string;
-    productselectedSize ?: string;
+    productselectedSize ?: any;
 }

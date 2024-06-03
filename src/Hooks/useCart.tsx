@@ -1,11 +1,13 @@
-import { useContext } from "react";
+"use client"
+
+// import { useContext } from "react";
 import { loadState, saveState, pushState } from "../Utils/LocalstorageFn";
 import { ICartItem } from "../Types/Types";
 import { useCartContext } from "@/context/Contexts";
 
 const useCart = () => {
     const {cartOpen, setCartOpen} = useCartContext();
-    const incrementQty = (_id:string,newValue ?: number,productselectedSize?:string) => {
+    const incrementQty = (_id:string,newValue ?: number,productselectedSize?:string, productselectedColor?:any) => {
        
         const state = loadState('l12oxio951209XJkgop15v') || [];
         let foundIndex = state.findIndex((value:ICartItem) => value._id === _id);
@@ -21,6 +23,9 @@ const useCart = () => {
 
                 selectedItem.productselectedSize = productselectedSize;
             }
+            if (productselectedColor) {
+                selectedItem.productselectedColor = productselectedColor;
+            }
             state[foundIndex] = selectedItem
             
            saveState('l12oxio951209XJkgop15v', state)           
@@ -28,11 +33,11 @@ const useCart = () => {
        }
        return false;
     }
-    const addToCart = (selectedQuantity = 1,_id:string,product:{title:string,category?:string,img:string,_id:string,price:number,productselectedSize?:string},open=true,replaceOld = false) => {
+    const addToCart = (selectedQuantity = 1,_id:string,product:{title:string,category?:string,img:string,_id:string,price:number,productselectedSize?:string,productselectedColor?:any},open=true,replaceOld = false) => {
        
         
         //1- get the cart from localstorage
-         const increased =        incrementQty(_id,selectedQuantity,product?.productselectedSize)       
+         const increased =        incrementQty(_id,selectedQuantity,product?.productselectedSize,product?.productselectedColor)       
         if (increased ) {
             setCartOpen(open ? true : false)
             return
@@ -43,7 +48,7 @@ const useCart = () => {
         {qty:selectedQuantity || 1,img:product.img,
             category:product?.category || 'Collection',
             title:product.title
-        ,_id:product._id,price:product.price,productselectedSize: product?.productselectedSize || ''})
+        ,_id:product._id,price:product.price,productselectedSize: product?.productselectedSize || '',productselectedColor:product?.productselectedColor})
         if(open) {
              
             setCartOpen(true)

@@ -17,6 +17,8 @@ import { server } from '@/Utils/Server'
 import { QuantityPicker } from '@/Components/Shared/QuantityPicker/QuantityPicker'
 import ProductOptionSelect from '@/Components/ProductOptionSelect/ProductOptionSelect'
 import SelectWeight from '@/Components/SelectWeight/SelectWeight'
+// import SizeChart from '@/Components/SizeChart/SizeChart'
+// import TableVisual from '@/Components/SizeChart/TableVisual'
 
 const Index = () => {
     const {productId} = useParams()
@@ -24,9 +26,7 @@ const Index = () => {
  
     const {addToCart}= useCart()
     const [loading,setLoading] = useState(false)
-    const [selectedQuantity,setSelectedQuantity] = useState(1)
-    // const [productselectedSize,setproductselectedSize] = useState('')
-
+    
     const [data,setData] = useState<{
       product: IProduct | any ;
       moreProducts: IProduct[] | never[];
@@ -35,24 +35,39 @@ const Index = () => {
       product : null,
       moreProducts : []
     })
-    console.log('data: ', data);
+    let hasMultipleColors =  data?.product?.colors !== null && data?.product?.colors?.length > 0 ? data?.product?.colors[0] : []
+    const [selectedQuantity,setSelectedQuantity] = useState(1)
+    const [productselectedColor,setproductselectedColor] = useState(hasMultipleColors)
+
     
+ 
     
-    const [selectedSize, setselectedSize] = useState({size:'',price:''});
+
+    const [selectedSize, setselectedSize] = useState<any>(null);
+    console.log('selectedSize: ', selectedSize);
+    
+ 
     
        const InitialFetch = async () => {
         try {
           setLoading(true)
           const req = await fetch(`${server}/api/get-by-id?id=${productId}`,{ cache: 'no-store' })
           const res = await req.json()
-          console.log('res: ', res);
         
           if (res?.success && res?.product) {
           setData({product:res?.product,moreProducts : res?.moreProducts})
           
-          setLoading(false);
-        
-    
+          const multiWeight = data?.product?.sizes !== null && data?.product?.sizes?.length > 0 
+          ? data?.product?.sizes[0] : {price: data?.product?.price, size:data?.product?.size }
+          console.log('multiWeight: ', multiWeight);
+          setselectedSize(multiWeight)
+
+          
+          setLoading(false)
+
+
+
+
           }
           setLoading(false)
           return null
@@ -72,87 +87,120 @@ const Index = () => {
         return  ()=> setLoading(false)
 
       }, [])
-      console.log('parseFloat(data?.product?.size): ', parseFloat(data?.product?.size));
+
+      // const goToSlide  = (index: number) => {
+      //   if (swiper) {
+      //     swiper?.slideTo(index);
+      //   }
+      // };
   return (
      
     
       <Box sx={{mt:4}}>
  
-{!loading && data?.product !== undefined && data?.product?.title ?  <Grid sx={{maxWidth:'lg',mx:1,pt:{sm:15,md:15,lg:9}}} className='auto' container>
-       <Grid  item xs={12}  md={7} >
-         <ProductImageCarousel images={data?.product?.images}/>
-   
+{!loading && data?.product !== undefined && data?.product?.title ? 
+ <Grid sx={{maxWidth:'lg',mx:1,pt:{sm:15,md:15,lg:9}}} className='auto' container>
+<Grid  item xs={12}  md={6} >
+         <ProductImageCarousel  images={data?.product?.images}/>
+        {/* <Box className="flex wrap justify-between between space-around" sx={{mt:1}}>
+
+          {data?.product?.images && data?.product?.images?.length > 1 && data?.product?.images?.map((i:any,index:number)=>{
+            return <Box
+            onClick={()=>goToSlide(Number(index))}
+            className='cursor pointer' key={i} sx={{width:`${95 / data?.product?.images?.length}%` ,
+            minHeight:'20%',
+            minWidth:'20%',
+            maxWidth:'200px',
+            maxHeight:'200px',
+         height: `${95 / data?.product?.images?.length}%` }}>
+                <img src={i} alt="" className="img" />
+              </Box>
+          })}
+        
+                </Box> */}
+           {/* {data?.product?.chart ?     <Box sx={{mx:'auto',width:{xs:'0px',md:'100%'},display:{xs:'none',md:' flex'}}}>
+
+          <TableVisual categories={data?.product?.chart?.categories} chartName={data?.product?.chart?.chartName}/>
+                </Box>
+              :''  
+              } */}
+
        </Grid>
        <Grid sx={{
         // border:'1px solid #00000029',
         px:{xs:1,sm:1.5}}} item xs={12}  md={5}>
          <Box sx={{pt:{xs:3,sm:0}}}>
-             <Typography component={'h1'} sx={{fontWeight:500,pt:1,fontSize:{xs:'1.5em',sm:'1.5em',md:'2em'}}}>
+             <Typography component={'h1'} sx={{fontWeight:600,pt:1,fontSize:{xs:'1.8em',sm:'2em',md:'2em'}}}>
               {data?.product?.title || 'Loading Product Details'}
              </Typography>
-           { Number(data?.product?.stock) !== 0 && data?.product?.inStock !== false 
-           ? 
-      
-            
-            <Typography className='green' component={'h1'} sx={{fontSize:'1.05em',fontWeight:300}}>
-            In Stock 
-          </Typography>
+           {/* { data?.product?.inStock !== false ? <Typography className='green' component={'h1'} sx={{fontSize:'1.25em',fontWeight:300}}>
+               In Stock
+             </Typography>
             : 
-        (data?.product?.category !== 'customized' &&   <Typography className='red' component={'h1'} sx={{color:'red',fontSize:'1.25em',fontWeight:300}}>
+            <Typography className='red' component={'h1'} sx={{color:'red',fontSize:'1.25em',fontWeight:300}}>
                Out of stock
-             </Typography>)
-            }
-          { Number(data?.product?.stock) !== 0 && data?.product?.inStock !== false &&   <Typography 
-                 component={'h1'} sx={{my:.25,fontWeight:500,color:'green',fontSize:{xs:'1.25em',sm:'1.55em'}}}>
+             </Typography>
+            } */}
+          {data?.product?.inStock !== false &&   <Typography 
+                 component={'h1'} sx={{
+          color:'green',
+                  my:.25,fontWeight:500,fontSize:{xs:'1em',sm:'1.55em'}}}>
                  ${
                  selectedSize?.price ||
-                 data?.product?.price || 0}
+                 data?.product?.price || 
+                 0
+                 }
              </Typography>}
-             
-            
-         </Box>
-   
-      
-         
-            { Number(data?.product?.stock)!== 0 &&data?.product?.inStock !== false ? <Box className='flex wrap ' sx={{my:2,position:'relative'}}>
-              <Box sx={{width:{xs:'max-content'}}}>
 
-       
-              </Box>
-            
-     
-              {/* <SelectWeight
+                  <Divider></Divider>
+                <Box sx={{pt:2}} className="flex row ">
+
+             {/* {data?.product?.size || data?.product?.sizes ? 'Size:' : ''} */}
+             {/* {' '} */}
+               <SelectWeight
               selectedSize={selectedSize}
               setselectedSize={setselectedSize}
-              sizes={data?.product?.mutlisize && data?.product?.sizes && data?.product?.sizes?.length > 0 ?
-               data?.product?.sizes:  
-               [{price:Number(data?.product?.price)
-               ,
-               size:parseFloat(data?.product?.size)}]}/> */}
-     
-         
-            
-
-     <Box className='flex wrap ' sx={{mt:1,position:'relative'}}>
-              <Box className='flex row center items-center w100' sx={{width:{xs:'max-content',sm:'100%'}}}>
-              <Btn 
-                     onClick={()=>addToCart(selectedQuantity,`${data?.product?._id}`,{title : data.product.title ,category: data.product.category,img:data.product.images[0], _id : data.product._id,price:selectedSize?.price ? selectedSize?.price : data?.product?.price, productselectedSize:selectedSize?.size},true,true)}
+              sizes={data?.product?.sizes && data?.product?.sizes?.length > 0 ? data?.product?.sizes : 
+                 [{price:Number(data?.product?.price),size:data?.product?.size}]
+                  
+                }/> 
+              </Box>
+         </Box>
+   
+         { data?.product?.colors && data?.product?.colors?.length > 0 && <Box className='flex' sx={{py:2}}>
+                 {/* Color: */}
+               
+             <Box  className='flex wrap row' sx={{gap:'.1em'}}>
+                 {
+                 
+                data?.product?.colors.map((color : string)=>{
+                  
+                  return <Box className='cursor' key={color}
+                  onClick={()=>setproductselectedColor(color)}
+                  sx={{mx:1,width:'20px',height:'20px',borderRadius:'0%',background:color,border:` ${color === productselectedColor ? '1px solid black':' 0px solid transparent'}`}}></Box>
+                 }) }
+             </Box>
+              
              
-              sx={{gap:.5,
-                padding:'1.2em .2em',
-                borderRadius:0,
-             width:{xs:'100%',sm:'100%'}}}>
-                <Typography sx={{color:'white',fontSize:{xs:'.8em',sm:'.9em'}}} component='h1'>
-                ADD TO CART
-                </Typography>
-                
-             </Btn>
+         </Box>}     
+         
+            {data?.product?.inStock !== false ? <Box className='flex wrap ' sx={{mt:1,position:'relative'}}>
+              <Box className='flex row center items-center w100' sx={{width:{xs:'max-content',sm:'100%'}}}>
+             
              <QuantityPicker 
                     onChange={(e:number)=>{setSelectedQuantity(e)}}
                     
-                    min={1} max={data?.product?.stock ? Number(data?.product?.stock) : 10} value={selectedQuantity}/>
+                    min={1} max={10} value={selectedQuantity}/>
             
-          
+             <Btn 
+                     onClick={()=>addToCart(selectedQuantity,`${data?.product?._id}`,{title : data.product.title ,category: data.product.category,img:data.product.images[0], _id : data.product._id,price:selectedSize?.price ? selectedSize?.price : data?.product?.price, productselectedSize:selectedSize?.size,productselectedColor: productselectedColor || null},true,true)}
+             
+              sx={{gap:.5,
+                borderRadius:0,
+             width:{xs:'100%',sm:'100%'}}}>
+                 ADD TO CART
+                
+             </Btn>
              </Box>
             
 
@@ -167,20 +215,16 @@ const Index = () => {
                 border:'1px solid black',
                 background:'white',color:'black',
              width:{xs:'100%'}}}>
-                <Typography component='h1'>
-
                  BUY IT NOW 
-                </Typography>
              </Btn>
              </a>
           
 
              </Box>
-          
-
-             </Box>
             :
-            ''
+            <Typography component={'h1'} sx={{color:'red',fontWeight:400,pt:1,fontSize:{xs:'1.5em',sm:'2.25sem'}}}>
+            Out of Stock
+           </Typography>
             }
          <Divider></Divider>
 
@@ -198,23 +242,7 @@ const Index = () => {
             
          </Box>} */}
 
-         {/* { data?.product?.colors && data?.product?.colors?.length > 0 && <Box className='flex' sx={{py:2}}>
-                 <Typography >
-                 <strong>Colors:</strong>{' '}
-                 </Typography>
-             <Box  className='flex wrap row' sx={{gap:'.1em'}}>
-                 {
-                 
-                data?.product?.colors.map((color : string)=>{
-                  
-                  return <Box className='cursor' key={color}
-                  onClick={()=>setproductselectedSize(color)}
-                  sx={{mx:1,width:'25px',height:'25px',borderRadius:'50%',boxShadow:'1px 1px 3px gray',background:color,border:`2px solid ${color === productselectedSize ? 'blue':'transparent'}`}}></Box>
-                 }) }
-             </Box>
-              
-             
-         </Box>} */}
+       
            { data?.product?.Category && <Box >
              <Box >
                  <Typography >
@@ -224,8 +252,15 @@ const Index = () => {
             
          </Box>}
 
-            {/* PRODUCT DESCRIPTION: */}
-             {/* <Typography className='gray' sx={{pt:.5,whiteSpace:'pre-wrap',maxWidth:'100%'}}>
+             {/* {
+             data?.product?.chart ? 
+
+             <SizeChart categories={data?.product?.chart?.categories} 
+             chartName={data?.product?.chart?.chartName}/>
+            :
+            ''
+            } */}
+             {/* <Typography className='gray' sx={{whiteSpace:'pre-wrap',maxWidth:'100%'}}>
    {data?.product?.description}
              </Typography> */}
               <Typography 
@@ -235,10 +270,9 @@ const Index = () => {
     />
          </Box>
        </Grid>
+       <Divider sx={{my:2}}></Divider>
          {/* <ProductReview/>  */}
-       <HomeProductsCarousel
-       category='collection'
-       Collectiontitle={"Shop More Products"} delay={3000} data={data?.moreProducts} />
+       {/* <HomeProductsCarousel Collectiontitle={"Shop More Products"} delay={3000} data={data?.moreProducts} /> */}
    </Grid> : <Box className='flex auto center align-center' sx={{py:15}}>
 
      <CircularProgress />

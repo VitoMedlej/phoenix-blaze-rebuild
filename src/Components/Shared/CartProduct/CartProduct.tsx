@@ -13,9 +13,8 @@ import Btn from '@/Components/Btn/Btn';
 
 
 
-const CartProduct = ({onChange,_id,
-    stock,
-    price,category,title,remove,qty,img,productselectedSize}:ICartItem) => {
+const CartProduct = ({onChange,_id,price,category,title,remove,qty,img,productselectedSize,productselectedColor}:ICartItem) => {
+    console.log('productselectedColor: ', productselectedColor);
  
     const {incrementQty} = useCart()
 
@@ -62,7 +61,7 @@ const CartProduct = ({onChange,_id,
                         margin: 0,
                         width:'100%',
                         cursor:'pointer',
-                        fontWeight: '400',
+                        fontWeight: '600',
                         fontSize:{sm:'1.1em',md:'1.3em'}
                     }}>
                        {title}
@@ -70,9 +69,14 @@ const CartProduct = ({onChange,_id,
                     
                     className='flex  center items-center align-center row gap1'
                     
-                    sx={{fontSize:'11px',right:'5%',background:productselectedSize}}>
-                            {productselectedSize ? productselectedSize : ''}g
+                    sx={{fontWeight:300,fontSize:'11px',right:'5%'}}>
+                            {productselectedSize ? productselectedSize : ''}
+                            {' - '}
+                            {productselectedColor ? productselectedColor : ''}
                        </Box>}
+
+
+                       
                     </Typography>
                         </Link>
                     <Typography
@@ -143,10 +147,10 @@ const CartProduct = ({onChange,_id,
                         }}/>
                         
                     </IconButton> */}
-               <QuantityPicker 
+                    <QuantityPicker 
                     onChange={(e:number)=>{incrementQty(_id,e),onChange && onChange()}}
                     
-                    min={1} max={stock ? stock : 10} value={qty > stock ? stock : qty}/>
+                    min={1} max={10} value={qty > 10 ? 10 : qty}/>
                 </Box>
             </Box>
         </Box>

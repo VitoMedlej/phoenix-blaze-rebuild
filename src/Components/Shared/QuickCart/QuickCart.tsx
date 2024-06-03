@@ -79,7 +79,7 @@ export default function TemporaryDrawer() {
                            cartItems && cartItems.length > 0 ? cartItems.map((item:ICartItem, index) =>{
                         if (!item?._id) return;
                         return <CartProduct 
-                        
+                        productselectedColor={item?.productselectedColor}
                         stock={Number(item?.stock)}
                         productselectedSize={item?.productselectedSize} _id={item._id} qty={item.qty} price={item.price} img={item.img}
                         remove={remove}
