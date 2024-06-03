@@ -1,3 +1,5 @@
+"use client"
+
 import { Box, Typography } from '@mui/material'
 import React from 'react'
 import Btn from '../Btn/Btn'
@@ -153,7 +155,7 @@ const ProductCard = ({
                                     width: '90%'
                                 }}>
                                 <Box className="flex white gap1 gap">
-                                    {sizes && sizes.length > 0 ? 'Select Size' : 'ADD TO CART'}
+                                    {sizes && sizes.length > 0 ? 'Select Size' : 'ADD'}
                                     <BsCartPlus color='white' fontSize='20px' />
                                 </Box>
                             </Btn>}
