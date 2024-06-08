@@ -44,9 +44,7 @@ const Footer = () => (
         </div>
 
         <div className="site-footer__links ">
-        {/* <div>
-        <iframe style={{height:'100%',width:'100%',border:0}} frameBorder="0" src="https://www.google.com/maps/embed/v1/place?q=Beirut,+Lebanon&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
-        </div> */}
+   
           <ul className=' ul-white'>
             <li className='link-title'>Site links</li>
             <li><Link  href="/">Home</Link></li>
