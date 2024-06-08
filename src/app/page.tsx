@@ -1,61 +1,53 @@
-import PreLoader from "@/Components/PreLoader";
+"use client"; // Ensure this file is treated as a client component
 
-const fetchDataAndSetImgsAndSections = async () => {
-  const [imagesRes, sectionsRes] = await Promise.all([
-    fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-images`, { next: { revalidate: 60 } }),
-    fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-sections`, { next: { revalidate: 60 } }),
-  ]);
+import PreLoader from '@/Components/PreLoader';
+import useSWR from 'swr';
 
-  const [imagesData, sectionsData] = await Promise.all([
-    imagesRes.json(),
-    sectionsRes.json(),
-  ]);
+const fetcher = (url : any) => fetch(url).then((res) => res.json());
 
-  if (imagesData?.success && sectionsData?.success) {
-    return {
-      imgs: imagesData?.data?.Images,
-      Brands: imagesData?.data?.Brands,
-      SectionsRes: sectionsData?.data?.Images[0]?.imagesArray?.sections,
-    };
-  }
-  return null;
+const useImagesAndSections = () => {
+  const { data: imagesData, error: imagesError } = useSWR(`${process.env.NEXT_PUBLIC_URL}/api/get-images`, fetcher, { revalidateOnFocus: false, refreshInterval: 60000 });
+  const { data: sectionsData, error: sectionsError } = useSWR(`${process.env.NEXT_PUBLIC_URL}/api/get-sections`, fetcher, { revalidateOnFocus: false, refreshInterval: 60000 });
+
+  return {
+    imgs: imagesData?.data?.Images,
+    brands: imagesData?.data?.Brands,
+    SectionsRes: sectionsData?.data?.Images[0]?.imagesArray?.sections,
+    error: imagesError || sectionsError,
+  };
 };
-const fetcher = async () => {
-  try {
 
-  
-  const req = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-data`, { next: { revalidate: 60 } });
-  const res = await req.json();
-  if (res) return res
-}
-catch(e){
-  console.log('e: ', e);
+const useProductsData = () => {
+  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_URL}/api/get-data`, fetcher, { revalidateOnFocus: false, refreshInterval: 30000 });
 
-}
-} 
-export default async function Home() {
-  try {
-   
-    const res = await fetcher()
-    const result = await fetchDataAndSetImgsAndSections();
-    const imgs = result?.imgs;
-    const brands = result?.Brands;
-    const SectionsRes = result?.SectionsRes;
+  return {
+    products: data?.data?.products,
+    featuredProducts: data?.data?.featuredProducts,
+    error,
+  };
+};
 
-    return (
-      <PreLoader
-        vids={null}
-        resImages={imgs}
-        SectionsRes={SectionsRes}
-        brands={brands}
-        featuredProducts={res?.data?.featuredProducts}
-        data={res?.data?.products}
-      />
-    );
-  } catch (e) {
-    console.log('Error in Home:', e);
+export default function Home() {
+  const { imgs, brands, SectionsRes, error: imagesSectionsError } = useImagesAndSections();
+  const { products, featuredProducts, error: productsError } = useProductsData();
+
+  if (imagesSectionsError || productsError) {
+    console.error('Error fetching data:', imagesSectionsError || productsError);
     return <PreLoader resImages={null} data={null} />;
   }
-}
 
-export const revalidate = 60;
+  if (!imgs || !products) {
+    return <PreLoader resImages={null} data={null} />;
+  }
+
+  return (
+    <PreLoader
+      vids={null}
+      resImages={imgs}
+      SectionsRes={SectionsRes}
+      brands={brands}
+      featuredProducts={featuredProducts}
+      data={products}
+    />
+  );
+}
