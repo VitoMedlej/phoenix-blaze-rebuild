@@ -3,6 +3,7 @@ import type {NextApiResponse}
 from 'next';
 import {NextResponse} from 'next/server'
 import {type NextRequest} from 'next/server'
+import { NodeBuilderFlags } from 'typescript';
 
 export async function GET(req : NextRequest, res : NextApiResponse) {
 try {
@@ -84,6 +85,6 @@ catch (error) {
 
 }
 }
-export const revalidate = 30
+export const revalidate = 30;
 
 // export const dynamic = 'force-dynamic'

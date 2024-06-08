@@ -20,12 +20,23 @@ const fetchDataAndSetImgsAndSections = async () => {
   }
   return null;
 };
+const fetcher = async () => {
+  try {
 
+  
+  const req = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-data`, { next: { revalidate: 60 } });
+  const res = await req.json();
+  if (res) return res
+}
+catch(e){
+  console.log('e: ', e);
+
+}
+} 
 export default async function Home() {
   try {
-    const req = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-data`, { next: { revalidate: 30 } });
-    const res = await req.json();
-
+   
+    const res = await fetcher()
     const result = await fetchDataAndSetImgsAndSections();
     const imgs = result?.imgs;
     const brands = result?.Brands;
