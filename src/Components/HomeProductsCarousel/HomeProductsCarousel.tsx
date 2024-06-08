@@ -48,7 +48,7 @@ component={'h1'}
 </Typography>
 
 
-<Btn v2
+<Btn 
 sx={{px:{xs:1,sm:2},fontSize:{xs:'.7em',sm:'.8em'},width:'fit-content'}}
 onClick={()=>router.push(`/${category || 'collection'}/products`)}
 >
