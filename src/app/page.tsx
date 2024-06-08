@@ -57,3 +57,5 @@ export default async function Home() {
     return <PreLoader resImages={null} data={null} />;
   }
 }
+
+export const revalidate = 60;

@@ -17,6 +17,7 @@ import useProducts from '@/Hooks/useProducts'
 
 const 
 PreLoader = ({data,featuredProducts,brands,resImages,vids,SectionsRes}:any) => {
+  console.log('data: ', data);
   const {categories} = useCategoriesContext();
   const { array1, array2, array3 } = useProducts(data)
   // let videosArray = vids && vids[0]?.videos?.videos || null
@@ -123,7 +124,7 @@ PreLoader = ({data,featuredProducts,brands,resImages,vids,SectionsRes}:any) => {
        
   
        <HomeProductsCarousel  
-          data={array1}
+          data={data}
           category={'collection'}
           Collectiontitle={'Our Latest Collections'}
           delay={2500}
@@ -132,7 +133,7 @@ PreLoader = ({data,featuredProducts,brands,resImages,vids,SectionsRes}:any) => {
       {/* <Perks/> */}
 
       <HomeProductCollection  
-          products={array3}
+          products={data}
           // category={'collection'}
           sectionTitle={'Shop Products'}
           // delay={3000}
