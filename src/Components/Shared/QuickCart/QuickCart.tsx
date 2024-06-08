@@ -129,7 +129,7 @@ export default function TemporaryDrawer() {
                         </Btn>
                         <Btn
                         className='text-center auto'
-                        sx={{mx:1,color:'black',border:'none',':hover':{background:'white',color:'black'}}} 
+                        sx={{mx:1,color:'black',border:'1px solid',':hover':{background:'white',color:'black'}}} 
                         onClick={()=>{setCartOpen(false),router.push('/cart')}}
                         v2={true} >
                         View Cart Page

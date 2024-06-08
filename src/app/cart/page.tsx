@@ -47,7 +47,7 @@ const EmptyCartAlert = () => {
               
                 <Link className='flex auto decor-none gap'  href='/collection/products'>
                     <Btn v2 className='flex auto ' sx={{
-                        border:'none',
+                        border:'1px solid',
                         mt: 3,
                         color:'black'
                     }}>

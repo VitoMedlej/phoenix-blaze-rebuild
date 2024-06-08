@@ -15,7 +15,7 @@ export async function GET(req : NextRequest, res : NextApiResponse) {
     console.log('id: ', id);
 
     const ProductsCollection = await client
-    .db("GNM")
+    .db("ACSS")
     .collection("Products");
 
     // let moreProducts: any[]= []

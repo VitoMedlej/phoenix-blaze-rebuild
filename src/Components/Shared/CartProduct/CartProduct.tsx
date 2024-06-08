@@ -110,7 +110,7 @@ const CartProduct = ({onChange,_id,price,category,title,remove,qty,img,productse
                    
                     <Btn 
                     onClick={()=>remove(_id)}
-                    v2={true} sx={{border:'none',padding:0,mx:0,mt:1,':hover':{background:'white'},fontSize:'.6em'}}>
+                    v2={true} sx={{border:'1px solid',padding:0,mx:0,mt:1,':hover':{background:'white'},fontSize:'.6em'}}>
                         <AiOutlineDelete 
                         color='red'
                        size='1.25em'

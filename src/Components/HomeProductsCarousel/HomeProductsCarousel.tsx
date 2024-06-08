@@ -27,7 +27,7 @@ const ProductCollection = ({sx,delay,Collectiontitle,data,setQuickView,category}
             width :'99%',
             margin: '0 auto',
             // my: '3em',
-            mt:'1em',
+            // mt:'1em',
             mb:'3em',
             ...sx,
         }}>

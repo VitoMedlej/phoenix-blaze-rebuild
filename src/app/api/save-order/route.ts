@@ -20,7 +20,7 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
       
       if (!order) return NextResponse.json({ success: false });
       
-      const insertReq = await client.db("GNM").collection("Orders").insertOne(order);
+      const insertReq = await client.db("ACSS").collection("Orders").insertOne(order);
       
       if (insertReq.acknowledged) {
         for (const product of order.products) {
@@ -31,7 +31,7 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
           }
           
           // Retrieve the current soldQuantity and stock from the database
-          const existingProduct = await client.db("GNM")
+          const existingProduct = await client.db("ACSS")
             .collection("Products")
             .findOne({ _id: new ObjectId(_id) });
 
@@ -46,7 +46,7 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
           const newStock = currentStock - Number(qty);
           const newSoldQuantity = currentSoldQuantity + Number(qty);
           
-          const updateStockReq = await client.db("GNM").collection("Products").updateOne(
+          const updateStockReq = await client.db("ACSS").collection("Products").updateOne(
             { _id: new ObjectId(_id) },
             { 
               $set: { stock: newStock.toString(), soldQuantity: newSoldQuantity.toString() } 

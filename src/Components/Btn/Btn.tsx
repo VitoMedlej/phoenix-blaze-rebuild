@@ -5,15 +5,16 @@ import React from 'react'
 
 
 let style1 = {
-  color: 'black',
-  background: ' #1554ba ',
-  border:'1px solid',
-  borderRadius: '4px', 
+  color: 'white',
+  background: ' #0c0c0c ',
+  border:'1px solid #0c0c0c !Important' ,
+  borderRadius: '0', 
   transition: 'background 0.3s ease, transform 0.2s ease',
 
   ':hover': {
-      background: '#1554ba',
-      color:'black',
+      background: 'white',
+      color:'#0c0c0c',
+  border:'1px solid #0c0c0c !Important',
     
   },
   display: 'flex',
@@ -24,20 +25,20 @@ let style1 = {
   outline: 'none',
 }
 let style2 = {
-  color: '#1554ba',
+  color: '#0c0c0c',
   background: 'transparent',
-  border: '1px solid #1554ba',
-  borderRadius: '4px', 
-  // boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+  border: '1px solid #0c0c0c !Important',
+  borderRadius: '0', 
+  // boxShadow: '0 0 6px rgba(0, 0, 0, 0.1)',
   transition: 'background 0.3s ease, transform 0.2s ease',
 
   ':hover': {
-    color:'black',
-      background: '#1554ba',
+    color:'white',
+      background: '#0c0c0c !Important',
     
   },
   display: 'flex',
-  padding: '6px 34px',
+  padding: '6px 30',
   fontWeight: '600',
   fontSize: '12px',
   cursor: 'pointer',

@@ -8,9 +8,9 @@ import React from 'react'
 const sm = [
     {
         Icon:'https://www.svgrepo.com/show/520798/instagram.svg',
-        href:'https://www.instagram.com/ghanem.trading/'
+        href:'https://www.instagram.com/phoenix.blaze.lb/'
     },
-    {Icon:'https://www.svgrepo.com/show/506628/whatsapp.svg',href:'https://wa.me/+96103261854'},
+    {Icon:'https://www.svgrepo.com/show/506628/whatsapp.svg',href:'https://wa.me/+96103039762'},
     // {Icon:'https://www.svgrepo.com/show/494202/facebook.svg',href:'https://www.facebook.com/diy_crafts_diamond_paintinglb?mibextid=LQQJ4d'},
   
  ]

@@ -123,10 +123,10 @@ className='flex  center items-center'
                  
               
             })}
-               <Btn sx={{background:'none',px:0,color:'green',py:0,':hover':{background:'none'},border:'none'}} onClick={()=>handleSubmit()}>
+               <Btn sx={{background:'none',px:0,color:'green',py:0,':hover':{background:'none'},border:'1px solid'}} onClick={()=>handleSubmit()}>
                         Search
                     </Btn>
-                    <Btn sx={{background:'none',px:0,py:0,border:'none',color:'red',':hover':{background:'none'}}}  onClick={()=>handleSubmit(true)}>
+                    <Btn sx={{background:'none',px:0,py:0,border:'1px solid',color:'red',':hover':{background:'none'}}}  onClick={()=>handleSubmit(true)}>
                         Reset
                     </Btn>
         </Box>

@@ -1,26 +1,25 @@
 "use client";
 import {useContext, useEffect, useState} from 'react';
 import {Drawer,List,Divider,ListItem,ListItemButton,ListItemText,ListItemIcon,Box, Typography, Accordion, AccordionDetails, AccordionSummary} from '@mui/material';
-// import {IoShirtOutline,IoShirtSharp} from 'react-icons/io5';
+import {IoShirtOutline,IoShirtSharp} from 'react-icons/io5';
 import { IconButton } from '@mui/material';
-// import {AiOutlineHeart} from 'react-icons/ai'
+import {AiOutlineHeart} from 'react-icons/ai'
 
 import { useRouter } from 'next/navigation';
 import {AiOutlineArrowUp} from 'react-icons/ai';
 
-import { DrawerContext, useCategoriesContext } from '@/context/Contexts';
+import { DrawerContext } from '@/context/Contexts';
 import {GrFormClose} from 'react-icons/gr'
-// import SMicons from '../SMicons/SMicons';
-// import { categories } from '../Navbar/Navbar';
-// import Btn from '../Btn/Btn';
-// import Link from 'next/link';
+import SMicons from '../SMicons/SMicons';
+import { categories } from '../Navbar/Navbar';
+import Btn from '../Btn/Btn';
+import Link from 'next/link';
 
 
-export default function TemporaryDrawer() {
+export default function TemporaryDrawer({cates}:{cates:string[] | undefined}) {
   
   const {open, setOpen} = useContext(DrawerContext);
   const [localUser,setLocalUser] = useState<{name?:string,email?:string} | null>(null)
-  const {categories} = useCategoriesContext();
 
   const fetchUserAndList = async () => {
     const user = localStorage.getItem('24j1i2cj4io-dadxzazd213')
@@ -84,221 +83,16 @@ useEffect(()=>{
            disablePadding>
             <ListItemButton>
             
-                  <Typography component='h1' sx={{fontWeight:600}}>
-                  Collection
+                  <Typography sx={{fontWeight:400}}>
+              All Products
             </Typography>
             </ListItemButton>
   
 
           </ListItem>
 
-          {/* <Accordion sx={{border:'none',boxShadow:'none',}}>
-            
-            <AccordionSummary
-    expandIcon={<AiOutlineArrowUp />}
-    aria-controls="panel1a-content"
-    id="panel1a-header"
-  >
- <Typography component='h1' sx={{fontWeight:600}}>
- Gadgets
-      </Typography>
-  </AccordionSummary>
-  <AccordionDetails>
-  <List
 
-
-  
-     disablePadding>
-<ListItem sx={{padding:0,width:'100%'}}
-
-onClick={()=>
-{setOpen(false);
-router.push(`/Gadgets/products`)}}
-
->
-
-
-<ListItemButton >
-      <Typography sx={{fontWeight:300}}>
-  View All
-</Typography>
-</ListItemButton>
-</ListItem>
-
-{[
-`Cases`,
-`Chargers`,
-`Cables`,
-`Headphones`,
-`Power Banks`
-].map(i=>{   return  <ListItem sx={{padding:0,width:'100%'}}
-
-onClick={()=>
-{setOpen(false);
-router.push(`/Gadgets/products?type=${encodeURIComponent(i).toLocaleLowerCase()}`)}}
-
-key={i}>
-
-
-<ListItemButton >
-            <Typography sx={{fontWeight:300}}>
-        {i}
-      </Typography>
-      </ListItemButton>
-</ListItem>
-      
-      })}
-    </List>
-
-
-  </AccordionDetails>
-</Accordion> */}
-
-
-{categories && categories[0] && categories[0].cateArray && categories[0]?.cateArray?.map((category:any) => (
-  <Accordion key={`${category?.categoryName}`} sx={{border:'none',boxShadow:'none'}}>
-    <AccordionSummary
-      expandIcon={<AiOutlineArrowUp />}
-      aria-controls="panel1a-content"
-      id="panel1a-header"
-    >
-      <Typography component='h1' sx={{
-        textTransform:'capitalize',
-        fontWeight:600
-      }}>
-        {`${category?.categoryName}`}
-      </Typography>
-    </AccordionSummary>
-    <AccordionDetails>
-      <List disablePadding>
-        <ListItem sx={{padding:0,width:'100%'}}
-          onClick={()=>{
-            setOpen(false);
-            router.push(`/${encodeURIComponent(category?.categoryName)}/products`)
-          }}
-        >
-          <ListItemButton>
-            <Typography sx={{fontWeight:300}}>
-              View All
-            </Typography>
-          </ListItemButton>
-        </ListItem>
-        {category?.subcategories?.length > 0 && category?.subcategories.map((subcategory:any) => (
-          <ListItem
-          
-          sx={{padding:0,width:'100%'}}
-            onClick={()=>{
-              setOpen(false);
-              router.push(`/${encodeURIComponent(category?.categoryName)}/products?type=${encodeURIComponent(subcategory?.name).toLocaleLowerCase()}`)
-            }}
-            key={subcategory?.id}
-          >
-            <ListItemButton>
-              <Typography sx={{fontWeight:300}}>
-                {subcategory?.name}
-              </Typography>
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </AccordionDetails>
-  </Accordion>
-))}
-
-
-{/* <Accordion sx={{border:'none',boxShadow:'none',}}>
-            
-            <AccordionSummary
-    expandIcon={<AiOutlineArrowUp />}
-    aria-controls="panel1a-content"
-    id="panel1a-header"
-  >
- <Typography component='h1' sx={{
-  textTransform:'capitalize',
-  fontWeight:600}}>
- Networking
-      </Typography>
-  </AccordionSummary>
-  <AccordionDetails>
-  <List
-
-
-  
-     disablePadding>
-<ListItem sx={{padding:0,width:'100%'}}
-
-onClick={()=>
-{setOpen(false);
-router.push(`/Networking/products`)}}
-
->
-
-
-<ListItemButton >
-      <Typography sx={{fontWeight:300}}>
-  View All
-</Typography>
-</ListItemButton>
-</ListItem>
-
-{[  "SEALER BRIHTNER",
-`Routers`,
-`Switches`,
-`Modems`,
-`Network Security`,
-`Wireless Solutions`,
-].map(i=>{   return  <ListItem sx={{padding:0,width:'100%'}}
-
-onClick={()=>
-{setOpen(false);
-router.push(`/Networking/products?type=${encodeURIComponent(i).toLocaleLowerCase()}`)}}
-
-key={i}>
-
-
-<ListItemButton >
-            <Typography sx={{fontWeight:300}}>
-        {i}
-      </Typography>
-      </ListItemButton>
-</ListItem>
-      
-      })}
-    </List>
-
-
-  </AccordionDetails>
-</Accordion> */}
-
-{/* {
-       [   
-        // `Craft Supplies`,
-      //  `DIY Kits`,
-      //  'MATERIELS',
-       `Communication`,
-      
-       ].map(i=>{
-              return    <ListItem
-              key={i}
-              sx={{fontWeight:400}}
-    
-              onClick={()=>{router.push(`/${i.toLocaleLowerCase()}/products`); toggleDrawer(false)}}
-               disablePadding>
-                <ListItemButton>
-                
-                      <Typography component='h1' sx={{fontWeight:600}}>
-                     {i}
-                </Typography>
-                </ListItemButton>
-      
-    
-              </ListItem>
-             })
-          } */}
-
-
-
-                  {/* <Accordion sx={{border:'none',boxShadow:'none',}}>
+                  <Accordion sx={{border:'none',boxShadow:'none',}}>
             
                   <AccordionSummary
           expandIcon={<AiOutlineArrowUp />}
@@ -306,7 +100,7 @@ key={i}>
           id="panel1a-header"
         >
        <Typography sx={{fontWeight:400}}>
-       Organic herbs
+       women
             </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -319,24 +113,19 @@ key={i}>
 
 onClick={()=>
 {setOpen(false);
-router.push(`/organic herbs/products`)}}
+router.push(`/women/products`)}}
 
 >
 
 
-<ListItemButton >
+{/* <ListItemButton >
             <Typography sx={{fontWeight:300}}>
         -View All
       </Typography>
-      </ListItemButton>
+      </ListItemButton> */}
 </ListItem>
 
-{[`MACA`,
-     `Milk thistle`, `Sea moss`  ,`Yohimbe bark` ,'Water pill' , `Multi vitamins`,
-
-`Bacopa Monnieri`,
-`Passion Flower`,
-'Tongkat-ali','Ashwagandha'].map(i=>{   return  <ListItem sx={{padding:0,width:'100%'}}
+{['Dresses', 'Skirts'].map(i=>{   return  <ListItem sx={{padding:0,width:'100%'}}
 
   onClick={()=>
     {setOpen(false);
@@ -369,7 +158,7 @@ key={i}>
     id="panel1a-header"
   >
  <Typography sx={{fontWeight:400}}>
- natural supplements
+ Men
       </Typography>
   </AccordionSummary>
   <AccordionDetails>
@@ -383,22 +172,19 @@ key={i}>
 
 onClick={()=>
 {setOpen(false);
-router.push(`/natural supplements/products`)}}
+router.push(`/Men/products`)}}
 
 >
 
 
-<ListItemButton >
+{/* <ListItemButton >
             <Typography sx={{fontWeight:300}}>
         -View All
       </Typography>
-      </ListItemButton>
+      </ListItemButton> */}
 </ListItem>
 {[
-     `GABA`,
-     `Taurine`,
-     `L arginine`,
-     `L Lysine`,].map(i=>{   return  <ListItem sx={{padding:0,width:'100%'}}
+'Shirts', 'Pants'].map(i=>{   return  <ListItem sx={{padding:0,width:'100%'}}
 
 onClick={()=>
 {setOpen(false);
@@ -422,8 +208,7 @@ key={i}>
 </Accordion>
 
 
-
-
+   
 <Accordion sx={{border:'none',boxShadow:'none',}}>
             
             <AccordionSummary
@@ -432,7 +217,7 @@ key={i}>
     id="panel1a-header"
   >
  <Typography sx={{fontWeight:400}}>
- Mushrooms
+ New Arrivals
       </Typography>
   </AccordionSummary>
   <AccordionDetails>
@@ -445,22 +230,19 @@ key={i}>
 
 onClick={()=>
 {setOpen(false);
-router.push(`/mushrooms/products`)}}
+router.push(`/New Arrivals/products`)}}
 
 >
 
 
-<ListItemButton >
+{/* <ListItemButton >
             <Typography sx={{fontWeight:300}}>
         -View All
       </Typography>
-      </ListItemButton>
+      </ListItemButton> */}
 </ListItem>
 
-{[`Lions Mane`,
-
-
-'Cordyceps'].map(i=>{   return  <ListItem sx={{padding:0,width:'100%'}}
+{[`All Items`].map(i=>{   return  <ListItem sx={{padding:0,width:'100%'}}
 
 onClick={()=>
 {setOpen(false);
@@ -481,11 +263,10 @@ key={i}>
 
 
   </AccordionDetails>
-</Accordion> */}
+</Accordion>
     
       </List>
-        {/* <SMicons/> */}
-     
+    
     
       <Divider />
       
@@ -496,7 +277,7 @@ key={i}>
     <div>
 
           <Drawer
-            anchor={'left'}
+            anchor={'right'}
             open={open}
             onClose={toggleDrawer(false)}
           >

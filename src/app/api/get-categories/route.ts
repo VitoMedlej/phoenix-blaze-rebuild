@@ -13,7 +13,7 @@ export async function GET(req : NextRequest, res : NextApiResponse) {
   if (req.method === 'GET') {
 
 
-       const Categories = await client.db("GNM").collection("Categories")
+       const Categories = await client.db("ACSS").collection("Categories")
        const docs = await Categories.find({})
       const catesarray : any[] = [];
     await docs.forEach((prod:any) =>{

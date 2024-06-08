@@ -51,7 +51,7 @@ PreLoader = ({data,featuredProducts,brands,resImages,vids,SectionsRes}:any) => {
   //     id: 4,
   //     title: text('Great Value', 'قيمة عظيمة'),
   //     desc: text(
-  //       'Ghanem Trading honey provides great value for your health, offering the highest quality honey at an affordable price for you and your family.',
+  //       'PhoenixBlaze honey provides great value for your health, offering the highest quality honey at an affordable price for you and your family.',
   //       'عسل بي أورجانيك يقدم قيمة عظيمة لصحتك، حيث يوفر عسل عالي الجودة بسعر معقول لك ولعائلتك.'
   //     ),
   //   },
@@ -85,13 +85,13 @@ PreLoader = ({data,featuredProducts,brands,resImages,vids,SectionsRes}:any) => {
 
 }
 
-<HomeProductCollection  
+{/* <HomeProductCollection  
           products={array2}
           pt={1}
           // category={'collection'}
           sectionTitle={'Browse Collections'}
           // delay={2500}
-        />
+        /> */}
 
 
 {/* {

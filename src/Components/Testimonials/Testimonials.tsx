@@ -25,19 +25,19 @@ import useLanguage from '@/Hooks/useLanguage';
 const tests =[
   {
       reviewer: "John Doe",
-      description: "I absolutely love the Ghanem Trading Diamond Painting kits. The quality of the diamonds and the canvas is top-notch. Highly recommended!"
+      description: "I absolutely love the PhoenixBlaze Diamond Painting kits. The quality of the diamonds and the canvas is top-notch. Highly recommended!"
   },
   {
       reviewer: "Jane Smith",
-      description: "The Ghanem Trading Diamond Painting kit was a joy to work with. The instructions were clear and the end result was beautiful. I'm definitely buying more."
+      description: "The PhoenixBlaze Diamond Painting kit was a joy to work with. The instructions were clear and the end result was beautiful. I'm definitely buying more."
   },
   {
       reviewer: "Alex Johnson",
-      description: "Ghanem Trading Diamond Painting offers a great way to relax and create art at the same time. The variety of designs available is impressive."
+      description: "PhoenixBlaze Diamond Painting offers a great way to relax and create art at the same time. The variety of designs available is impressive."
   },
   {
       reviewer: "Emily Davis",
-      description: "I'm new to diamond painting and found the Ghanem Trading Diamond Painting kit to be a great starting point. The guide was easy to follow and the process was so much fun."
+      description: "I'm new to diamond painting and found the PhoenixBlaze Diamond Painting kit to be a great starting point. The guide was easy to follow and the process was so much fun."
   }
 ];
 

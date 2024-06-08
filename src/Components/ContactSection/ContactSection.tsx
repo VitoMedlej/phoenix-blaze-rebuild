@@ -57,8 +57,8 @@ const Perks = () => {
                         alignItems: 'center',
                         flexDirection: 'row'
                     }}>
-                    <Box className='flexed'>
-                        <AiOutlineInstagram   />
+                    <Box className='flexed white'>
+                        <AiOutlineInstagram color='white'  />
                     </Box>
                     <Box
                         sx={{
@@ -66,10 +66,11 @@ const Perks = () => {
                             alignItems: 'center',
                             justifyContent: 'center'
                         }}>
-                        {<a className='black' target={`_blank`} rel='noreferrer' style={{textDecoration:"none"}} href={`https://www.instagram.com/ghanem.trading/`}>
+                        {<a className='black' target={`_blank`} rel='noreferrer' style={{textDecoration:"none"}} href={`https://www.instagram.com/phoenix.blaze.lb/`}>
 
 
                             <Typography
+                            className='white'
                                 sx={{
                                     fontSize: '1.1em'
                                 }}>Instagram</Typography>
@@ -136,7 +137,7 @@ sx={{
                         flexDirection: 'row'
                     }}>
                     <Box className='flex items-center'>
-                        <AiOutlineWhatsApp  color= 'black' />
+                        <AiOutlineWhatsApp  color= 'white' />
                     </Box>
                     <Box
                         sx={{
@@ -149,6 +150,8 @@ sx={{
 
 
                             <Typography
+                            className='white'
+
                                 sx={{
                                     color:'black',
                                     fontSize: '1.1em'

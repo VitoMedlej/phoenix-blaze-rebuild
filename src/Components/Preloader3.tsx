@@ -17,9 +17,21 @@ const Preloader3 = ({res}:{res:any}) => {
  const [imgs,setImgs] = useState(
      
      [
-         {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3435/2.gif',position:'centerd'},
-  {img:'https://www.ishtari.com/image/data/system_banner/10000/3600/3437/water-sport-web-gif.gif',position:'topd'},
+        {
+            img: "https://ucarecdn.com/401b7064-5775-4200-91a3-59fd170294c5/RolexDesk1920x6553.webp",
+            text: "",
+            position: '',
 
+        },
+        {
+            img: `https://ucarecdn.com/e9c63dfe-42b7-4048-a536-15dbde376c43/ad.JPG`,
+            position: '',
+            text:'',
+        },
+        {
+            img: "https://ucarecdn.com/57ed3c26-f5de-47c3-a5f3-fb052a7d48c3/DecTudorDesk1920x655.webp",
+            text: ""
+        },
 ]
 )
 console.log('imgs: ', imgs);
