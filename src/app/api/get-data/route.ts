@@ -84,6 +84,6 @@ catch (error) {
 
 }
 }
-export const revalidate = 60
+export const revalidate = 30
 
 // export const dynamic = 'force-dynamic'
