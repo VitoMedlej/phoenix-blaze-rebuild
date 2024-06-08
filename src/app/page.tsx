@@ -89,13 +89,14 @@ const fetchDataAndSetImgsAndSections = async () => {
   
   
   const req = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-images`
-  ,{cache: 'no-store',next:{revalidate:0} }
+  // ,{cache: 'no-store',next:{revalidate:60} }
+  ,{next:{revalidate:60} }
 
 )
   let res = req &&  await req.json();
 
   const SectionsReq = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-sections`
-    // ,{cache: 'no-store',next:{revalidate:0} }
+    ,{next:{revalidate:60} }
 
 )
   let SectionsRes = SectionsReq &&  await SectionsReq.json();
@@ -115,7 +116,7 @@ try {
 
   // const req = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-data`,{ next: { revalidate: 10 } })
   const req = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-data`
-  ,{ cache: 'no-store',next:{revalidate:0} }
+  ,{next:{revalidate:60} }
 )
   // const req = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/get-data`)
   let res = req &&  await req.json();
