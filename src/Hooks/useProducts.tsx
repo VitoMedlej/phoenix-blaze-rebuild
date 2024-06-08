@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react';
 
 
 const useProducts = (products: IProduct[]) => {
+  if (!products) return null;
   const [array1, setArray1] = useState<IProduct[]>([]);
   const [array2, setArray2] = useState<IProduct[]>([]);
   const [array3, setArray3] = useState<IProduct[]>([]);
 
   useEffect(() => {
+    
     const shuffleArray = (array: IProduct[]) => {
       let currentIndex = array.length, temporaryValue, randomIndex;
 

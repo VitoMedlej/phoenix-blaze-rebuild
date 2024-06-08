@@ -16,10 +16,11 @@ import { useCategoriesContext } from '@/context/Contexts'
 import useProducts from '@/Hooks/useProducts'
 
 const 
-PreLoader = ({data,featuredProducts,brands,resImages,vids,SectionsRes}:any) => {
-  console.log('data: ', data);
+PreLoader = ({data,featuredProducts,products,brands,resImages,vids,SectionsRes}:any) => {
+  console.log('data: ', data, products);
   const {categories} = useCategoriesContext();
-  const { array1, array2, array3 } = useProducts(data)
+  
+  // const { array1, array2, array3 } = useProducts(data)
   // let videosArray = vids && vids[0]?.videos?.videos || null
   // const router= useRouter();
   // const {text} = useLanguage()
